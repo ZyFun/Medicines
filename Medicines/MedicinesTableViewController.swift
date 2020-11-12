@@ -8,9 +8,16 @@
 import UIKit
 
 class MedicinesTableViewController: UITableViewController {
+    
+    // Массив имеющихся лекарств
+    let medicines = ["Анальгин","Терафлю","Маалокс"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Конфигурируем стиль таблицы
+        self.tableView.tableFooterView = UIView() // Удаляем разделители ячеек
+        self.tableView.backgroundColor = colorBackground // Задаём цвет TableView из стилей
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -23,23 +30,30 @@ class MedicinesTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        // Выводим ячейки массива в зависимости от количества записей
+        return medicines.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Medicines", for: indexPath)
 
-        // Configure the cell...
+        // Конфигурируем ячейки
+        cell.backgroundColor = colorBackground // Устанавливаем цвет ячейки из стилей
+        // Устанавливаем цвет выбранной ячейки из стилей
+        let colorForSelected = UIView()
+        colorForSelected.backgroundColor = colorSelected
+        cell.selectedBackgroundView? = colorForSelected
+        
+        cell.textLabel?.text = medicines[indexPath.row]
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

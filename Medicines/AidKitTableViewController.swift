@@ -16,7 +16,7 @@ class AidKitTableViewController: UITableViewController {
         
         //Конфигурируем стиль таблицы
         self.tableView.tableFooterView = UIView() // Удаляем разделители ячеек
-        self.tableView.backgroundColor = colorBackground // Задаём цвет TableView
+        self.tableView.backgroundColor = colorBackground // Задаём цвет TableView из стилей
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -33,7 +33,6 @@ class AidKitTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         // Выводим ячейки массива в зависимости от количества записей
         return aidKit.count
     }
@@ -43,7 +42,11 @@ class AidKitTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AidKit", for: indexPath)
 
         // Конфигурируем ячейки
-        cell.backgroundColor = colorBackground
+        cell.backgroundColor = colorBackground // Устанавливаем цвет ячейки из стилей
+        // Устанавливаем цвет выбранной ячейки из стилей
+        let colorForSelected = UIView()
+        colorForSelected.backgroundColor = colorSelected
+        cell.selectedBackgroundView? = colorForSelected
         
         cell.textLabel?.text = aidKit[indexPath.row]
         
