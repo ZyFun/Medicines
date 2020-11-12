@@ -8,4 +8,4 @@
 import UIKit
 
 // Цвет для заливки приложения
-let colorBackground = #colorLiteral(red: 0.2941176471, green: 0.8182659943, blue: 0.8196078431, alpha: 1)
+let colorBackground = #colorLiteral(red: 0.2941176471, green: 0.8182659943, blue: 0.8196078431, alpha: 1) // color literal (Пока я новичек, чтобы не забыть как вызвать выбор цвета)

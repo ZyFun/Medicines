@@ -15,10 +15,8 @@ class AidKitTableViewController: UITableViewController {
         super.viewDidLoad()
         
         //Конфигурируем стиль таблицы
-        // Удаляем разделители ячеек
-        self.tableView.tableFooterView = UIView()
-        // Задаём цвет TableView
-        self.tableView.backgroundColor = colorBackground
+        self.tableView.tableFooterView = UIView() // Удаляем разделители ячеек
+        self.tableView.backgroundColor = colorBackground // Задаём цвет TableView
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
