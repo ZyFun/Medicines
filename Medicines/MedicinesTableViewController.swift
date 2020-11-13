@@ -40,16 +40,20 @@ class MedicinesTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Medicines", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Medicines", for: indexPath) as! MedicinesTableViewCell // Кастим до описания стиля ячеек
 
+        cell.nameLabel.text = medicines[indexPath.row]
+        
         // Конфигурируем ячейки
         cell.backgroundColor = colorBackground // Устанавливаем цвет ячейки из стилей
         // Устанавливаем цвет выбранной ячейки из стилей
         let colorForSelected = UIView()
         colorForSelected.backgroundColor = colorSelected
         cell.selectedBackgroundView? = colorForSelected
-        
-        cell.textLabel?.text = medicines[indexPath.row]
+        // Добавляем картинку
+        cell.imageMedicines.image = UIImage(named: medicines[indexPath.row]) // Обращаемся к изображению соотнося имя файла с именем массива
+        cell.imageMedicines.layer.cornerRadius = 20 //cell.frame.size.height / 2 // Скругляем края
+        cell.clipsToBounds = true // Обрезаем для скругления
 
         return cell
     }
