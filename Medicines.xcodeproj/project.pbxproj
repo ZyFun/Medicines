@@ -16,6 +16,7 @@
 		2C07CEC0255D7B7200735F5C /* MedicinesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C07CEBF255D7B7100735F5C /* MedicinesTableViewController.swift */; };
 		2C07CEC3255D82A400735F5C /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C07CEC2255D82A400735F5C /* Style.swift */; };
 		2CDAF628255EC5BC0034880F /* MedicinesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDAF627255EC5BC0034880F /* MedicinesTableViewCell.swift */; };
+		2CFCD5032562ECAB002E0942 /* ModelMedicines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFCD5022562ECAB002E0942 /* ModelMedicines.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		2C07CEBF255D7B7100735F5C /* MedicinesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicinesTableViewController.swift; sourceTree = "<group>"; };
 		2C07CEC2255D82A400735F5C /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		2CDAF627255EC5BC0034880F /* MedicinesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicinesTableViewCell.swift; sourceTree = "<group>"; };
+		2CFCD5022562ECAB002E0942 /* ModelMedicines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelMedicines.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				2C07CEA4255D795000735F5C /* AppDelegate.swift */,
+				2CFCD5022562ECAB002E0942 /* ModelMedicines.swift */,
 				2C07CEBB255D7B3700735F5C /* AidKitTableViewController.swift */,
 				2C07CEBF255D7B7100735F5C /* MedicinesTableViewController.swift */,
 				2CDAF627255EC5BC0034880F /* MedicinesTableViewCell.swift */,
@@ -146,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CFCD5032562ECAB002E0942 /* ModelMedicines.swift in Sources */,
 				2C07CEBC255D7B3700735F5C /* AidKitTableViewController.swift in Sources */,
 				2C07CEC0255D7B7200735F5C /* MedicinesTableViewController.swift in Sources */,
 				2C07CEA5255D795000735F5C /* AppDelegate.swift in Sources */,

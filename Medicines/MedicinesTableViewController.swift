@@ -9,8 +9,10 @@ import UIKit
 
 class MedicinesTableViewController: UITableViewController {
     
-    // Массив имеющихся лекарств
-    let medicines = ["Анальгин","Терафлю","Маалокс"]
+    // Подгружаем массив лекарств в таблицу
+    let medicines = Medicines.getMedicines()
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,17 +43,20 @@ class MedicinesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Medicines", for: indexPath) as! MedicinesTableViewCell // Кастим до описания стиля ячеек
-
-        cell.nameLabel.text = medicines[indexPath.row]
         
-        // Конфигурируем ячейки
+        // Конфигурируем стиль ячеек
         cell.backgroundColor = colorBackground // Устанавливаем цвет ячейки из стилей
         // Устанавливаем цвет выбранной ячейки из стилей
         let colorForSelected = UIView()
         colorForSelected.backgroundColor = colorSelected
         cell.selectedBackgroundView? = colorForSelected
-        // Добавляем картинку
-        cell.imageMedicines.image = UIImage(named: medicines[indexPath.row]) // Обращаемся к изображению соотнося имя файла с именем массива
+        
+        // Добавляем данные из массива
+        cell.nameLabel.text = medicines[indexPath.row].name
+        cell.typeLabel.text = medicines[indexPath.row].type
+        cell.expiryDataLabel.text = medicines[indexPath.row].expiryDate
+        // Добавляем картинку из массива
+        cell.imageMedicines.image = UIImage(named: medicines[indexPath.row].image) // Обращаемся к изображению соотнося имя файла с именем массива
         cell.imageMedicines.layer.cornerRadius = 20 //cell.frame.size.height / 2 // Скругляем края
         cell.clipsToBounds = true // Обрезаем для скругления
 
