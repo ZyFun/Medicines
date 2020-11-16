@@ -108,5 +108,7 @@ class MedicinesTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    // Добавляем возможность выхода из окна (возможно стоит убрать, надо посмотреть другие приложения с всплывающим окном)
+    @IBAction func cancelAction (_ segue: UIStoryboardSegue) {}
 }
