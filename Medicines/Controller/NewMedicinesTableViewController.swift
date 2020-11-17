@@ -23,7 +23,29 @@ class NewMedicinesTableViewController: UITableViewController {
     // Скрываем клавиатуру при тапе на ячейку, кроме первой с фотографией
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
+            // Создаём алерт контроллер (выползающее меню снизу) для добавления фото
+            let choosePhoto = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             
+            // Создаём экземпляр экшна для выбора изображения с камеры
+            let camera = UIAlertAction(title: "Camera", style: .default) { _ in
+                self.chooseImagePicker(source: .camera)
+            }
+            
+            // Создаём экземпляр экшна для выбора изображения из библиотеки
+            let photo = UIAlertAction(title: "Photo", style: .default) { _ in
+                self.chooseImagePicker(source: .photoLibrary)
+            }
+            
+            // Создаём экземпляр экшна для выхода из контролера
+            let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+            
+            // Добавляем в контроллер созданные экшены
+            choosePhoto.addAction(camera)
+            choosePhoto.addAction(photo)
+            choosePhoto.addAction(cancel)
+            
+            // Вызываем созданный контроллер
+            present(choosePhoto, animated: true)
         } else {
             view.endEditing(true)
         }
@@ -37,5 +59,21 @@ extension NewMedicinesTableViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+}
+
+// MARK: - Работа с изображениями
+extension NewMedicinesTableViewController {
+    func chooseImagePicker(source: UIImagePickerController.SourceType) {
+        // Проверяем доступность источника выбора изображений
+        if UIImagePickerController.isSourceTypeAvailable(source) {
+            let imagePicker = UIImagePickerController()
+            // Включаем возможность редактировать выбранное изображение
+            imagePicker.allowsEditing = true
+            // Определяем тип источника выбранного изображения
+            imagePicker.sourceType = source
+            // Вызываем контроллер
+            present(imagePicker, animated: true)
+        }
     }
 }

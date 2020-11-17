@@ -1,0 +1,36 @@
+
+/* Class = "UINavigationItem"; title = "Аптечки"; ObjectID = "3Eu-t1-iq3"; */
+"3Eu-t1-iq3.title" = "Аптечки";
+
+/* Class = "UITextField"; placeholder = "Введите название"; ObjectID = "6Sr-fJ-MrV"; */
+"6Sr-fJ-MrV.placeholder" = "Введите название";
+
+/* Class = "UILabel"; text = "Срок годности"; ObjectID = "9IE-kj-F4k"; */
+"9IE-kj-F4k.text" = "Срок годности";
+
+/* Class = "UILabel"; text = "Тип"; ObjectID = "FCF-0L-eJi"; */
+"FCF-0L-eJi.text" = "Тип";
+
+/* Class = "UINavigationItem"; title = "Новое лекарство"; ObjectID = "Ige-7c-Jcw"; */
+"Ige-7c-Jcw.title" = "Новое лекарство";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "JUJ-ji-XQG"; */
+"JUJ-ji-XQG.text" = "Name";
+
+/* Class = "UILabel"; text = "Type"; ObjectID = "O5r-T9-6DH"; */
+"O5r-T9-6DH.text" = "Type";
+
+/* Class = "UITextField"; placeholder = "Введите тип (к примеру антибиотик)"; ObjectID = "WnI-w4-TsE"; */
+"WnI-w4-TsE.placeholder" = "Введите тип (к примеру антибиотик)";
+
+/* Class = "UITextField"; placeholder = "Введите окончание срока годности"; ObjectID = "Yvj-cw-QLC"; */
+"Yvj-cw-QLC.placeholder" = "Введите окончание срока годности";
+
+/* Class = "UILabel"; text = "Expiry data"; ObjectID = "pok-j8-BBi"; */
+"pok-j8-BBi.text" = "Expiry data";
+
+/* Class = "UILabel"; text = "Название"; ObjectID = "rHH-ep-Iib"; */
+"rHH-ep-Iib.text" = "Название";
+
+/* Class = "UINavigationItem"; title = "Лекарства"; ObjectID = "wEP-4x-MAK"; */
+"wEP-4x-MAK.title" = "Лекарства";
