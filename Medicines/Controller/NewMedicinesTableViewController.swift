@@ -27,17 +27,17 @@ class NewMedicinesTableViewController: UITableViewController {
             let choosePhoto = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             
             // Создаём экземпляр экшна для выбора изображения с камеры
-            let camera = UIAlertAction(title: "Camera", style: .default) { _ in
+            let camera = UIAlertAction(title: "Камера", style: .default) { _ in
                 self.chooseImagePicker(source: .camera)
             }
             
             // Создаём экземпляр экшна для выбора изображения из библиотеки
-            let photo = UIAlertAction(title: "Photo", style: .default) { _ in
+            let photo = UIAlertAction(title: "Фотографии", style: .default) { _ in
                 self.chooseImagePicker(source: .photoLibrary)
             }
             
             // Создаём экземпляр экшна для выхода из контролера
-            let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+            let cancel = UIAlertAction(title: "Отмена", style: .cancel)
             
             // Добавляем в контроллер созданные экшены
             choosePhoto.addAction(camera)
