@@ -14,7 +14,7 @@ class AidKitTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Конфигурируем стиль таблицы 
+        //Конфигурируем стиль таблицы
         self.tableView.tableFooterView = UIView() // Удаляем разделители ячеек
         self.tableView.backgroundColor = colorBackground // Задаём цвет TableView из стилей
 
