@@ -28,6 +28,13 @@ class NewMedicinesTableViewController: UITableViewController {
             // Создаём алерт контроллер (выползающее меню снизу) для добавления фото
             let choosePhoto = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             
+            // Создаём алерт контроллер для iPad
+            if let popoverController = choosePhoto.popoverPresentationController {
+                popoverController.sourceView = self.view //to set the source of your alert
+                popoverController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0) // you can set this as per your requirement.
+                popoverController.permittedArrowDirections = [] //to hide the arrow of any particular direction
+                       }
+            
             // Создаём экземпляр экшна для выбора изображения с камеры
             let camera = UIAlertAction(title: "Камера", style: .default) { _ in
                 self.chooseImagePicker(source: .camera)
