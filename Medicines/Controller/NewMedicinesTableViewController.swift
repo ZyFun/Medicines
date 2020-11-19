@@ -9,6 +9,8 @@ import UIKit
 
 class NewMedicinesTableViewController: UITableViewController {
 
+    @IBOutlet weak var imageMedicines: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -63,11 +65,13 @@ extension NewMedicinesTableViewController: UITextFieldDelegate {
 }
 
 // MARK: - Работа с изображениями
-extension NewMedicinesTableViewController {
+extension NewMedicinesTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func chooseImagePicker(source: UIImagePickerController.SourceType) {
         // Проверяем доступность источника выбора изображений
         if UIImagePickerController.isSourceTypeAvailable(source) {
             let imagePicker = UIImagePickerController()
+            // Назначаем imagePicker делегатом функции imagePickerController. Протокол: UINavigationControllerDelegate
+            imagePicker.delegate = self
             // Включаем возможность редактировать выбранное изображение
             imagePicker.allowsEditing = true
             // Определяем тип источника выбранного изображения
@@ -75,5 +79,17 @@ extension NewMedicinesTableViewController {
             // Вызываем контроллер
             present(imagePicker, animated: true)
         }
+    }
+    
+    // Добавляем метод, позваляющий добавить выбранное изображение протокол: UIImagePickerControllerDelegate
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        // Присваиваем свойство отредактированного изображения
+        imageMedicines.image = info[.editedImage] as? UIImage
+        // Масштабируем изображение по содержимому
+        imageMedicines.contentMode = .scaleAspectFill
+        // Обрезаем по границе изображения
+        imageMedicines.clipsToBounds = true
+        // Закрываем контроллер
+        dismiss(animated: true)
     }
 }

@@ -278,6 +278,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="lrM-eJ-gAG"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="imageMedicines" destination="RQW-u2-K5R" id="e5h-sb-Ljw"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ctk-nV-Duu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="gal-HI-EMf" userLabel="Exit" sceneMemberID="exit"/>
