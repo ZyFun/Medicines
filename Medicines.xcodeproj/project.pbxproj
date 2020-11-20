@@ -73,9 +73,7 @@
 				2CA791FE2563F0F900A7649E /* Controller */,
 				2C07CEA4255D795000735F5C /* AppDelegate.swift */,
 				2C07CEA6255D795000735F5C /* SceneDelegate.swift */,
-				2C07CEAA255D795000735F5C /* Main.storyboard */,
 				2C07CEAD255D795200735F5C /* Assets.xcassets */,
-				2C07CEAF255D795200735F5C /* LaunchScreen.storyboard */,
 				2C07CEB2255D795200735F5C /* Info.plist */,
 			);
 			path = Medicines;
@@ -93,6 +91,8 @@
 		2CA791FD2563F0F000A7649E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2C07CEAF255D795200735F5C /* LaunchScreen.storyboard */,
+				2C07CEAA255D795000735F5C /* Main.storyboard */,
 				2CDAF627255EC5BC0034880F /* MedicinesTableViewCell.swift */,
 			);
 			path = View;
