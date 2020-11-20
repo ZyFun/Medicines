@@ -8,6 +8,9 @@
 import UIKit
 
 class NewMedicinesTableViewController: UITableViewController {
+    
+    var newMedicine: Medicines?
+    var imageIsChanged = false
 
     @IBOutlet weak var medicinesImageIV: UIImageView!
     @IBOutlet weak var medicinesNameTF: UITextField!
@@ -71,6 +74,20 @@ class NewMedicinesTableViewController: UITableViewController {
         }
     }
     
+    // Метод для созранения новых объектов
+    func saveNewMedicine() {
+        var image: UIImage?
+        
+        // если изображение было выбрано пользователем, то присваимаем пользовательское изображение.
+        if imageIsChanged {
+            image = medicinesImageIV.image
+        } else {
+            image = UIImage(named: "noImage")
+        }
+        
+        newMedicine = Medicines(name: medicinesNameTF.text!, type: medicinesTypeTF.text, expiryDate: medicinesExpiryDataTF.text, image: image, imageTest: nil)
+    }
+    
     @IBAction func cancelAction(_ sender: Any) {
         // Добавляем возможность выхода из окна (необходимо для поддержки iOS младше 13.0)
         dismiss(animated: true)
@@ -121,6 +138,8 @@ extension NewMedicinesTableViewController: UIImagePickerControllerDelegate, UINa
         medicinesImageIV.contentMode = .scaleAspectFill
         // Обрезаем по границе изображения
         medicinesImageIV.clipsToBounds = true
+        // Меняем свойство выбранного изображения, чтобы не менять выбранную картинку на картинку по умолчанию
+        imageIsChanged = true
         // Закрываем контроллер
         dismiss(animated: true)
     }

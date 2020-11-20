@@ -10,7 +10,7 @@ import UIKit
 class MedicinesTableViewController: UITableViewController {
     
     // Подгружаем массив лекарств в таблицу
-    let medicines = Medicines.getMedicines()
+    var medicines = Medicines.getMedicines()
     
     
 
@@ -44,6 +44,8 @@ class MedicinesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Medicines", for: indexPath) as! MedicinesTableViewCell // Кастим до описания стиля ячеек
         
+        let medicine = medicines[indexPath.row]
+        
         // Конфигурируем стиль ячеек
         cell.backgroundColor = colorBackground // Устанавливаем цвет ячейки из стилей
         // Устанавливаем цвет выбранной ячейки из стилей
@@ -52,11 +54,15 @@ class MedicinesTableViewController: UITableViewController {
         cell.selectedBackgroundView? = colorForSelected
         
         // Добавляем данные из массива
-        cell.nameLabel.text = medicines[indexPath.row].name
-        cell.typeLabel.text = medicines[indexPath.row].type
-        cell.expiryDataLabel.text = medicines[indexPath.row].expiryDate
+        cell.nameLabel.text = medicine.name
+        cell.typeLabel.text = medicine.type
+        cell.expiryDataLabel.text = medicine.expiryDate
         // Добавляем картинку из массива
-        cell.imageMedicines.image = UIImage(named: medicines[indexPath.row].imageTest!) // Обращаемся к изображению соотнося имя файла с именем массива
+        if medicine.image == nil {
+            cell.imageMedicines.image = UIImage(named: medicine.imageTest!) // если тестовый массив, то бращаемся к изображению соотнося имя файла с именем массива (тестовый вариант массива)
+        } else {
+            cell.imageMedicines.image = medicine.image // Присваиваем добавленное изображение (основной вариант)
+        }
         cell.imageMedicines.layer.cornerRadius = 20 //cell.frame.size.height / 2 // Скругляем края
         cell.clipsToBounds = true // Обрезаем для скругления
 
@@ -111,6 +117,14 @@ class MedicinesTableViewController: UITableViewController {
     
     // Включаем возможность выхода из открывшегося окна обратно на MainView с сохранением данных
     @IBAction func unwindSegue (_ segue: UIStoryboardSegue) {
+        // Возвращаем данные полученные с контроллера на котором мы были ранее
+        guard let newMedicineVC = segue.source as? NewMedicinesTableViewController else { return }
         
+        // Вызываем метод сохранения данных внесенных изменений
+        newMedicineVC.saveNewMedicine()
+        // Добавляем новый объект в массив
+        medicines.append(newMedicineVC.newMedicine!)
+        // Перезагружаем окно для добавления данных
+        tableView.reloadData()
     }
 }
