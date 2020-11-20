@@ -3,7 +3,7 @@
 "3Eu-t1-iq3.title" = "Аптечки";
 
 /* Class = "UITextField"; placeholder = "Введите название"; ObjectID = "6Sr-fJ-MrV"; */
-"6Sr-fJ-MrV.placeholder" = "Введите название";
+"6Sr-fJ-MrV.placeholder" = "Введите название (обязательное поле)";
 
 /* Class = "UILabel"; text = "Срок годности"; ObjectID = "9IE-kj-F4k"; */
 "9IE-kj-F4k.text" = "Срок годности";

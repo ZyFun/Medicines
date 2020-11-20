@@ -56,7 +56,7 @@ class MedicinesTableViewController: UITableViewController {
         cell.typeLabel.text = medicines[indexPath.row].type
         cell.expiryDataLabel.text = medicines[indexPath.row].expiryDate
         // Добавляем картинку из массива
-        cell.imageMedicines.image = UIImage(named: medicines[indexPath.row].image) // Обращаемся к изображению соотнося имя файла с именем массива
+        cell.imageMedicines.image = UIImage(named: medicines[indexPath.row].imageTest!) // Обращаемся к изображению соотнося имя файла с именем массива
         cell.imageMedicines.layer.cornerRadius = 20 //cell.frame.size.height / 2 // Скругляем края
         cell.clipsToBounds = true // Обрезаем для скругления
 
@@ -109,6 +109,8 @@ class MedicinesTableViewController: UITableViewController {
     }
     */
     
-    // Добавляем возможность выхода из окна (возможно стоит убрать, надо посмотреть другие приложения с всплывающим окном)
-    @IBAction func cancelAction (_ segue: UIStoryboardSegue) {}
+    // Включаем возможность выхода из открывшегося окна обратно на MainView с сохранением данных
+    @IBAction func unwindSegue (_ segue: UIStoryboardSegue) {
+        
+    }
 }

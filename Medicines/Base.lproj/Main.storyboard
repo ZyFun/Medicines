@@ -170,7 +170,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Введите название" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Sr-fJ-MrV">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Введите название (обязательное поле)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Sr-fJ-MrV">
                                                             <rect key="frame" x="0.0" y="35.5" width="382" height="27.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
@@ -273,16 +273,21 @@
                     <navigationItem key="navigationItem" title="Новое лекарство" id="Ige-7c-Jcw">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="4iF-k8-Say">
                             <connections>
-                                <segue destination="gal-HI-EMf" kind="unwind" unwindAction="cancelAction:" id="cqO-b1-Mr0"/>
+                                <action selector="cancelAction:" destination="SAs-er-Sii" id="c8e-Qg-AJT"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="lrM-eJ-gAG"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="lrM-eJ-gAG">
+                            <connections>
+                                <segue destination="gal-HI-EMf" kind="unwind" unwindAction="unwindSegue:" id="LXU-Vu-gUX"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="medicinesExpiryDataTF" destination="Yvj-cw-QLC" id="8tm-eK-7b8"/>
                         <outlet property="medicinesImageIV" destination="RQW-u2-K5R" id="e5h-sb-Ljw"/>
                         <outlet property="medicinesNameTF" destination="6Sr-fJ-MrV" id="KBS-6w-PgN"/>
                         <outlet property="medicinesTypeTF" destination="WnI-w4-TsE" id="Ae3-K5-OYN"/>
+                        <outlet property="saveButtonBBI" destination="lrM-eJ-gAG" id="lPR-aU-Dcg"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ctk-nV-Duu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

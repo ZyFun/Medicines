@@ -14,6 +14,8 @@ class NewMedicinesTableViewController: UITableViewController {
     @IBOutlet weak var medicinesTypeTF: UITextField!
     @IBOutlet weak var medicinesExpiryDataTF: UITextField!
     
+    @IBOutlet weak var saveButtonBBI: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,6 +23,12 @@ class NewMedicinesTableViewController: UITableViewController {
         
         // Пока что я не знаю как задать цвет не использованным ячейкам, возможно их надо записать в протокол Delegate. Но я еще не разобрался как это сделать. На данный момент цвет ячейкам задал из интерфейса xcode
         self.tableView.backgroundColor = colorBackground // Задаём цвет TableView из стилей
+        
+        // Делаем кнопку сохранения не активной для того, чтобы позже сдеkать её активной после заполнения medicinesNameTF
+        saveButtonBBI.isEnabled = false
+
+        // Создаём отслеживание заполение TF medicinesNameTF, для активации кнопки сохранения
+        medicinesNameTF.addTarget(self, action: #selector(changedMedicinesNameTF), for: .editingChanged)
         
     }
 
@@ -62,6 +70,11 @@ class NewMedicinesTableViewController: UITableViewController {
             view.endEditing(true)
         }
     }
+    
+    @IBAction func cancelAction(_ sender: Any) {
+        // Добавляем возможность выхода из окна (необходимо для поддержки iOS младше 13.0)
+        dismiss(animated: true)
+    }
 }
 
 // MARK: - TextField Delegate
@@ -71,6 +84,15 @@ extension NewMedicinesTableViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    // Отслеживаем изменения для активации кнопки сохранения
+    @objc private func changedMedicinesNameTF() {
+        if medicinesNameTF.text?.isEmpty == false { // Проверяем пустое ли поле
+            saveButtonBBI.isEnabled = true // Если поле не пустое, активируем кнопку
+        } else {
+            saveButtonBBI.isEnabled = false // Если пустое, кнопка не активна
+        }
     }
 }
 
