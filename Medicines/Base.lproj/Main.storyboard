@@ -279,7 +279,10 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="lrM-eJ-gAG"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="imageMedicines" destination="RQW-u2-K5R" id="e5h-sb-Ljw"/>
+                        <outlet property="medicinesExpiryDataTF" destination="Yvj-cw-QLC" id="8tm-eK-7b8"/>
+                        <outlet property="medicinesImageIV" destination="RQW-u2-K5R" id="e5h-sb-Ljw"/>
+                        <outlet property="medicinesNameTF" destination="6Sr-fJ-MrV" id="KBS-6w-PgN"/>
+                        <outlet property="medicinesTypeTF" destination="WnI-w4-TsE" id="Ae3-K5-OYN"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ctk-nV-Duu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -9,7 +9,10 @@ import UIKit
 
 class NewMedicinesTableViewController: UITableViewController {
 
-    @IBOutlet weak var imageMedicines: UIImageView!
+    @IBOutlet weak var medicinesImageIV: UIImageView!
+    @IBOutlet weak var medicinesNameTF: UITextField!
+    @IBOutlet weak var medicinesTypeTF: UITextField!
+    @IBOutlet weak var medicinesExpiryDataTF: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,11 +94,11 @@ extension NewMedicinesTableViewController: UIImagePickerControllerDelegate, UINa
     // Добавляем метод, позваляющий добавить выбранное изображение протокол: UIImagePickerControllerDelegate
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         // Присваиваем свойство отредактированного изображения
-        imageMedicines.image = info[.editedImage] as? UIImage
+        medicinesImageIV.image = info[.editedImage] as? UIImage
         // Масштабируем изображение по содержимому
-        imageMedicines.contentMode = .scaleAspectFill
+        medicinesImageIV.contentMode = .scaleAspectFill
         // Обрезаем по границе изображения
-        imageMedicines.clipsToBounds = true
+        medicinesImageIV.clipsToBounds = true
         // Закрываем контроллер
         dismiss(animated: true)
     }
