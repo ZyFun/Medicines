@@ -11,6 +11,7 @@ class NewMedicinesTableViewController: UITableViewController {
     
     var newMedicine: Medicines?
     var imageIsChanged = false
+    var datePicker: UIDatePicker!
 
     @IBOutlet weak var medicinesImageIV: UIImageView!
     @IBOutlet weak var medicinesNameTF: UITextField!
@@ -32,6 +33,10 @@ class NewMedicinesTableViewController: UITableViewController {
 
         // Создаём отслеживание заполение TF medicinesNameTF, для активации кнопки сохранения
         medicinesNameTF.addTarget(self, action: #selector(changedMedicinesNameTF), for: .editingChanged)
+        
+        
+        // Включаем в обработку метод для выбора даты
+        setupDataPicker()
         
     }
 
@@ -110,6 +115,48 @@ extension NewMedicinesTableViewController: UITextFieldDelegate {
         } else {
             saveButtonBBI.isEnabled = false // Если пустое, кнопка не активна
         }
+    }
+    
+    // Метод для создания ввода даты через барабан в поле срока годности
+    func setupDataPicker() {
+        self.datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 280))
+        datePicker.datePickerMode = .date
+        datePicker.addTarget(self, action: #selector(self.dateChanged), for: .allEvents)
+        
+        if #available(iOS 13.4, *) {
+            // Выбираем стиль в виде барабана
+            datePicker.preferredDatePickerStyle = .wheels
+        }
+        
+        
+        // Задаём ширину тулбара для кнопок
+        let toolBar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 44))
+        
+        // Не совсем понимаю зачем эта штука нужна, без неё всё работает
+        let spaceBurron: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.fixedSpace, target: nil, action: nil)
+        
+        // Настраиваем кнопку готово
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(self.tapOnDoneButton))
+        
+        // Размещаем кнопки на тулбаре
+        toolBar.setItems([spaceBurron, doneButton], animated: true)
+        
+        // Присваиваем полю срока годности способ воода через созданный барабан
+        self.medicinesExpiryDataTF.inputView = datePicker
+        self.medicinesExpiryDataTF.inputAccessoryView = toolBar
+    }
+    
+    // Задаём стиль форматирования
+    @objc private func dateChanged() {
+        let dateFormat = DateFormatter()
+        dateFormat.dateStyle = .short
+        
+        self.medicinesExpiryDataTF.text = dateFormat.string(from: datePicker.date)
+    }
+    
+    // Скрываем барабан ввода даты по кнопке готово
+    @objc private func tapOnDoneButton() {
+        medicinesExpiryDataTF.resignFirstResponder()
     }
 }
 
