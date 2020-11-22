@@ -21,7 +21,7 @@
 "O5r-T9-6DH.text" = "Type";
 
 /* Class = "UITextField"; placeholder = "Введите тип (к примеру антибиотик)"; ObjectID = "WnI-w4-TsE"; */
-"WnI-w4-TsE.placeholder" = "Введите тип (к примеру антибиотик)";
+"WnI-w4-TsE.placeholder" = "Введите тип (спрей, таблетки, сироп)";
 
 /* Class = "UITextField"; placeholder = "Введите окончание срока годности"; ObjectID = "Yvj-cw-QLC"; */
 "Yvj-cw-QLC.placeholder" = "Введите окончание срока годности";
