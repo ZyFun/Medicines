@@ -15,14 +15,14 @@ struct Medicines {
     var imageTest: String?
     
     // Массив с именами лекарств
-    static let medicinesName = ["Анальгин","Терафлю","Маалокс"]
+    static let medicinesName = ["Анальгин","Уголь активированный","Маалокс"]
     
     // Загружаем в таблицк модель данных (Временное решение для теста)
     static func getMedicines() -> [Medicines] {
         var medicines = [Medicines]()
         
         for medicine in medicinesName {
-            medicines.append(Medicines.init(name: medicine, type: "Антибиотик", expiryDate: "21.12.2020", image: nil, imageTest: medicine))
+            medicines.append(Medicines.init(name: medicine, type: "Таблетки", expiryDate: "21.12.2020", image: nil, imageTest: medicine))
         }
         return medicines
     }
