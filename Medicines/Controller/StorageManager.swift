@@ -19,4 +19,12 @@ class StorageManager {
             realm.add(medicine)
         }
     }
+    
+    // Создаём метод для удаления из базы данных
+    static func deleteObject (_ medicine: Medicine){
+        // Удаляем данные из базы данных
+        try! realm.write {
+            realm.delete(medicine)
+        }
+    }
 }

@@ -79,6 +79,42 @@ class MedicinesTableViewController: UITableViewController {
         return cell
     }
     
+    //MARK: - Table view delegate
+    
+    /*
+    // Метод позволяет настроить пользовательские действия, при свайпе ячейки с права на лево
+    // leadingSwipeActionsConfigurationForRowAt для действий с лева на право
+    // Этот метод используется для множества действий, по этому для нас он избыточен
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        // Создаём действие удаления строки
+        // style отображает цвет действия
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (_, _, _) in
+            // Создаём объект для удаления из массива
+            let place = self.places[indexPath.row]
+            // Вызываем действие удаления из базы
+            StorageManager.delitObject(place)
+            // Удаляем строку в приложении
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+        // Передаём массив с контекстными действиями
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+    */
+    
+    // Создаём метод для удаления строки
+    // Этим методом можно либо удалять, либо добавлять строки
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        // Настраиваем стиль
+        if editingStyle == .delete {
+            // создаём объект для удаления из массива
+            let medicine = medicines[indexPath.row]
+            // Вызываем действие удаления из базы
+            StorageManager.deleteObject(medicine)
+            // Удаляем строку из приложения
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.
