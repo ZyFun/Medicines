@@ -17,13 +17,14 @@ class MedicinesTableViewController: UITableViewController {
     // создаём экземпляр модели
     var medicines: Results<Medicine>!
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Инициализируем переменную с объектами базы данных и делаем запрос этих объектов из базы данных
         medicines = realm.objects(Medicine.self) // Medicine.self мы пишем, потому что подразумеваем не саму модель данных, а именно тип Medicine
+        
+        // Временное решение. Создаётся новый объект при пустой базе данных для обучения пользователя
+        learningNewObjectGet()
         
         //Конфигурируем стиль таблицы
 //        self.tableView.tableFooterView = UIView() // Удаляем разделители ячеек
