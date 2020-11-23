@@ -6,19 +6,27 @@
 //
 
 import UIKit
+import RealmSwift
 
 class MedicinesTableViewController: UITableViewController {
-    
-    // Подгружаем массив лекарств в таблицу
-    var medicines = Medicines.getMedicines()
+    // Объект типа Results это аналог массива Swift
+    // Results это автообновляемый тип контейнера, который возвращает запрашиваемые объекты
+    // Результаты всегда отображают текущее состояние хранилища в текущем потоке в том числе и во время записи транзакций
+    // Этот объектр позволяет работать с данными в реальном времени
+    // Данный объект можно использовать так же как массив
+    // создаём экземпляр модели
+    var medicines: Results<Medicine>!
     
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Инициализируем переменную с объектами базы данных и делаем запрос этих объектов из базы данных
+        medicines = realm.objects(Medicine.self) // Medicine.self мы пишем, потому что подразумеваем не саму модель данных, а именно тип Medicine
+        
         //Конфигурируем стиль таблицы
-        self.tableView.tableFooterView = UIView() // Удаляем разделители ячеек
+//        self.tableView.tableFooterView = UIView() // Удаляем разделители ячеек
         self.tableView.backgroundColor = colorBackground // Задаём цвет TableView из стилей
 
         // Uncomment the following line to preserve selection between presentations
@@ -30,14 +38,10 @@ class MedicinesTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
+    // Метод для отображения количества ячеек
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // Выводим ячейки массива в зависимости от количества записей
-        return medicines.count
+        // Выводим ячейки массива в зависимости от количества записей, предусматривая возможную пустую базу данных
+        return medicines.isEmpty ? 0:medicines.count
     }
 
     
@@ -58,11 +62,17 @@ class MedicinesTableViewController: UITableViewController {
         cell.typeLabel.text = medicine.type
         cell.expiryDataLabel.text = medicine.expiryDate
         // Добавляем картинку из массива
+        cell.imageMedicines.image = UIImage(data: medicine.imageData!) // Заполняем таблицу изображениями принудительно извлекая их, потому что они никогда не будут пустыми
+        
+        /*
+        // Пример кода понадобится (чтобы не забыть) когда я буду добавлять разные фотографии для отображения разных изображений лекарств по умолчанию (спрей, таблетка, сироп)
         if medicine.image == nil {
             cell.imageMedicines.image = UIImage(named: medicine.imageTest!) // если тестовый массив, то бращаемся к изображению соотнося имя файла с именем массива (тестовый вариант массива)
         } else {
             cell.imageMedicines.image = medicine.image // Присваиваем добавленное изображение (основной вариант)
         }
+        */
+        
         cell.imageMedicines.layer.cornerRadius = 20 //cell.frame.size.height / 2 // Скругляем края
         cell.clipsToBounds = true // Обрезаем для скругления
 
@@ -119,11 +129,8 @@ class MedicinesTableViewController: UITableViewController {
     @IBAction func unwindSegue (_ segue: UIStoryboardSegue) {
         // Возвращаем данные полученные с контроллера на котором мы были ранее
         guard let newMedicineVC = segue.source as? NewMedicinesTableViewController else { return }
-        
         // Вызываем метод сохранения данных внесенных изменений
         newMedicineVC.saveNewMedicine()
-        // Добавляем новый объект в массив
-        medicines.append(newMedicineVC.newMedicine!)
         // Перезагружаем окно для добавления данных
         tableView.reloadData()
     }

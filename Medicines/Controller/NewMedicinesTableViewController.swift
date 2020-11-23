@@ -9,7 +9,6 @@ import UIKit
 
 class NewMedicinesTableViewController: UITableViewController {
     
-    var newMedicine: Medicines?
     var imageIsChanged = false
     var datePicker: UIDatePicker!
 
@@ -89,8 +88,15 @@ class NewMedicinesTableViewController: UITableViewController {
         } else {
             image = UIImage(named: "noImage")
         }
-        
-        newMedicine = Medicines(name: medicinesNameTF.text!, type: medicinesTypeTF.text, expiryDate: medicinesExpiryDataTF.text, image: image, imageTest: nil)
+        // Создаём вспомагательное свойство image для конвертации в imageData
+        let imageData = image?.pngData()
+        // Присваиваем все введенные свойства для подготовки к сохранению в базу данных
+        let newMedicine = Medicine(name: medicinesNameTF.text!,
+                                   type: medicinesTypeTF.text,
+                                   expiryDate: medicinesExpiryDataTF.text,
+                                   imageData: imageData)
+        //Сохраняем все введенные значения в базу данных
+        StorageManager.saveObject(newMedicine)
     }
     
     @IBAction func cancelAction(_ sender: Any) {

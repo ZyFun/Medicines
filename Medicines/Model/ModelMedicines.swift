@@ -6,24 +6,23 @@
 //
 
 import UIKit
+import RealmSwift
 
-struct Medicines {
-    var name: String
-    var type: String?
-    var expiryDate: String?
-    var image: UIImage?
-    var imageTest: String?
+// описываем структуру данных в соответствии с документацией Realm
+class Medicine: Object {
+    @objc dynamic var name = ""
+    @objc dynamic var type: String?
+    @objc dynamic var expiryDate: String?
+    @objc dynamic var imageData: Data?
     
-    // Массив с именами лекарств
-    static let medicinesName = ["Анальгин","Уголь активированный","Маалокс"]
-    
-    // Загружаем в таблицк модель данных (Временное решение для теста)
-    static func getMedicines() -> [Medicines] {
-        var medicines = [Medicines]()
-        
-        for medicine in medicinesName {
-            medicines.append(Medicines.init(name: medicine, type: "Таблетки", expiryDate: "21.12.2020", image: nil, imageTest: medicine))
-        }
-        return medicines
+    // Чтобы не приходилось прописывать все эти свойства в ручную, создадим инициализатор. Этот инициализатор не создаёт новый объект, а присваивает уже созданному объекту новые значения
+    convenience init(name: String, type: String?, expiryDate: String?, imageData: Data?) {
+        // Инициализируем свойства классов значениями по умолчанию
+        self.init()
+        // Присваиваем значения параметров свойствам класса
+        self.name = name
+        self.type = type
+        self.expiryDate = expiryDate
+        self.imageData = imageData
     }
 }

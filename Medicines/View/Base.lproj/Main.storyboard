@@ -44,12 +44,12 @@
         <scene sceneID="jOC-8Q-jtE">
             <objects>
                 <tableViewController id="XTM-w5-Qx2" customClass="MedicinesTableViewController" customModule="Medicines" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="QAn-e8-Bqf">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="QAn-e8-Bqf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Medicines" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Medicines" rowHeight="85" id="5Ap-qd-GcT" customClass="MedicinesTableViewCell" customModule="Medicines" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Medicines" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Medicines" id="5Ap-qd-GcT" customClass="MedicinesTableViewCell" customModule="Medicines" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Ap-qd-GcT" id="pUy-fD-V8u">
@@ -88,14 +88,12 @@
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="DVU-D2-sPz" secondAttribute="bottom" constant="10" id="MdH-Do-e16"/>
                                         <constraint firstItem="DdQ-En-p5c" firstAttribute="top" secondItem="pUy-fD-V8u" secondAttribute="top" constant="8" id="UcP-p7-qyw"/>
                                         <constraint firstItem="DdQ-En-p5c" firstAttribute="leading" secondItem="DVU-D2-sPz" secondAttribute="trailing" constant="16" id="Yj6-2C-tg8"/>
                                         <constraint firstAttribute="trailing" secondItem="DdQ-En-p5c" secondAttribute="trailing" constant="16" id="e3M-B0-F4K"/>
                                         <constraint firstItem="DVU-D2-sPz" firstAttribute="centerY" secondItem="pUy-fD-V8u" secondAttribute="centerY" id="gjS-Sj-BGK"/>
                                         <constraint firstItem="DVU-D2-sPz" firstAttribute="leading" secondItem="pUy-fD-V8u" secondAttribute="leading" constant="15" id="lnI-RZ-quN"/>
                                         <constraint firstAttribute="bottom" secondItem="DdQ-En-p5c" secondAttribute="bottom" constant="8" id="vva-tv-CXI"/>
-                                        <constraint firstItem="DVU-D2-sPz" firstAttribute="top" secondItem="pUy-fD-V8u" secondAttribute="top" constant="10" id="zcR-lj-MTp"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
