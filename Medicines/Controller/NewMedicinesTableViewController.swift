@@ -9,6 +9,9 @@ import UIKit
 
 class NewMedicinesTableViewController: UITableViewController {
     
+    // Вспомогательный объект для передачи выбранных записей из MedicinesTableViewController в этот контроллер
+    var currentMedicine: Medicine?
+    // Вспомогательный объект для отслеживания выбранного изображения пользователем
     var imageIsChanged = false
     var datePicker: UIDatePicker!
 
@@ -37,6 +40,8 @@ class NewMedicinesTableViewController: UITableViewController {
         // Включаем в обработку метод для выбора даты
         setupDataPicker()
         
+        // Отслеживаем передачу данных с одного контроллерана на другой, и передаём значения если условия совпали
+        setupEditScreen()
     }
 
     // MARK: - TableView Delegate
@@ -78,8 +83,8 @@ class NewMedicinesTableViewController: UITableViewController {
         }
     }
     
-    // Метод для созранения новых объектов
-    func saveNewMedicine() {
+    // Метод для сохранения записей
+    func saveMedicine() {
         var image: UIImage?
         
         // если изображение было выбрано пользователем, то присваимаем пользовательское изображение.
@@ -95,13 +100,63 @@ class NewMedicinesTableViewController: UITableViewController {
                                    type: medicinesTypeTF.text,
                                    expiryDate: medicinesExpiryDataTF.text,
                                    imageData: imageData)
-        //Сохраняем все введенные значения в базу данных
-        StorageManager.saveObject(newMedicine)
+        
+        // Определяем в каком методе мы находимся, в режиме редактирования или в режиме добавления новой записи
+        // Проверяем свойство на отсутствие значения
+        if currentMedicine != nil {
+            // И если оно не пустое, меняем значение объекта на новое
+            // Считываем данные из базы данных и перезаписываем их
+            try! realm.write {
+                currentMedicine?.name = newMedicine.name
+                currentMedicine?.type = newMedicine.type
+                currentMedicine?.expiryDate = newMedicine.expiryDate
+                currentMedicine?.imageData = newMedicine.imageData
+            }
+        } else {
+            //Сохраняем все введенные значения в базу данных если объект новый
+            StorageManager.saveObject(newMedicine)
+        }
     }
     
     @IBAction func cancelAction(_ sender: Any) {
         // Добавляем возможность выхода из окна (необходимо для поддержки iOS младше 13.0)
         dismiss(animated: true)
+    }
+    
+    // Метод для экрана редактирования записи
+    private func setupEditScreen() {
+        // Если свойство currentMedicine не имеет значения, то есть в него не было передано данных из MainViewController, то данные не заполняются, иначе данные передаются в поля для редактирования
+        if currentMedicine != nil {
+            // Вызываем метод редактирования NavigationBar
+            setupNavigationBar()
+            // Писваиваем свойству добавление картинки значение true, чтобы оно не менялось на значение по умолчанию
+            imageIsChanged = true
+
+            // Создаём вспомогательное свойство и приводим значение data в значение image, чтобы подставить его в оутлет с типом image, и если что то пойдет не так, выходим из метода
+            guard let data = currentMedicine?.imageData, let image = UIImage(data: data) else { return }
+            
+            // Присваиваем полям переданные значения
+            medicinesImageIV.image = image
+            // Выравниваем изображение, иначе оно будет смотрется очень странно
+            medicinesImageIV.contentMode = .scaleAspectFill // масштабирует изображение по содержимому ImageView
+            medicinesNameTF.text = currentMedicine?.name
+            medicinesTypeTF.text = currentMedicine?.type
+            medicinesExpiryDataTF.text = currentMedicine?.expiryDate
+        }
+    }
+    
+    // Изменение значений navigationBar для окна редактирования данных
+    private func setupNavigationBar() {
+        // Убираем название у кнопки возврата, если получается извлеч объект
+        if let topItem = navigationController?.navigationBar.topItem {
+            topItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        }
+        // Убираем кнопку cancel
+        navigationItem.leftBarButtonItem = nil
+        // Передаём в заголовок текущее название заведения
+        title = currentMedicine?.name
+        // Активируем кнопку сохранения, так как отсутствия названия быть не может
+        saveButtonBBI.isEnabled = true
     }
 }
 

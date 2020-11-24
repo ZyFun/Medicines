@@ -34,7 +34,7 @@
                             <outlet property="delegate" destination="EWE-zt-C8A" id="WpN-3l-WHT"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Аптечки" id="3Eu-t1-iq3"/>
+                    <navigationItem key="navigationItem" title="Аптечки" largeTitleDisplayMode="never" id="3Eu-t1-iq3"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y39-1F-q84" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -49,11 +49,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Medicines" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Medicines" id="5Ap-qd-GcT" customClass="MedicinesTableViewCell" customModule="Medicines" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Medicines" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Medicines" id="5Ap-qd-GcT" customClass="MedicinesTableViewCell" customModule="Medicines" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Ap-qd-GcT" id="pUy-fD-V8u">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="383" height="85"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DVU-D2-sPz">
@@ -64,22 +64,22 @@
                                             </constraints>
                                         </imageView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="DdQ-En-p5c">
-                                            <rect key="frame" x="96" y="8" width="302" height="69"/>
+                                            <rect key="frame" x="96" y="8" width="271" height="69"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUJ-ji-XQG">
-                                                    <rect key="frame" x="0.0" y="0.0" width="302" height="24.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="271" height="24.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5r-T9-6DH">
-                                                    <rect key="frame" x="0.0" y="28.5" width="302" height="18"/>
+                                                    <rect key="frame" x="0.0" y="28.5" width="271" height="18"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expiry data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pok-j8-BBi">
-                                                    <rect key="frame" x="0.0" y="50.5" width="302" height="18.5"/>
+                                                    <rect key="frame" x="0.0" y="50.5" width="271" height="18.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -101,6 +101,7 @@
                                     <outlet property="imageMedicines" destination="DVU-D2-sPz" id="UNy-j5-laR"/>
                                     <outlet property="nameLabel" destination="JUJ-ji-XQG" id="A0z-J3-xt6"/>
                                     <outlet property="typeLabel" destination="O5r-T9-6DH" id="CDI-h7-438"/>
+                                    <segue destination="SAs-er-Sii" kind="show" identifier="showDetail" id="xAf-Oh-VES"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -109,7 +110,7 @@
                             <outlet property="delegate" destination="XTM-w5-Qx2" id="6xq-wv-k4r"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Лекарства" id="wEP-4x-MAK">
+                    <navigationItem key="navigationItem" title="Лекарства" largeTitleDisplayMode="never" id="wEP-4x-MAK">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="fnd-OV-BOc">
                             <connections>
                                 <segue destination="We8-0m-m32" kind="presentation" id="ZtA-wu-gFj"/>
@@ -126,7 +127,7 @@
             <objects>
                 <tableViewController id="SAs-er-Sii" customClass="NewMedicinesTableViewController" customModule="Medicines" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="g3Q-ZT-FYm">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <inset key="separatorInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
@@ -270,7 +271,7 @@
                             <outlet property="delegate" destination="SAs-er-Sii" id="Nwk-W5-YeB"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Новое лекарство" id="Ige-7c-Jcw">
+                    <navigationItem key="navigationItem" title="Новое лекарство" largeTitleDisplayMode="always" id="Ige-7c-Jcw">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="4iF-k8-Say">
                             <connections>
                                 <action selector="cancelAction:" destination="SAs-er-Sii" id="c8e-Qg-AJT"/>
@@ -293,14 +294,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ctk-nV-Duu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="gal-HI-EMf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2460.8695652173915" y="72.991071428571431"/>
+            <point key="canvasLocation" x="1399" y="73"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="F7M-79-wPx">
             <objects>
                 <navigationController id="a1p-iv-kBg" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lGE-Jr-7U1">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="lGE-Jr-7U1">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.43529411764705883" green="0.69411764705882351" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -335,9 +336,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ys-mI-ZFx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1542" y="73"/>
+            <point key="canvasLocation" x="1399" y="-656"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="xAf-Oh-VES"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Photo" width="195" height="196"/>
         <systemColor name="systemBackgroundColor">

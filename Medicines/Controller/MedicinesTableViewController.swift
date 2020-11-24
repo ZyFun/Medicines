@@ -152,22 +152,29 @@ class MedicinesTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // Подготовка перехода на другой экран
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        // Подготовка информации по идентификатору сегвея
+        if segue.identifier == "showDetail" {
+            // Извлекаем значение индекса из выбранной ячейки, если оно есть иначе выходим из метода
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            // Извлекаем объект по этому индексу
+            let medicine = medicines[indexPath.row]
+            // Создаём экземпляр вью контроллера на который передаём значение, выбирая контроллер назначения принудительно извлекая опционал
+            let newMedicinesVC = segue.destination as! NewMedicinesTableViewController
+            // Обращаемся к экземпляру контроллера и его свойству, в которое будем передавать значение и присваиваем ему извлеченный по индексу объект
+            newMedicinesVC.currentMedicine = medicine
+        }
     }
-    */
     
     // Включаем возможность выхода из открывшегося окна обратно на MainView с сохранением данных
     @IBAction func unwindSegue (_ segue: UIStoryboardSegue) {
         // Возвращаем данные полученные с контроллера на котором мы были ранее
         guard let newMedicineVC = segue.source as? NewMedicinesTableViewController else { return }
         // Вызываем метод сохранения данных внесенных изменений
-        newMedicineVC.saveNewMedicine()
+        newMedicineVC.saveMedicine()
         // Перезагружаем окно для добавления данных
         tableView.reloadData()
     }
