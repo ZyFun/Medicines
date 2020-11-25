@@ -8,7 +8,12 @@
 import UIKit
 import RealmSwift
 
-class MedicinesTableViewController: UITableViewController {
+class MedicinesTableViewController: UIViewController, UITableViewDataSource {
+    
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var reversedSortingBBI: UIBarButtonItem!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
     // Объект типа Results это аналог массива Swift
     // Results это автообновляемый тип контейнера, который возвращает запрашиваемые объекты
     // Результаты всегда отображают текущее состояние хранилища в текущем потоке в том числе и во время записи транзакций
@@ -28,7 +33,14 @@ class MedicinesTableViewController: UITableViewController {
         
         //Конфигурируем стиль таблицы
 //        self.tableView.tableFooterView = UIView() // Удаляем разделители ячеек
-        self.tableView.backgroundColor = colorBackground // Задаём цвет TableView из стилей
+        tableView.backgroundColor = colorBackground // Задаём цвет TableView из стилей
+        view.backgroundColor = colorBackground
+        if #available(iOS 13.0, *) {
+            segmentedControl.selectedSegmentTintColor = colorSelected
+        } else {
+            // Fallback on earlier versions
+            // Цвет берется из настройки через интерфейс
+        }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -40,13 +52,13 @@ class MedicinesTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     // Метод для отображения количества ячеек
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Выводим ячейки массива в зависимости от количества записей, предусматривая возможную пустую базу данных
         return medicines.isEmpty ? 0:medicines.count
     }
 
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Medicines", for: indexPath) as! MedicinesTableViewCell // Кастим до описания стиля ячеек
         
         let medicine = medicines[indexPath.row]
@@ -104,7 +116,7 @@ class MedicinesTableViewController: UITableViewController {
     
     // Создаём метод для удаления строки
     // Этим методом можно либо удалять, либо добавлять строки
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         // Настраиваем стиль
         if editingStyle == .delete {
@@ -177,5 +189,9 @@ class MedicinesTableViewController: UITableViewController {
         newMedicineVC.saveMedicine()
         // Перезагружаем окно для добавления данных
         tableView.reloadData()
+    }
+    @IBAction func reversedSorting(_ sender: Any) {
+    }
+    @IBAction func sortSelection(_ sender: UISegmentedControl) {
     }
 }
