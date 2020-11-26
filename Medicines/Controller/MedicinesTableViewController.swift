@@ -42,6 +42,7 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource {
         } else {
             // Fallback on earlier versions
             // Цвет берется из настройки через интерфейс
+            segmentedControl.tintColor = colorSelected
         }
 
         // Uncomment the following line to preserve selection between presentations
