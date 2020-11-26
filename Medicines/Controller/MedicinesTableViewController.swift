@@ -21,6 +21,8 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource {
     // Данный объект можно использовать так же как массив
     // создаём экземпляр модели
     var medicines: Results<Medicine>!
+    // Вспомогательное свойство для обратной сортировки, по умолчанию сортировка делается по возростанию
+    var ascendingSorted = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -191,7 +193,36 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource {
         tableView.reloadData()
     }
     @IBAction func reversedSorting(_ sender: Any) {
+        // Меняем значение на противоположное
+        ascendingSorted.toggle()
+        
+        // Меняем значение изображения (переворачиваем стрелочки)
+        if ascendingSorted {
+            reversedSortingBBI.image = #imageLiteral(resourceName: "AZ")
+        } else {
+            reversedSortingBBI.image = #imageLiteral(resourceName: "ZA")
+        }
+        
+        // Вызываем метод сортировки
+        sorting()
+        
     }
     @IBAction func sortSelection(_ sender: UISegmentedControl) {
+        // Вызываем метод сортировки
+        sorting()
+    }
+    
+    // Метод смены способа сортировки
+    private func sorting() {
+        if segmentedControl.selectedSegmentIndex == 0 {
+            medicines = medicines.sorted(byKeyPath: "name", ascending: ascendingSorted)
+        } else if segmentedControl.selectedSegmentIndex == 1{
+            medicines = medicines.sorted(byKeyPath: "date", ascending: ascendingSorted)
+        } else {
+            medicines = medicines.sorted(byKeyPath: "expiryDate", ascending: ascendingSorted)
+        }
+        
+        // Обновляем данные в таблице
+        tableView.reloadData()
     }
 }
