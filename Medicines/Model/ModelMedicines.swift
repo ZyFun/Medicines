@@ -14,6 +14,7 @@ class Medicine: Object {
     @objc dynamic var type: String?
     @objc dynamic var expiryDate: String?
     @objc dynamic var imageData: Data?
+    @objc dynamic var date = Date() // Нужно только для сортировки по дате. Пользователь никак не видит это свойство
     
     // Чтобы не приходилось прописывать все эти свойства в ручную, создадим инициализатор. Этот инициализатор не создаёт новый объект, а присваивает уже созданному объекту новые значения
     convenience init(name: String, type: String?, expiryDate: String?, imageData: Data?) {

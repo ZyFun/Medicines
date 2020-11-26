@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +17,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        // Конфигурация для обновления версии схемы базы данных (для переноса старых данных в новую базу)
+        let config = Realm.Configuration(
+            // Версия схемы данных. Если схема данных меняется, необходимо увеличить значение на +1
+            schemaVersion: 1,
+
+            // Устанавливаем блок, который будет вызываться автоматически при открытии Realm если предыдущая версия была ниже вновь установленной
+            migrationBlock: { migration, oldSchemaVersion in
+                // We haven’t migrated anything yet, so oldSchemaVersion == 0
+                if (oldSchemaVersion < 1) {
+                    // Nothing to do!
+                    // Realm will automatically detect new properties and removed properties
+                    // And will update the schema on disk automatically
+                }
+            })
+
+        // Назначаем вновь настроенную конфигурацию, как конфигурацию по умолчанию
+        Realm.Configuration.defaultConfiguration = config
+        
+        // Now that we've told Realm how to handle the schema change, opening the file
+        // will automatically perform the migration
+        
         return true
     }
 
