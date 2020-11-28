@@ -14,15 +14,32 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var reversedSortingBBI: UIBarButtonItem!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
+    // Объявляем экземпляр класса searchController
+    // Используя параметр nil, результаты поиска будут отображаться в том же окне
+    // Для этого необходимо подписать текущий класс под протокол UISearchResultsUpdating
+    private let searchController = UISearchController(searchResultsController: nil)
+    // Массив для отображения отфильрованных записей
+    private var filteredMedisines: Results<Medicine>!
+    // Вспомагательное свойство для строки поиска. Должна возвращать значение true если строка поиска пустая
+    private var searchBarIsEmpty: Bool {
+        // Безопасно пытаемся извлечь значение
+        guard let text = searchController.searchBar.text else { return false}
+        return text.isEmpty
+    }
+    // Вспомогательное свойство для отслеживания воода текста в поисковую строку
+    private var isFiltering: Bool {
+        // Поисковая строка активирована и не является пустой
+        return searchController.isActive && !searchBarIsEmpty
+    }
     // Объект типа Results это аналог массива Swift
     // Results это автообновляемый тип контейнера, который возвращает запрашиваемые объекты
     // Результаты всегда отображают текущее состояние хранилища в текущем потоке в том числе и во время записи транзакций
     // Этот объектр позволяет работать с данными в реальном времени
     // Данный объект можно использовать так же как массив
     // создаём экземпляр модели
-    var medicines: Results<Medicine>!
+    private var medicines: Results<Medicine>!
     // Вспомогательное свойство для обратной сортировки, по умолчанию сортировка делается по возростанию
-    var ascendingSorted = true
+    private var ascendingSorted = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +61,18 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource {
             // Цвет берется из настройки через интерфейс
             segmentedControl.tintColor = colorSelected
         }
+        
+        // Настройка searchController
+        // Указываем на то, что получателем информации об изменении текста в поисковой строке должен быть наш класс
+        searchController.searchResultsUpdater = self
+        // Позволяет взяимодействовать с новым вью контроллером как с основным и получать доступ к редактированию или удалению. По умолчанию это отключено.
+        searchController.obscuresBackgroundDuringPresentation = false
+        // Присваиваем плейсхолдер для отображения в строке поиска
+        searchController.searchBar.placeholder = "Найти"
+        // Интрегрируем строку поиска в navigationBar
+        navigationItem.searchController = searchController
+        // Отпускаем строку поиска при переходе на другой экран
+        definesPresentationContext = true
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -56,15 +85,33 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource {
 
     // Метод для отображения количества ячеек
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // Выводим ячейки массива в зависимости от количества записей, предусматривая возможную пустую базу данных
-        return medicines.isEmpty ? 0:medicines.count
+        // Логика отображения данных в случае поиска данных пользователем если поисковая строка активна
+        if isFiltering {
+            // Отображаем количество элементов массива filteredPlaces
+            return filteredMedisines.count
+        } else {
+            // Выводим ячейки массива в зависимости от количества записей, предусматривая возможную пустую базу данных
+            return medicines.isEmpty ? 0:medicines.count
+        }
     }
 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Medicines", for: indexPath) as! MedicinesTableViewCell // Кастим до описания стиля ячеек
         
-        let medicine = medicines[indexPath.row]
+        // Экземпляр класса, для написания логики выводимых данных при поиске или без него
+        var medicine = Medicine()
+        
+        // Присваиваем значение в зависимости от активации строки поиска. Либо это будет результат поиска, либо данные из базы данных без фильтрации
+        if isFiltering {
+            // Отключаем панель сортировки, потому что она тут не нужна. Логику работы еще не написал и не буду
+            segmentedControl.isEnabled = false
+            medicine = filteredMedisines[indexPath.row]
+        } else {
+            // Включаем панель сортировка для общего массива
+            segmentedControl.isEnabled = true
+            medicine = medicines[indexPath.row]
+        }
         
         // Конфигурируем стиль ячеек
         cell.backgroundColor = colorBackground // Устанавливаем цвет ячейки из стилей
@@ -175,15 +222,23 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource {
         if segue.identifier == "showDetail" {
             // Извлекаем значение индекса из выбранной ячейки, если оно есть иначе выходим из метода
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            // Экземпляр модели, для фильтрации
+            let medicine: Medicine
+            
             // Извлекаем объект по этому индексу
-            let medicine = medicines[indexPath.row]
+            if isFiltering {
+                medicine = filteredMedisines[indexPath.row]
+            } else {
+                medicine = medicines[indexPath.row]
+            }
+            
             // Создаём экземпляр вью контроллера на который передаём значение, выбирая контроллер назначения принудительно извлекая опционал
             let newMedicinesVC = segue.destination as! NewMedicinesTableViewController
             // Обращаемся к экземпляру контроллера и его свойству, в которое будем передавать значение и присваиваем ему извлеченный по индексу объект
             newMedicinesVC.currentMedicine = medicine
         }
     }
-    
+    // MARK: - Actions
     // Включаем возможность выхода из открывшегося окна обратно на MainView с сохранением данных
     @IBAction func unwindSegue (_ segue: UIStoryboardSegue) {
         // Возвращаем данные полученные с контроллера на котором мы были ранее
@@ -216,9 +271,9 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource {
     // Метод смены способа сортировки
     private func sorting() {
         if segmentedControl.selectedSegmentIndex == 0 {
-            medicines = medicines.sorted(byKeyPath: "name", ascending: ascendingSorted)
-        } else if segmentedControl.selectedSegmentIndex == 1{
             medicines = medicines.sorted(byKeyPath: "date", ascending: ascendingSorted)
+        } else if segmentedControl.selectedSegmentIndex == 1{
+            medicines = medicines.sorted(byKeyPath: "name", ascending: ascendingSorted)
         } else {
             medicines = medicines.sorted(byKeyPath: "expiryDate", ascending: ascendingSorted)
         }
@@ -226,4 +281,27 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource {
         // Обновляем данные в таблице
         tableView.reloadData()
     }
+}
+
+// MARK: - SearchController
+
+// Настройка фильтрации поиска
+extension MedicinesTableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        // Вызываем метод фильтрации, и подставляем в параметр значение поисковой строки
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
+    
+    // Метод для фильтрации контента в соответствии с поисковым запросом
+    private func filterContentForSearchText (_ searchText: String) {
+        // Заполняем коллекцию отфильтрованными объектами из основного массива. Поиск выполняется по двум полям, адресу и имени заведения
+        // Поиск не должен зависеть от регистра символов "CONTAINS[c]"
+        // Выражение означает что мы должны будем волнять поиск по полям name и lokation и фильтровать данные по значению параметра searchText в независимости от регистра символов
+        // Надо разобраться подробнее в документации, как работает такая фильтрация
+        filteredMedisines = medicines.filter("name CONTAINS[c] %@ OR type CONTAINS[c] %@", searchText, searchText)
+        
+        // Обновляем значения табличного представления
+        tableView.reloadData()
+    }
+    
 }
