@@ -265,9 +265,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1es-r0-gwV">
-                                <rect key="frame" x="0.0" y="121" width="414" height="775"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1es-r0-gwV">
+                                <rect key="frame" x="0.0" y="119" width="414" height="777"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Medicines" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Medicines" id="Abf-01-w0t" customClass="MedicinesTableViewCell" customModule="Medicines" customModuleProvider="target">
@@ -332,7 +331,7 @@
                                 </connections>
                             </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Fxk-VN-KOW">
-                                <rect key="frame" x="0.0" y="88" width="414" height="34"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="32"/>
                                 <segments>
                                     <segment title="Имя"/>
                                     <segment title="Добавлено"/>
@@ -349,6 +348,9 @@
                         <constraints>
                             <constraint firstItem="Fxk-VN-KOW" firstAttribute="leading" secondItem="egU-Bd-upW" secondAttribute="leading" id="JX9-Qb-HtG"/>
                             <constraint firstItem="1es-r0-gwV" firstAttribute="top" secondItem="Fxk-VN-KOW" secondAttribute="bottom" id="Pog-cJ-fIH"/>
+                            <constraint firstItem="1es-r0-gwV" firstAttribute="leading" secondItem="egU-Bd-upW" secondAttribute="leading" id="cnb-k4-DCm"/>
+                            <constraint firstItem="1es-r0-gwV" firstAttribute="trailing" secondItem="egU-Bd-upW" secondAttribute="trailing" id="dId-Ps-wQB"/>
+                            <constraint firstAttribute="bottom" secondItem="1es-r0-gwV" secondAttribute="bottom" id="kLu-dg-uQD"/>
                             <constraint firstItem="Fxk-VN-KOW" firstAttribute="top" secondItem="egU-Bd-upW" secondAttribute="top" id="qQS-Xx-rtF"/>
                             <constraint firstItem="Fxk-VN-KOW" firstAttribute="trailing" secondItem="egU-Bd-upW" secondAttribute="trailing" id="w8n-Uq-5mO"/>
                         </constraints>
