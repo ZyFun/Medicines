@@ -73,6 +73,19 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource {
         navigationItem.searchController = searchController
         // Отпускаем строку поиска при переходе на другой экран
         definesPresentationContext = true
+        
+//        // TODO: Welcome window
+//        let userDefaults = UserDefaults.standard
+//
+//        let isFristOpen = userDefaults.bool(forKey: "isFristOpenApp")
+//
+//                if isFristOpen == true {
+//                    if let welcomeController = storyboard?.instantiateViewControllerWithIdentifier("WelcomeController") as? WelcomeController {
+//
+//                        self.presentViewController(welcomeController , animated: true, completion: nil)
+//                    }
+//
+//                }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
