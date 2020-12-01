@@ -4,6 +4,8 @@
 //
 //  Created by Дмитрий Данилин on 17.11.2020.
 //
+//
+// TODO: Возможно стоит доработать код в коммите 5592f31. Было добавлено новое свойство базы данных, (количество лекарств) но из-за небольшого опыта сделал много принудительных извлечений. А так же не знаю как сделать отслеживание нескольких полей одновременно, чтобы не дать сохранить пустое плое. По этому чтобы приложение не падало, добавил только цифровую клавиатуру
 
 import UIKit
 
@@ -98,7 +100,7 @@ class NewMedicinesTableViewController: UITableViewController {
         let imageData = image?.pngData()
         // Присваиваем все введенные свойства для подготовки к сохранению в базу данных
         let newMedicine = Medicine(name: medicinesNameTF.text!,
-                                   type: medicinesTypeTF.text, amount: Int(medicinesAmountTF.text!) ?? 0,
+                                   type: medicinesTypeTF.text, amount: Int(medicinesAmountTF.text!)!,
                                    expiryDate: medicinesExpiryDataTF.text,
                                    imageData: imageData)
         

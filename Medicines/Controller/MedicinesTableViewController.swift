@@ -139,6 +139,7 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource {
         cell.expiryDataLabel.text = medicine.expiryDate
         // Добавляем картинку из массива
         cell.imageMedicines.image = UIImage(data: medicine.imageData!) // Заполняем таблицу изображениями принудительно извлекая их, потому что они никогда не будут пустыми
+        cell.amountLabel.text = "Кол-во: \(medicine.amount)"
         
         /*
         // Пример кода понадобится (чтобы не забыть) когда я буду добавлять разные фотографии для отображения разных изображений лекарств по умолчанию (спрей, таблетка, сироп)

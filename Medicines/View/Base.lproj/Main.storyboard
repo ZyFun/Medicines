@@ -320,23 +320,29 @@
                                                         <constraint firstAttribute="height" constant="65" id="xZM-3g-eZr"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Кол-во:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cdr-LQ-wJy">
+                                                    <rect key="frame" x="298" y="59" width="80" height="18"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="3Jr-HZ-FCY">
-                                                    <rect key="frame" x="96" y="8" width="271" height="69"/>
+                                                    <rect key="frame" x="96" y="8" width="202" height="69"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F57-G0-29z">
-                                                            <rect key="frame" x="0.0" y="0.0" width="271" height="24.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="202" height="24.5"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNf-Px-BJg">
-                                                            <rect key="frame" x="0.0" y="28.5" width="271" height="18"/>
+                                                            <rect key="frame" x="0.0" y="28.5" width="202" height="18"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expiry data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EXh-h7-78T">
-                                                            <rect key="frame" x="0.0" y="50.5" width="271" height="18.5"/>
+                                                            <rect key="frame" x="0.0" y="50.5" width="202" height="18.5"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -346,14 +352,19 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="bDB-K3-KCO" firstAttribute="centerY" secondItem="YTC-WH-ANM" secondAttribute="centerY" id="7rM-cj-WDx"/>
+                                                <constraint firstAttribute="bottom" secondItem="Cdr-LQ-wJy" secondAttribute="bottom" constant="8" id="IaC-bf-3by"/>
                                                 <constraint firstItem="3Jr-HZ-FCY" firstAttribute="top" secondItem="YTC-WH-ANM" secondAttribute="top" constant="8" id="NYl-WI-ar7"/>
                                                 <constraint firstItem="bDB-K3-KCO" firstAttribute="leading" secondItem="YTC-WH-ANM" secondAttribute="leading" constant="15" id="Olj-h3-77B"/>
+                                                <constraint firstAttribute="trailing" secondItem="Cdr-LQ-wJy" secondAttribute="trailing" constant="5" id="QY9-bL-6IW"/>
+                                                <constraint firstItem="Cdr-LQ-wJy" firstAttribute="top" secondItem="YTC-WH-ANM" secondAttribute="top" constant="59" id="S5v-Dk-l20"/>
                                                 <constraint firstAttribute="bottom" secondItem="3Jr-HZ-FCY" secondAttribute="bottom" constant="8" id="ePd-Ow-Utq"/>
+                                                <constraint firstItem="Cdr-LQ-wJy" firstAttribute="leading" secondItem="3Jr-HZ-FCY" secondAttribute="trailing" id="klX-7K-Yfr"/>
                                                 <constraint firstItem="3Jr-HZ-FCY" firstAttribute="leading" secondItem="bDB-K3-KCO" secondAttribute="trailing" constant="16" id="qi7-Jw-3m8"/>
-                                                <constraint firstAttribute="trailing" secondItem="3Jr-HZ-FCY" secondAttribute="trailing" constant="16" id="ySD-MS-1oe"/>
+                                                <constraint firstAttribute="trailing" secondItem="3Jr-HZ-FCY" secondAttribute="trailing" constant="85" id="sF8-Ma-dpL"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="amountLabel" destination="Cdr-LQ-wJy" id="dVP-hc-CjP"/>
                                             <outlet property="expiryDataLabel" destination="EXh-h7-78T" id="P3t-w1-I6N"/>
                                             <outlet property="imageMedicines" destination="bDB-K3-KCO" id="T4B-jo-0jE"/>
                                             <outlet property="nameLabel" destination="F57-G0-29z" id="VGd-A2-M2J"/>
@@ -414,7 +425,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bur-bJ-eBM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="632" y="73"/>
+            <point key="canvasLocation" x="630.43478260869574" y="72.991071428571431"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
