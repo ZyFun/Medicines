@@ -14,3 +14,5 @@ class MedicinesTableViewCell: UITableViewCell {
     @IBOutlet weak var expiryDataLabel: UILabel!
     
 }
+
+// тест для новой ветки
