@@ -12,7 +12,7 @@ import RealmSwift
 class Medicine: Object {
     @objc dynamic var name = ""
     @objc dynamic var type: String?
-    @objc dynamic var amount = Int()
+    @objc dynamic var amount = Int() // по умолчанию присваивается 0?
     @objc dynamic var expiryDate: String?
     @objc dynamic var imageData: Data?
     @objc dynamic var date = Date() // Нужно только для сортировки по дате. Пользователь никак не видит это свойство

@@ -100,7 +100,7 @@ class NewMedicinesTableViewController: UITableViewController {
         let imageData = image?.pngData()
         // Присваиваем все введенные свойства для подготовки к сохранению в базу данных
         let newMedicine = Medicine(name: medicinesNameTF.text!,
-                                   type: medicinesTypeTF.text, amount: Int(medicinesAmountTF.text!)!,
+                                   type: medicinesTypeTF.text, amount: Int(medicinesAmountTF.text!) ?? 0, // TODO: сделать проверку на заполнение текстового поля и не сохранять если оно пустое
                                    expiryDate: medicinesExpiryDataTF.text,
                                    imageData: imageData)
         
