@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+// тест
 class MedicinesTableViewCell: UITableViewCell {
     @IBOutlet weak var imageMedicines: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
