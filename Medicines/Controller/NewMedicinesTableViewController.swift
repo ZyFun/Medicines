@@ -18,6 +18,7 @@ class NewMedicinesTableViewController: UITableViewController {
     @IBOutlet weak var medicinesImageIV: UIImageView!
     @IBOutlet weak var medicinesNameTF: UITextField!
     @IBOutlet weak var medicinesTypeTF: UITextField!
+    @IBOutlet weak var medicinesAmountTF: UITextField!
     @IBOutlet weak var medicinesExpiryDataTF: UITextField!
     
     @IBOutlet weak var saveButtonBBI: UIBarButtonItem!
@@ -97,7 +98,7 @@ class NewMedicinesTableViewController: UITableViewController {
         let imageData = image?.pngData()
         // Присваиваем все введенные свойства для подготовки к сохранению в базу данных
         let newMedicine = Medicine(name: medicinesNameTF.text!,
-                                   type: medicinesTypeTF.text,
+                                   type: medicinesTypeTF.text, amount: Int(medicinesAmountTF.text!) ?? 0,
                                    expiryDate: medicinesExpiryDataTF.text,
                                    imageData: imageData)
         
@@ -109,6 +110,7 @@ class NewMedicinesTableViewController: UITableViewController {
             try! realm.write {
                 currentMedicine?.name = newMedicine.name
                 currentMedicine?.type = newMedicine.type
+                currentMedicine?.amount = newMedicine.amount
                 currentMedicine?.expiryDate = newMedicine.expiryDate
                 currentMedicine?.imageData = newMedicine.imageData
             }
@@ -141,6 +143,7 @@ class NewMedicinesTableViewController: UITableViewController {
             medicinesImageIV.contentMode = .scaleAspectFill // масштабирует изображение по содержимому ImageView
             medicinesNameTF.text = currentMedicine?.name
             medicinesTypeTF.text = currentMedicine?.type
+            medicinesAmountTF.text = String(currentMedicine!.amount)
             medicinesExpiryDataTF.text = currentMedicine?.expiryDate
         }
     }
