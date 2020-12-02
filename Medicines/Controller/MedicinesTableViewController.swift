@@ -187,14 +187,26 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
     // Этим методом можно либо удалять, либо добавлять строки
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
-        // Настраиваем стиль
+        // Экземпляр класса, для написания логики правильного удаления из таблицы базы данных
+        var medicine = Medicine()
+
+        // Настраиваем стиль и правильное удаление ячейки, в зависимости от того, фильтруется она или нет
         if editingStyle == .delete {
-            // создаём объект для удаления из массива
-            let medicine = medicines[indexPath.row]
-            // Вызываем действие удаления из базы
-            StorageManager.deleteObject(medicine)
-            // Удаляем строку из приложения
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+            if isFiltering {
+                // создаём объект для удаления из особого массива с фильтрацией
+                medicine = filteredMedisines[indexPath.row]
+                // Вызываем действие удаления из базы
+                StorageManager.deleteObject(medicine)
+                // Удаляем строку из приложения
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            } else {
+                // создаём объект для удаления из массива
+                medicine = medicines[indexPath.row]
+                // Вызываем действие удаления из базы
+                StorageManager.deleteObject(medicine)
+                // Удаляем строку из приложения
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
         }
     }
 
