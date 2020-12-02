@@ -320,29 +320,29 @@
                                                         <constraint firstAttribute="height" constant="65" id="xZM-3g-eZr"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Кол-во:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cdr-LQ-wJy">
-                                                    <rect key="frame" x="298" y="59" width="80" height="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999 шт" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cdr-LQ-wJy">
+                                                    <rect key="frame" x="328" y="59" width="50" height="18"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="3Jr-HZ-FCY">
-                                                    <rect key="frame" x="96" y="8" width="202" height="69"/>
+                                                    <rect key="frame" x="96" y="8" width="232" height="69"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F57-G0-29z">
-                                                            <rect key="frame" x="0.0" y="0.0" width="202" height="24.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="232" height="24.5"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNf-Px-BJg">
-                                                            <rect key="frame" x="0.0" y="28.5" width="202" height="18"/>
+                                                            <rect key="frame" x="0.0" y="28.5" width="232" height="18"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expiry data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EXh-h7-78T">
-                                                            <rect key="frame" x="0.0" y="50.5" width="202" height="18.5"/>
+                                                            <rect key="frame" x="0.0" y="50.5" width="232" height="18.5"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -360,7 +360,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="3Jr-HZ-FCY" secondAttribute="bottom" constant="8" id="ePd-Ow-Utq"/>
                                                 <constraint firstItem="Cdr-LQ-wJy" firstAttribute="leading" secondItem="3Jr-HZ-FCY" secondAttribute="trailing" id="klX-7K-Yfr"/>
                                                 <constraint firstItem="3Jr-HZ-FCY" firstAttribute="leading" secondItem="bDB-K3-KCO" secondAttribute="trailing" constant="16" id="qi7-Jw-3m8"/>
-                                                <constraint firstAttribute="trailing" secondItem="3Jr-HZ-FCY" secondAttribute="trailing" constant="85" id="sF8-Ma-dpL"/>
+                                                <constraint firstAttribute="trailing" secondItem="3Jr-HZ-FCY" secondAttribute="trailing" constant="55" id="sF8-Ma-dpL"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
