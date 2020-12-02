@@ -8,7 +8,7 @@
 import UIKit
 import RealmSwift
 
-class MedicinesTableViewController: UIViewController, UITableViewDataSource {
+class MedicinesTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var reversedSortingBBI: UIBarButtonItem!
@@ -157,6 +157,11 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource {
     }
     
     //MARK: - Table view delegate
+    
+    //Отменяем выделение ячейки при возврате на предыдущий экран
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
     
     /*
     // Метод позволяет настроить пользовательские действия, при свайпе ячейки с права на лево

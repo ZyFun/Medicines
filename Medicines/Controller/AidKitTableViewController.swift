@@ -88,6 +88,13 @@ class AidKitTableViewController: UITableViewController {
         return true
     }
     */
+    
+    // MARK: Table view delegate
+    
+    // Отменяем выделение ячейки при возврате на предыдущий экран
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 
     /*
     // MARK: - Navigation
