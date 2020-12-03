@@ -1,5 +1,5 @@
 //
-//  LearningManager.swift
+//  FirstStartManager.swift
 //  Medicines
 //
 //  Created by Дмитрий Данилин on 23.11.2020.
@@ -16,7 +16,7 @@ func learningNewObjectGet() {
     if learningMedicines.isEmpty {
         let image = UIImage(named: "noImage")
         let imageData = image?.pngData()
-        let lerning = Medicine(name: "Поменяйте на своё лекарство", type: "Тестовый", amount: 1, expiryDate: "21.12.2020", imageData: imageData)
+        let lerning = Medicine(name: "Лекарство", type: "Тестовое", amount: 1, expiryDate: "21.12.2020", imageData: imageData)
         StorageManager.saveObject(lerning)
     }
 }

@@ -17,7 +17,7 @@
 		2C07CEC3255D82A400735F5C /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C07CEC2255D82A400735F5C /* Style.swift */; };
 		2C36BABB256BD5260046BC0A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2C36BABA256BD5260046BC0A /* .gitignore */; };
 		2C36BABE256BDBAD0046BC0A /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C36BABD256BDBAD0046BC0A /* StorageManager.swift */; };
-		2C806BAB256C24CD00A36EF1 /* LearningManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C806BAA256C24CD00A36EF1 /* LearningManager.swift */; };
+		2C806BAB256C24CD00A36EF1 /* FirstStartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C806BAA256C24CD00A36EF1 /* FirstStartManager.swift */; };
 		2CA791FA2563F0D100A7649E /* NewMedicinesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA791F92563F0D100A7649E /* NewMedicinesTableViewController.swift */; };
 		2CDAF628255EC5BC0034880F /* MedicinesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDAF627255EC5BC0034880F /* MedicinesTableViewCell.swift */; };
 		2CFCD5032562ECAB002E0942 /* ModelMedicines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFCD5022562ECAB002E0942 /* ModelMedicines.swift */; };
@@ -37,7 +37,7 @@
 		2C07CEC2255D82A400735F5C /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		2C36BABA256BD5260046BC0A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		2C36BABD256BDBAD0046BC0A /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
-		2C806BAA256C24CD00A36EF1 /* LearningManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningManager.swift; sourceTree = "<group>"; };
+		2C806BAA256C24CD00A36EF1 /* FirstStartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstStartManager.swift; sourceTree = "<group>"; };
 		2C9C317425641BA9009E9BEC /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		2C9C317525641BA9009E9BEC /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		2CA791F92563F0D100A7649E /* NewMedicinesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMedicinesTableViewController.swift; sourceTree = "<group>"; };
@@ -119,7 +119,7 @@
 				2C07CEBF255D7B7100735F5C /* MedicinesTableViewController.swift */,
 				2CA791F92563F0D100A7649E /* NewMedicinesTableViewController.swift */,
 				2C36BABD256BDBAD0046BC0A /* StorageManager.swift */,
-				2C806BAA256C24CD00A36EF1 /* LearningManager.swift */,
+				2C806BAA256C24CD00A36EF1 /* FirstStartManager.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -266,7 +266,7 @@
 				2CDAF628255EC5BC0034880F /* MedicinesTableViewCell.swift in Sources */,
 				2C07CEA7255D795000735F5C /* SceneDelegate.swift in Sources */,
 				2C07CEC3255D82A400735F5C /* Style.swift in Sources */,
-				2C806BAB256C24CD00A36EF1 /* LearningManager.swift in Sources */,
+				2C806BAB256C24CD00A36EF1 /* FirstStartManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
