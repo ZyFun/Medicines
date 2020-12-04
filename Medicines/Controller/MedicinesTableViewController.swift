@@ -103,8 +103,8 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
             // Отображаем количество элементов массива filteredPlaces
             return filteredMedisines.count
         } else {
-            // Выводим ячейки массива в зависимости от количества записей, предусматривая возможную пустую базу данных
-            return medicines.isEmpty ? 0:medicines.count
+            // Выводим ячейки массива в зависимости от количества записей
+            return medicines.count
         }
     }
 
@@ -112,7 +112,7 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Medicines", for: indexPath) as! MedicinesTableViewCell // Кастим до описания стиля ячеек
         
-        // Экземпляр класса, для написания логики выводимых данных при поиске или без него
+        // Экземпляр класса, для написания логики выводимых данных при поиске или без него и для активации/девктивации Segmented Control
         var medicine = Medicine()
         
         // Присваиваем значение в зависимости от активации строки поиска. Либо это будет результат поиска, либо данные из базы данных без фильтрации
@@ -142,17 +142,13 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
         cell.amountLabel.text = "\(medicine.amount) шт"
         
         /*
-        // Пример кода понадобится (чтобы не забыть) когда я буду добавлять разные фотографии для отображения разных изображений лекарств по умолчанию (спрей, таблетка, сироп)
+        // TODO: Пример кода понадобится (чтобы не забыть) когда я буду добавлять разные фотографии для отображения разных изображений лекарств по умолчанию (спрей, таблетка, сироп)
         if medicine.image == nil {
             cell.imageMedicines.image = UIImage(named: medicine.imageTest!) // если тестовый массив, то бращаемся к изображению соотнося имя файла с именем массива (тестовый вариант массива)
         } else {
             cell.imageMedicines.image = medicine.image // Присваиваем добавленное изображение (основной вариант)
         }
         */
-        
-        cell.imageMedicines.layer.cornerRadius = 20 //cell.frame.size.height / 2 // Скругляем края
-        cell.clipsToBounds = true // Обрезаем для скругления
-
         return cell
     }
     
@@ -253,16 +249,8 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
         if segue.identifier == "showDetail" {
             // Извлекаем значение индекса из выбранной ячейки, если оно есть иначе выходим из метода
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
-            // Экземпляр модели, для фильтрации
-            let medicine: Medicine
-            
-            // Извлекаем объект по этому индексу
-            if isFiltering {
-                medicine = filteredMedisines[indexPath.row]
-            } else {
-                medicine = medicines[indexPath.row]
-            }
-            
+            // Извлекаем объект по этому индексу с фильтрацией
+            let medicine = isFiltering ? filteredMedisines[indexPath.row] : medicines[indexPath.row]
             // Создаём экземпляр вью контроллера на который передаём значение, выбирая контроллер назначения принудительно извлекая опционал
             let newMedicinesVC = segue.destination as! NewMedicinesTableViewController
             // Обращаемся к экземпляру контроллера и его свойству, в которое будем передавать значение и присваиваем ему извлеченный по индексу объект

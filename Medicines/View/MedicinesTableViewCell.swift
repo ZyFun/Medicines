@@ -8,7 +8,12 @@
 import UIKit
 
 class MedicinesTableViewCell: UITableViewCell {
-    @IBOutlet weak var imageMedicines: UIImageView!
+    @IBOutlet weak var imageMedicines: UIImageView! {
+        didSet{
+            imageMedicines.layer.cornerRadius = 20 //frame.size.height / 2 // Скругляем края
+            clipsToBounds = true // Обрезаем для скругления
+        }
+    }
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var expiryDataLabel: UILabel!
