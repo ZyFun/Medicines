@@ -14,7 +14,7 @@
 		2C07CEB1255D795200735F5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C07CEAF255D795200735F5C /* LaunchScreen.storyboard */; };
 		2C07CEBC255D7B3700735F5C /* AidKitTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C07CEBB255D7B3700735F5C /* AidKitTableViewController.swift */; };
 		2C07CEC0255D7B7200735F5C /* MedicinesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C07CEBF255D7B7100735F5C /* MedicinesTableViewController.swift */; };
-		2C07CEC3255D82A400735F5C /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C07CEC2255D82A400735F5C /* Style.swift */; };
+		2C07CEC3255D82A400735F5C /* StyleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C07CEC2255D82A400735F5C /* StyleManager.swift */; };
 		2C36BABB256BD5260046BC0A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2C36BABA256BD5260046BC0A /* .gitignore */; };
 		2C36BABE256BDBAD0046BC0A /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C36BABD256BDBAD0046BC0A /* StorageManager.swift */; };
 		2C806BAB256C24CD00A36EF1 /* FirstStartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C806BAA256C24CD00A36EF1 /* FirstStartManager.swift */; };
@@ -34,7 +34,7 @@
 		2C07CEB2255D795200735F5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C07CEBB255D7B3700735F5C /* AidKitTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AidKitTableViewController.swift; sourceTree = "<group>"; };
 		2C07CEBF255D7B7100735F5C /* MedicinesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicinesTableViewController.swift; sourceTree = "<group>"; };
-		2C07CEC2255D82A400735F5C /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		2C07CEC2255D82A400735F5C /* StyleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleManager.swift; sourceTree = "<group>"; };
 		2C36BABA256BD5260046BC0A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		2C36BABD256BDBAD0046BC0A /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		2C806BAA256C24CD00A36EF1 /* FirstStartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstStartManager.swift; sourceTree = "<group>"; };
@@ -60,6 +60,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C04688E2583BBF700814792 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				2C806BAA256C24CD00A36EF1 /* FirstStartManager.swift */,
+				2C36BABD256BDBAD0046BC0A /* StorageManager.swift */,
+				2C07CEC2255D82A400735F5C /* StyleManager.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		2C04688F2583BC8A00814792 /* IBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				2C07CEAA255D795000735F5C /* Main.storyboard */,
+				2C07CEAF255D795200735F5C /* LaunchScreen.storyboard */,
+			);
+			path = IBuilder;
+			sourceTree = "<group>";
+		};
+		2C0468902583BCD000814792 /* Supporting File */ = {
+			isa = PBXGroup;
+			children = (
+				2C07CEA4255D795000735F5C /* AppDelegate.swift */,
+				2C07CEA6255D795000735F5C /* SceneDelegate.swift */,
+				2C07CEAD255D795200735F5C /* Assets.xcassets */,
+				2C07CEB2255D795200735F5C /* Info.plist */,
+			);
+			path = "Supporting File";
+			sourceTree = "<group>";
+		};
 		2C07CE98255D795000735F5C = {
 			isa = PBXGroup;
 			children = (
@@ -83,12 +113,10 @@
 			isa = PBXGroup;
 			children = (
 				2CA791FC2563F0E400A7649E /* Model */,
-				2CA791FD2563F0F000A7649E /* View */,
-				2CA791FE2563F0F900A7649E /* Controller */,
-				2C07CEA4255D795000735F5C /* AppDelegate.swift */,
-				2C07CEA6255D795000735F5C /* SceneDelegate.swift */,
-				2C07CEAD255D795200735F5C /* Assets.xcassets */,
-				2C07CEB2255D795200735F5C /* Info.plist */,
+				2CA791FE2563F0F900A7649E /* ViewControllers */,
+				2C04688E2583BBF700814792 /* Helpers */,
+				2C0468902583BCD000814792 /* Supporting File */,
+				2C04688F2583BC8A00814792 /* IBuilder */,
 			);
 			path = Medicines;
 			sourceTree = "<group>";
@@ -97,31 +125,19 @@
 			isa = PBXGroup;
 			children = (
 				2CFCD5022562ECAB002E0942 /* ModelMedicines.swift */,
-				2C07CEC2255D82A400735F5C /* Style.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		2CA791FD2563F0F000A7649E /* View */ = {
-			isa = PBXGroup;
-			children = (
-				2CDAF627255EC5BC0034880F /* MedicinesTableViewCell.swift */,
-				2C07CEAF255D795200735F5C /* LaunchScreen.storyboard */,
-				2C07CEAA255D795000735F5C /* Main.storyboard */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		2CA791FE2563F0F900A7649E /* Controller */ = {
+		2CA791FE2563F0F900A7649E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				2C07CEBB255D7B3700735F5C /* AidKitTableViewController.swift */,
+				2CDAF627255EC5BC0034880F /* MedicinesTableViewCell.swift */,
 				2C07CEBF255D7B7100735F5C /* MedicinesTableViewController.swift */,
 				2CA791F92563F0D100A7649E /* NewMedicinesTableViewController.swift */,
-				2C36BABD256BDBAD0046BC0A /* StorageManager.swift */,
-				2C806BAA256C24CD00A36EF1 /* FirstStartManager.swift */,
 			);
-			path = Controller;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		31E1DFA6BAB231E9191B2CD3 /* Pods */ = {
@@ -265,7 +281,7 @@
 				2C07CEA5255D795000735F5C /* AppDelegate.swift in Sources */,
 				2CDAF628255EC5BC0034880F /* MedicinesTableViewCell.swift in Sources */,
 				2C07CEA7255D795000735F5C /* SceneDelegate.swift in Sources */,
-				2C07CEC3255D82A400735F5C /* Style.swift in Sources */,
+				2C07CEC3255D82A400735F5C /* StyleManager.swift in Sources */,
 				2C806BAB256C24CD00A36EF1 /* FirstStartManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -421,7 +437,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B66N983M7Q;
-				INFOPLIST_FILE = Medicines/Info.plist;
+				INFOPLIST_FILE = "Medicines/Supporting File/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -444,7 +460,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B66N983M7Q;
-				INFOPLIST_FILE = Medicines/Info.plist;
+				INFOPLIST_FILE = "Medicines/Supporting File/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
