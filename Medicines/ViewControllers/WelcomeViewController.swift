@@ -52,7 +52,7 @@ class WelcomeViewController: UIViewController {
             // Конфигурируем расположение лейбла
             let titleLabel = UILabel(frame: CGRect(x: 10, y: 10, width: pageView.frame.size.width - 20, height: 120))
             let descriptionLabel = UILabel(frame: CGRect(x: 10, y: 0, width: pageView.frame.size.width - 20, height: pageView.frame.size.height - 60 - 130 - 15))
-            let buttonNext = UIButton(frame: CGRect(x: pageView.frame.size.width / 4.2, y: pageView.frame.size.height - 100, width: pageView.frame.size.width - 200, height: 50))
+            let buttonNext = UIButton(frame: CGRect(x: 100, y: pageView.frame.size.height - 100, width: pageView.frame.size.width - 200, height: 50))
             
             // Конфигурируем параметры свойств
             titleLabel.textAlignment = .center
