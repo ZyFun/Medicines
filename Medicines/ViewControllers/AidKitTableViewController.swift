@@ -130,7 +130,6 @@ class AidKitTableViewController: UITableViewController {
 
 //MARK: - Логика окна приветствия
 // Логика всплывающего окна приветствия
-// Надо разобраться с его работой
 class Core {
     static let shared = Core()
     
