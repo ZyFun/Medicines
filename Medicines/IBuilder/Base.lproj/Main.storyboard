@@ -51,43 +51,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IMl-fX-xSc">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Приветствие" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6u-Tz-vlC">
-                                        <rect key="frame" x="0.0" y="16" width="414" height="41"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="35"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="текст" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yQ1-0E-8Nm">
-                                        <rect key="frame" x="16" y="93" width="382" height="27"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="23"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TKj-51-TdM">
-                                        <rect key="frame" x="107" y="768" width="200" height="42"/>
-                                        <color key="backgroundColor" red="0.43529411759999997" green="0.69411764710000001" blue="0.60392156860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Далее"/>
-                                        <connections>
-                                            <action selector="tapNextButton:" destination="U1R-yr-3WH" eventType="touchUpInside" id="MP8-17-WRf"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="yQ1-0E-8Nm" firstAttribute="top" secondItem="Z6u-Tz-vlC" secondAttribute="bottom" constant="36" id="1CT-V9-AuY"/>
-                                    <constraint firstItem="yQ1-0E-8Nm" firstAttribute="leading" secondItem="IMl-fX-xSc" secondAttribute="leading" constant="16" id="6ja-Bx-Fwu"/>
-                                    <constraint firstAttribute="bottom" secondItem="TKj-51-TdM" secondAttribute="bottom" constant="8" id="7Jv-Pa-P38"/>
-                                    <constraint firstItem="TKj-51-TdM" firstAttribute="leading" relation="lessThanOrEqual" secondItem="IMl-fX-xSc" secondAttribute="leading" constant="107" id="7ox-hf-jZY"/>
-                                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="TKj-51-TdM" secondAttribute="trailing" constant="107" id="8G3-Qu-IXV"/>
-                                    <constraint firstAttribute="trailing" secondItem="Z6u-Tz-vlC" secondAttribute="trailing" id="CJN-ac-6b4"/>
-                                    <constraint firstItem="Z6u-Tz-vlC" firstAttribute="top" secondItem="IMl-fX-xSc" secondAttribute="top" constant="16" id="S3a-dQ-D4l"/>
-                                    <constraint firstItem="Z6u-Tz-vlC" firstAttribute="leading" secondItem="IMl-fX-xSc" secondAttribute="leading" id="d0u-Cl-ddl"/>
-                                    <constraint firstAttribute="trailing" secondItem="yQ1-0E-8Nm" secondAttribute="trailing" constant="16" id="jjP-qx-nfg"/>
-                                    <constraint firstItem="TKj-51-TdM" firstAttribute="top" relation="lessThanOrEqual" secondItem="yQ1-0E-8Nm" secondAttribute="bottom" constant="648" id="uDa-95-cae"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PjH-ho-gdd"/>
@@ -100,10 +64,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="descriptionLabel" destination="yQ1-0E-8Nm" id="p9H-pV-9SV"/>
                         <outlet property="holderView" destination="IMl-fX-xSc" id="dOB-rw-HTL"/>
-                        <outlet property="nextButton" destination="TKj-51-TdM" id="3JE-mW-2g3"/>
-                        <outlet property="titleLabel" destination="Z6u-Tz-vlC" id="JeV-I4-QiW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wlR-CR-2In" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

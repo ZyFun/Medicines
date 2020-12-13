@@ -9,13 +9,14 @@ import UIKit
 
 class WelcomeViewController: UIViewController {
 
-    @IBOutlet var holderView: UIView!
+    @IBOutlet weak var holderView: UIView!
     
     let scrollView = UIScrollView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = colorBackground
     }
     
     override func viewDidLayoutSubviews() {
@@ -29,11 +30,17 @@ class WelcomeViewController: UIViewController {
         scrollView.frame = holderView.bounds
         // Добавляем прокрутку
         holderView.addSubview(scrollView)
+        holderView.backgroundColor = colorBackground
         
         // Массив для перебора заголовков у окна
-        let titles = ["Привет!", "Лекарства", "Roadmap"]
-        // массив для содежимого описания
-        let subs = ["ВО первых", "во вторых", "Планы"]
+        let titles = ["Привет!", "Лекарства", "Планы"]
+        // Массив c описанием программы
+        let subs = [
+            "Спасибо за установку моего приложения! Надеюсь что оно поможет тебе поддерживать свою аптечку и хранящиеся в ней лекарства в актуальном состоянии.",
+            "Это приложение поможет тебе при покупке новых лекарств, к примеру выписали новые лекарства, и уже по дороге домой, можно посмотреть, а есть ли подобные в аптечке или стоит купить новые",
+            "В будующем планируется много дополнений, если у тебя есть идеи по доработке, обязательно пиши об этом в отзывах. Учту всё и постараюсь сделать по твоим пожеланиям. \n\nНа данный момент это самая первая версия приложения и оно будет развиваться. Добавятся новые функции и со временем сделаю более красивый дизайн. Сейчас работа больше идет над функционалом. Я только учусь и твой отзыв только поможет мне в этом не лёгком деле 🤓"
+        ]
+        
         // Делаем цикл переборки наших экранов с информацией
         for x in 0..<3 {
             // Задаём координаты отображения окна информации
@@ -42,29 +49,31 @@ class WelcomeViewController: UIViewController {
             scrollView.addSubview(pageView)
             
             // Настраиваем, что показывать в окне
-            // TODO: Впихнуть сюда свой текст, а пока возьму из примера. Я буду конфигурировать всё это не в коде. А может так и оставлю.
             // Конфигурируем расположение лейбла
-            let label = UILabel(frame: CGRect(x: 10, y: 10, width: pageView.frame.size.width - 20, height: 120))
-            let textView = UITextView(frame: CGRect(x: 10, y: 10 + 120 + 10, width: pageView.frame.size.width - 20, height: pageView.frame.size.height - 60 - 130 - 15))
-            let buttonNext = UIButton(frame: CGRect(x: 10, y: pageView.frame.size.height - 60, width: pageView.frame.size.width - 20, height: 50))
+            let titleLabel = UILabel(frame: CGRect(x: 10, y: 10, width: pageView.frame.size.width - 20, height: 120))
+            let descriptionLabel = UILabel(frame: CGRect(x: 10, y: 0, width: pageView.frame.size.width - 20, height: pageView.frame.size.height - 60 - 130 - 15))
+            let buttonNext = UIButton(frame: CGRect(x: pageView.frame.size.width / 4.2, y: pageView.frame.size.height - 100, width: pageView.frame.size.width - 200, height: 50))
             
             // Конфигурируем параметры свойств
-            label.textAlignment = .center
+            titleLabel.textAlignment = .center
             // Задаём стиль текста
-            label.font = UIFont(name: "Helvetica-Bool", size: 50)
-            // Добавляем лейбл на окно
-            pageView.addSubview(label)
+            titleLabel.font = UIFont(name: "HelveticaNeue", size: 35)
             // Вносим заголовки из массива
-            label.text = titles[x]
+            titleLabel.text = titles[x]
+            // Добавляем лейбл на окно
+            pageView.addSubview(titleLabel)
             
             // Конфигурируем описание
-            textView.textAlignment = .center
-            textView.text = subs[x]
-            pageView.addSubview(textView)
+            descriptionLabel.textAlignment = .justified
+            descriptionLabel.text = subs[x]
+            descriptionLabel.font = UIFont(name: "HelveticaNeue", size: 18)
+            descriptionLabel.numberOfLines = 0
+            pageView.addSubview(descriptionLabel)
 
             // Конфигурируем кнопку
-            buttonNext.setTitleColor(.white, for: .normal)
-            buttonNext.backgroundColor = .black
+            buttonNext.setTitleColor(.black, for: .normal)
+            buttonNext.backgroundColor = colorSelected
+            buttonNext.layer.cornerRadius = 25
             buttonNext.setTitle("Дальше", for: .normal)
             // настраиваем заголовок для последней кнопки
             if x == 2 {
@@ -76,7 +85,7 @@ class WelcomeViewController: UIViewController {
             pageView.addSubview(buttonNext)
         }
         
-        scrollView.contentSize = CGSize(width: holderView.frame.size.width, height: 0 )
+        scrollView.contentSize = CGSize(width: holderView.frame.size.width, height: 0)
         scrollView.isPagingEnabled = true
     }
     
