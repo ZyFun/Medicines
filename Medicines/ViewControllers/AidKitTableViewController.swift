@@ -28,7 +28,7 @@ class AidKitTableViewController: UITableViewController {
     // MARK: - Всплывающее окно приветствия
     // TODO: Узнать, зачем помещать не связанное окно приветствия именно в этот метод
     override func viewDidAppear(_ animated: Bool) {
-        if Core.shared.isNewUser() {
+        if FirstStartApp.shared.isNewUser() {
             // Показываем окно приветствия
             if #available(iOS 13.0, *) {
                 let vc = storyboard?.instantiateViewController(identifier: "welcome") as! WelcomeViewController
@@ -126,18 +126,4 @@ class AidKitTableViewController: UITableViewController {
     }
     */
 
-}
-
-//MARK: - Логика окна приветствия
-// Логика всплывающего окна приветствия
-class Core {
-    static let shared = Core()
-    
-    func isNewUser() -> Bool{
-        return !UserDefaults.standard.bool(forKey: "isNewUser")
-    }
-    
-    func setIsNotNewUser(){
-        UserDefaults.standard.set(true, forKey: "isNewUser")
-    }
 }

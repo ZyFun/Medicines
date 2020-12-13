@@ -47,8 +47,11 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
         // Инициализируем переменную с объектами базы данных и делаем запрос этих объектов из базы данных
         medicines = realm.objects(Medicine.self) // Medicine.self мы пишем, потому что подразумеваем не саму модель данных, а именно тип Medicine
         
-        // TODO: Временное решение. Создаётся новый объект при пустой базе данных для обучения пользователя
-        learningNewObjectGet()
+        // Создаётся пример объекта при мервом запуске приложения, и если база пустая
+        if FirstStartApp.shared.isFirstOpenAidKit() {
+            learningNewObjectGet()
+            FirstStartApp.shared.setIsNotFirstOpenAidKit()
+        }
         
         //Конфигурируем стиль таблицы
 //        self.tableView.tableFooterView = UIView() // Удаляем разделители ячеек

@@ -93,7 +93,7 @@ class WelcomeViewController: UIViewController {
     @objc func didTapButton(_ button: UIButton) {
         guard button.tag < 3 else {
             // Устанавливаем метку, что пользователь больше не является новым
-            Core.shared.setIsNotNewUser()
+            FirstStartApp.shared.setIsNotNewUser()
             dismiss(animated: true, completion: nil)
             return
         }
