@@ -24,6 +24,26 @@ class AidKitTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    // MARK: - Всплывающее окно приветствия
+    // TODO: Узнать, зачем помещать не связанное окно приветствия именно в этот метод
+    override func viewDidAppear(_ animated: Bool) {
+        if Core.shared.isNewUser() {
+            // Показываем окно приветствия
+            if #available(iOS 13.0, *) {
+                let vc = storyboard?.instantiateViewController(identifier: "welcome") as! WelcomeViewController
+                // Показываем контроллер приветствия в полный экран, чтобы пользователь не мог закрыть окно и прошел всё описание приложения
+                vc.modalPresentationStyle = .fullScreen
+                present(vc, animated: true, completion: nil)
+            } else {
+                // Отображение для старых версий
+                let vc = storyboard?.instantiateViewController(withIdentifier: "welcome") as! WelcomeViewController
+                vc.modalPresentationStyle = .fullScreen
+                present(vc, animated: true, completion: nil)
+            }
+        }
+    }
+    
 
     // MARK: - Table view data source
 
@@ -106,4 +126,19 @@ class AidKitTableViewController: UITableViewController {
     }
     */
 
+}
+
+//MARK: - Логика окна приветствия
+// Логика всплывающего окна приветствия
+// Надо разобраться с его работой
+class Core {
+    static let shared = Core()
+    
+    func isNewUser() -> Bool{
+        return !UserDefaults.standard.bool(forKey: "isNewUser")
+    }
+    
+    func setIsNotNewUser(){
+        UserDefaults.standard.set(true, forKey: "isNewUser")
+    }
 }

@@ -47,7 +47,7 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
         // Инициализируем переменную с объектами базы данных и делаем запрос этих объектов из базы данных
         medicines = realm.objects(Medicine.self) // Medicine.self мы пишем, потому что подразумеваем не саму модель данных, а именно тип Medicine
         
-        // Временное решение. Создаётся новый объект при пустой базе данных для обучения пользователя
+        // TODO: Временное решение. Создаётся новый объект при пустой базе данных для обучения пользователя
         learningNewObjectGet()
         
         //Конфигурируем стиль таблицы
@@ -73,25 +73,6 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
         navigationItem.searchController = searchController
         // Отпускаем строку поиска при переходе на другой экран
         definesPresentationContext = true
-        
-//        // TODO: Welcome window
-//        let userDefaults = UserDefaults.standard
-//
-//        let isFristOpen = userDefaults.bool(forKey: "isFristOpenApp")
-//
-//                if isFristOpen == true {
-//                    if let welcomeController = storyboard?.instantiateViewControllerWithIdentifier("WelcomeController") as? WelcomeController {
-//
-//                        self.presentViewController(welcomeController , animated: true, completion: nil)
-//                    }
-//
-//                }
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
