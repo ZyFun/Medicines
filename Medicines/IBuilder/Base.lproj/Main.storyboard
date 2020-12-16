@@ -202,21 +202,30 @@
                                                         </textField>
                                                     </subviews>
                                                 </stackView>
-                                                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="300" translatesAutoresizingMaskIntoConstraints="NO" id="bAb-FK-XaP">
+                                                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="999" translatesAutoresizingMaskIntoConstraints="NO" id="bAb-FK-XaP">
                                                     <rect key="frame" x="300" y="43" width="94" height="32"/>
                                                     <connections>
                                                         <action selector="stepMedicineCount:" destination="SAs-er-Sii" eventType="valueChanged" id="SUl-I2-G32"/>
                                                     </connections>
                                                 </stepper>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-/+ 0.5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D69-c6-zMq">
+                                                    <rect key="frame" x="300" y="5" width="94" height="30"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="vK8-Z1-B39" secondAttribute="bottom" constant="4" id="C4V-vd-4Aa"/>
                                                 <constraint firstItem="vK8-Z1-B39" firstAttribute="leading" secondItem="EO7-NJ-J0j" secondAttribute="leading" constant="16" id="D5J-QR-dJO"/>
+                                                <constraint firstItem="D69-c6-zMq" firstAttribute="leading" secondItem="vK8-Z1-B39" secondAttribute="trailing" constant="0.5" id="Ep2-J4-q6u"/>
                                                 <constraint firstAttribute="bottom" secondItem="bAb-FK-XaP" secondAttribute="bottom" id="EsW-Qa-NKA"/>
+                                                <constraint firstAttribute="trailing" secondItem="D69-c6-zMq" secondAttribute="trailing" constant="20" symbolic="YES" id="VtZ-Tz-fWf"/>
+                                                <constraint firstItem="D69-c6-zMq" firstAttribute="top" secondItem="EO7-NJ-J0j" secondAttribute="top" constant="5" id="Z5v-el-IN7"/>
                                                 <constraint firstAttribute="trailing" secondItem="bAb-FK-XaP" secondAttribute="trailing" constant="20" symbolic="YES" id="gV6-Sv-Ci3"/>
                                                 <constraint firstItem="vK8-Z1-B39" firstAttribute="top" secondItem="EO7-NJ-J0j" secondAttribute="top" constant="8" id="htF-aJ-iTQ"/>
                                                 <constraint firstItem="bAb-FK-XaP" firstAttribute="leading" secondItem="vK8-Z1-B39" secondAttribute="trailing" constant="0.5" id="oIY-qF-Y4M"/>
-                                                <constraint firstItem="bAb-FK-XaP" firstAttribute="top" secondItem="EO7-NJ-J0j" secondAttribute="top" constant="43" id="x8a-Pu-5ln"/>
+                                                <constraint firstItem="bAb-FK-XaP" firstAttribute="top" secondItem="D69-c6-zMq" secondAttribute="bottom" constant="8" symbolic="YES" id="ss3-IP-2ua"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.40784313729999999" green="0.81568627449999997" blue="0.68235294120000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -290,7 +299,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ctk-nV-Duu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="gal-HI-EMf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1399" y="73"/>
+            <point key="canvasLocation" x="1398.5507246376812" y="72.991071428571431"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="F7M-79-wPx">

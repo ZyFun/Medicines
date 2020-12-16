@@ -48,11 +48,17 @@ class NewMedicinesTableViewController: UITableViewController {
         // Отслеживаем передачу данных с одного контроллерана на другой, и передаём значения если условия совпали
         setupEditScreen()
         
+        // Устанавливаем делегата для отслеживания количества введенных символов
+        medicinesAmountTF.delegate = self
+        
         // MARK: - Stepper Medicine stup
         // Извлекаем данные из поля, чтобы синхронизировать их со значением степпера
         stepMedicine.value = Double(medicinesAmountTF.text!) ?? 0
         // Задаём шаги, с которыми будет прибавляться или убавляться значение
         stepMedicine.stepValue = 0.5
+        // Минимальное и максимальное возможное значение
+        stepMedicine.minimumValue = 0
+        stepMedicine.maximumValue = 999
     }
 
     // MARK: - TableView Delegate
@@ -198,6 +204,47 @@ extension NewMedicinesTableViewController: UITextFieldDelegate {
             saveButtonBBI.isEnabled = false // Если пустое, кнопка не активна
         }
     }
+    
+    // Функция для ограничения ввода символов в поле ввода количества лекарств
+    // TODO: разобраться подробнее, как работает этот кусок кода)
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+
+        // Прверка для ограничения только одного поля ввода
+        if textField == medicinesAmountTF {
+            let currentCharacterCount = textField.text?.count ?? 0
+
+            if (range.length + range.location > currentCharacterCount){
+                return false
+            }
+
+            let newLength = currentCharacterCount + string.count - range.length
+
+            var maxLength = 0
+            if textField.isEqual(medicinesAmountTF) {
+                maxLength = 5
+            }
+            return newLength <= maxLength
+        }
+        return true
+    }
+    
+    /* TODO: Не могу определится какую функцию лучше использовать в моём случае. По идее эта более оптимальная, но нужны дополнительные проверки
+    // Функция для ограничения максимального количества в поле количества лекарств
+    // TODO: разобраться подробнее, как работает этот кусок кода)
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        // Прверка для ограничения только одного поля ввода
+        if textField == medicinesAmountTF {
+            let newText = NSString(string: textField.text!).replacingCharacters(in: range, with: string)
+            if newText.isEmpty {
+            return true
+            } else if let intValue = Double(newText), intValue <= 999 {
+                return true
+            }
+            return false
+        }
+        return true
+    }
+    */
     
     // Метод для создания ввода даты через барабан в поле срока годности
     func setupDataPicker() {
