@@ -184,16 +184,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="vK8-Z1-B39">
-                                                    <rect key="frame" x="16" y="8" width="382" height="63"/>
+                                                    <rect key="frame" x="16" y="8" width="283.5" height="63"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Количество" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AfO-fl-qQ4">
-                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="29.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="283.5" height="29.5"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Введите количество таблеток" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Te9-1o-pao">
-                                                            <rect key="frame" x="0.0" y="35.5" width="382" height="27.5"/>
+                                                            <rect key="frame" x="0.0" y="35.5" width="283.5" height="27.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="decimalPad" returnKeyType="done"/>
                                                             <connections>
@@ -202,12 +202,21 @@
                                                         </textField>
                                                     </subviews>
                                                 </stackView>
+                                                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="300" translatesAutoresizingMaskIntoConstraints="NO" id="bAb-FK-XaP">
+                                                    <rect key="frame" x="300" y="43" width="94" height="32"/>
+                                                    <connections>
+                                                        <action selector="stepMedicineCount:" destination="SAs-er-Sii" eventType="valueChanged" id="SUl-I2-G32"/>
+                                                    </connections>
+                                                </stepper>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="vK8-Z1-B39" secondAttribute="bottom" constant="4" id="C4V-vd-4Aa"/>
                                                 <constraint firstItem="vK8-Z1-B39" firstAttribute="leading" secondItem="EO7-NJ-J0j" secondAttribute="leading" constant="16" id="D5J-QR-dJO"/>
-                                                <constraint firstAttribute="trailing" secondItem="vK8-Z1-B39" secondAttribute="trailing" constant="16" id="eqP-Gi-dye"/>
+                                                <constraint firstAttribute="bottom" secondItem="bAb-FK-XaP" secondAttribute="bottom" id="EsW-Qa-NKA"/>
+                                                <constraint firstAttribute="trailing" secondItem="bAb-FK-XaP" secondAttribute="trailing" constant="20" symbolic="YES" id="gV6-Sv-Ci3"/>
                                                 <constraint firstItem="vK8-Z1-B39" firstAttribute="top" secondItem="EO7-NJ-J0j" secondAttribute="top" constant="8" id="htF-aJ-iTQ"/>
+                                                <constraint firstItem="bAb-FK-XaP" firstAttribute="leading" secondItem="vK8-Z1-B39" secondAttribute="trailing" constant="0.5" id="oIY-qF-Y4M"/>
+                                                <constraint firstItem="bAb-FK-XaP" firstAttribute="top" secondItem="EO7-NJ-J0j" secondAttribute="top" constant="43" id="x8a-Pu-5ln"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.40784313729999999" green="0.81568627449999997" blue="0.68235294120000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -275,6 +284,7 @@
                         <outlet property="medicinesNameTF" destination="6Sr-fJ-MrV" id="KBS-6w-PgN"/>
                         <outlet property="medicinesTypeTF" destination="WnI-w4-TsE" id="Ae3-K5-OYN"/>
                         <outlet property="saveButtonBBI" destination="lrM-eJ-gAG" id="lPR-aU-Dcg"/>
+                        <outlet property="stepMedicine" destination="bAb-FK-XaP" id="OaR-gG-b6O"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ctk-nV-Duu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

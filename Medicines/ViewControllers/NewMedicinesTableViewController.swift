@@ -25,6 +25,8 @@ class NewMedicinesTableViewController: UITableViewController {
     
     @IBOutlet weak var saveButtonBBI: UIBarButtonItem!
     
+    @IBOutlet weak var stepMedicine: UIStepper!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,6 +47,12 @@ class NewMedicinesTableViewController: UITableViewController {
         
         // Отслеживаем передачу данных с одного контроллерана на другой, и передаём значения если условия совпали
         setupEditScreen()
+        
+        // MARK: - Stepper Medicine stup
+        // Извлекаем данные из поля, чтобы синхронизировать их со значением степпера
+        stepMedicine.value = Double(medicinesAmountTF.text!) ?? 0
+        // Задаём шаги, с которыми будет прибавляться или убавляться значение
+        stepMedicine.stepValue = 0.5
     }
 
     // MARK: - TableView Delegate
@@ -123,10 +131,17 @@ class NewMedicinesTableViewController: UITableViewController {
         }
     }
     
+    // MARK: - Action
+    @IBAction func stepMedicineCount(_ sender: UIStepper) {
+        medicinesAmountTF.text = String(sender.value)
+    }
+    
     @IBAction func cancelAction(_ sender: Any) {
         // Добавляем возможность выхода из окна (необходимо для поддержки iOS младше 13.0)
         dismiss(animated: true)
     }
+    
+    // MARK: - Edit Data Screen
     
     // Метод для экрана редактирования записи
     private func setupEditScreen() {
@@ -193,7 +208,7 @@ extension NewMedicinesTableViewController: UITextFieldDelegate {
         if #available(iOS 13.4, *) {
             // Выбираем стиль в виде барабана
             datePicker.preferredDatePickerStyle = .wheels
-        }
+        } // Для старых версий он уже по умолчанию идет в виде барабана
         
         
         // Задаём ширину тулбара для кнопок
