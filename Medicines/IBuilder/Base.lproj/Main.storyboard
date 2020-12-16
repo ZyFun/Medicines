@@ -195,7 +195,7 @@
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Введите количество таблеток" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Te9-1o-pao">
                                                             <rect key="frame" x="0.0" y="35.5" width="382" height="27.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="numberPad" returnKeyType="done"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="decimalPad" returnKeyType="done"/>
                                                             <connections>
                                                                 <outlet property="delegate" destination="SAs-er-Sii" id="nd7-zO-5oX"/>
                                                             </connections>

@@ -101,7 +101,7 @@ class NewMedicinesTableViewController: UITableViewController {
         // Присваиваем все введенные свойства для подготовки к сохранению в базу данных
         let newMedicine = Medicine(name: medicinesNameTF.text!,
                                    type: medicinesTypeTF.text,
-                                   amount: Int(medicinesAmountTF.text!) ?? 0, // TODO: сделать проверку на заполнение текстового поля и не сохранять если оно пустое
+                                   amount: Double(medicinesAmountTF.text?.doubleValue ?? 0), // TODO: сделать проверку на заполнение текстового поля и не сохранять если оно пустое
                                    expiryDate: medicinesExpiryDataTF.text,
                                    imageData: imageData)
         
@@ -256,5 +256,22 @@ extension NewMedicinesTableViewController: UIImagePickerControllerDelegate, UINa
         imageIsChanged = true
         // Закрываем контроллер
         dismiss(animated: true)
+    }
+}
+
+// Дополнение для правильной записи точки вместо запятой с Decimal клавиатуры
+extension String {
+    static let numberFormatter = NumberFormatter()
+    var doubleValue: Double {
+        String.numberFormatter.decimalSeparator = "."
+        if let result =  String.numberFormatter.number(from: self) {
+            return result.doubleValue
+        } else {
+            String.numberFormatter.decimalSeparator = ","
+            if let result = String.numberFormatter.number(from: self) {
+                return result.doubleValue
+            }
+        }
+        return 0
     }
 }
