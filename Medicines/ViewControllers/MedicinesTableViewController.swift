@@ -144,6 +144,7 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     /*
+    // TODO: Использовать этот метод, когда потребуется дополнительный функциоанл
     // Метод позволяет настроить пользовательские действия, при свайпе ячейки с права на лево
     // leadingSwipeActionsConfigurationForRowAt для действий с лева на право
     // Этот метод используется для множества действий, по этому для нас он избыточен
