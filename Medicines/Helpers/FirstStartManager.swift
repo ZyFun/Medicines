@@ -18,7 +18,7 @@ func learningNewObjectGet() {
         let lerning = Medicine(name: "Лекарство",
                                type: "Тестовое",
                                amount: 1,
-                               expiryDate: "21.12.2020",
+                               expiryDate: Date(), // TODO: Сделать в будущем текущую дату + год вперед
                                imageData: imageData)
         
         StorageManager.saveObject(lerning)

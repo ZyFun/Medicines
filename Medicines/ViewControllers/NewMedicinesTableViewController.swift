@@ -115,8 +115,8 @@ class NewMedicinesTableViewController: UITableViewController {
         // Присваиваем все введенные свойства для подготовки к сохранению в базу данных
         let newMedicine = Medicine(name: medicinesNameTF.text!,
                                    type: medicinesTypeTF.text,
-                                   amount: Double(medicinesAmountTF.text?.doubleValue ?? 0), // TODO: сделать проверку на заполнение текстового поля и не сохранять если оно пустое
-                                   expiryDate: medicinesExpiryDataTF.text,
+                                   amount: Double(medicinesAmountTF.text?.doubleValue ?? 0), // TODO: сделать проверку на заполнение текстового поля и не активировать сохранение если оно пустое
+                                   expiryDate: medicinesExpiryDataTF.text?.toDate(), // TODO: сделать проверку на заполнение поля даты и не активировать сохранять если оно пустое
                                    imageData: imageData)
         
         // Определяем в каком методе мы находимся, в режиме редактирования или в режиме добавления новой записи
@@ -168,7 +168,7 @@ class NewMedicinesTableViewController: UITableViewController {
             medicinesNameTF.text = currentMedicine?.name
             medicinesTypeTF.text = currentMedicine?.type
             medicinesAmountTF.text = String(currentMedicine!.amount)
-            medicinesExpiryDataTF.text = currentMedicine?.expiryDate
+            medicinesExpiryDataTF.text = currentMedicine?.expiryDate?.toString()
         }
     }
     
@@ -321,8 +321,8 @@ extension NewMedicinesTableViewController: UIImagePickerControllerDelegate, UINa
     }
 }
 
-// Дополнение для правильной записи точки вместо запятой с Decimal клавиатуры
 extension String {
+    // Дополнение для правильной записи точки вместо запятой с Decimal клавиатуры. Это нужно для обхода бага локализации. Английский регион отображает точку, а русский запятую. С запятой приложение крашится.
     static let numberFormatter = NumberFormatter()
     var doubleValue: Double {
         String.numberFormatter.decimalSeparator = "."
@@ -335,5 +335,23 @@ extension String {
             }
         }
         return 0
+    }
+    
+    // Для перевода текста в дату
+    func toDate(withFormat format: String = "dd.MM.yyyy") -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        let date = dateFormatter.date(from: self) ?? Date()
+        return date
+        }
+    }
+
+extension Date {
+    // Для перевода даты в текст
+    func toString(format: String = "dd.MM.yyyy") -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.dateFormat = format
+        return formatter.string(from: self)
     }
 }

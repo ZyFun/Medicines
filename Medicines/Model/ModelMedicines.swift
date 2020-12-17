@@ -15,12 +15,12 @@ class Medicine: Object {
     @objc dynamic var name = ""
     @objc dynamic var type: String?
     @objc dynamic var amount = Double() // по умолчанию присваивается 0?
-    @objc dynamic var expiryDate: String?
+    @objc dynamic var expiryDate: Date?
     @objc dynamic var imageData: Data?
     @objc dynamic var date = Date() // Нужно только для сортировки по дате. Пользователь никак не видит это свойство
     
     // Чтобы не приходилось прописывать все эти свойства в ручную, создадим инициализатор. Этот инициализатор не создаёт новый объект, а присваивает уже созданному объекту новые значения
-    convenience init(name: String, type: String?, amount: Double, expiryDate: String?, imageData: Data?) {
+    convenience init(name: String, type: String?, amount: Double, expiryDate: Date?, imageData: Data?) {
         // Инициализируем свойства классов значениями по умолчанию
         self.init()
         // Присваиваем значения параметров свойствам класса

@@ -120,7 +120,7 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
         // Добавляем данные из массива
         cell.nameLabel.text = medicine.name
         cell.typeLabel.text = medicine.type
-        cell.expiryDataLabel.text = medicine.expiryDate
+        cell.expiryDataLabel.text = medicine.expiryDate?.toString()
         // Добавляем картинку из массива
         cell.imageMedicines.image = UIImage(data: medicine.imageData!) // Заполняем таблицу изображениями принудительно извлекая их, потому что они никогда не будут пустыми
         cell.amountLabel.text = "\(medicine.amount) шт"
