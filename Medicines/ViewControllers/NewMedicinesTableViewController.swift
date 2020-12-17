@@ -116,7 +116,7 @@ class NewMedicinesTableViewController: UITableViewController {
         let newMedicine = Medicine(name: medicinesNameTF.text!,
                                    type: medicinesTypeTF.text,
                                    amount: Double(medicinesAmountTF.text?.doubleValue ?? 0), // TODO: сделать проверку на заполнение текстового поля и не активировать сохранение если оно пустое
-                                   expiryDate: medicinesExpiryDataTF.text?.toDate(), // TODO: сделать проверку на заполнение поля даты и не активировать сохранять если оно пустое
+                                   expiryDate: medicinesExpiryDataTF.text?.toDate(),
                                    imageData: imageData)
         
         // Определяем в каком методе мы находимся, в режиме редактирования или в режиме добавления новой записи
