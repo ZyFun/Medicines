@@ -272,6 +272,7 @@ extension NewMedicinesTableViewController: UITextFieldDelegate {
         
         // Присваиваем полю срока годности способ воода через созданный барабан
         self.medicinesExpiryDataTF.inputView = datePicker
+        // Добавляем тулбар
         self.medicinesExpiryDataTF.inputAccessoryView = toolBar
     }
     
