@@ -13,10 +13,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // Для запуска на iOS >13.0
     var window: UIWindow?
-
+    // Создаём экземпляр класса для обращения к методам.
+    let notifications = Notifications()
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        // Вызываем метод для запроса на отправку уведомлений
+        notifications.requestAutorization()
         
         // Конфигурация для обновления версии схемы базы данных (для переноса старых данных в новую базу)
         let config = Realm.Configuration(

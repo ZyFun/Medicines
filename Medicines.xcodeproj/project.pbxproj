@@ -20,6 +20,7 @@
 		2C806BAB256C24CD00A36EF1 /* FirstStartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C806BAA256C24CD00A36EF1 /* FirstStartManager.swift */; };
 		2CA791FA2563F0D100A7649E /* NewMedicinesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA791F92563F0D100A7649E /* NewMedicinesTableViewController.swift */; };
 		2CBCB3142584DE5C007CC59F /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBCB3132584DE5C007CC59F /* WelcomeViewController.swift */; };
+		2CDA9A702594ECB9002C70A5 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDA9A6F2594ECB9002C70A5 /* Notifications.swift */; };
 		2CDAF628255EC5BC0034880F /* MedicinesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDAF627255EC5BC0034880F /* MedicinesTableViewCell.swift */; };
 		2CFCD5032562ECAB002E0942 /* ModelMedicines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFCD5022562ECAB002E0942 /* ModelMedicines.swift */; };
 		88669BC733F99D5A3F347DEC /* Pods_Medicines.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A899C9A625A94D4FE83F7FFF /* Pods_Medicines.framework */; };
@@ -43,6 +44,7 @@
 		2C9C317525641BA9009E9BEC /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		2CA791F92563F0D100A7649E /* NewMedicinesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMedicinesTableViewController.swift; sourceTree = "<group>"; };
 		2CBCB3132584DE5C007CC59F /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		2CDA9A6F2594ECB9002C70A5 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		2CDAF627255EC5BC0034880F /* MedicinesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicinesTableViewCell.swift; sourceTree = "<group>"; };
 		2CFCD5022562ECAB002E0942 /* ModelMedicines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelMedicines.swift; sourceTree = "<group>"; };
 		4EA68F1DD740B37BBD263764 /* Pods-Medicines.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Medicines.release.xcconfig"; path = "Target Support Files/Pods-Medicines/Pods-Medicines.release.xcconfig"; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				2C806BAA256C24CD00A36EF1 /* FirstStartManager.swift */,
+				2CDA9A6F2594ECB9002C70A5 /* Notifications.swift */,
 				2C36BABD256BDBAD0046BC0A /* StorageManager.swift */,
 				2C07CEC2255D82A400735F5C /* StyleManager.swift */,
 			);
@@ -276,6 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CDA9A702594ECB9002C70A5 /* Notifications.swift in Sources */,
 				2CFCD5032562ECAB002E0942 /* ModelMedicines.swift in Sources */,
 				2C07CEBC255D7B3700735F5C /* AidKitTableViewController.swift in Sources */,
 				2CBCB3142584DE5C007CC59F /* WelcomeViewController.swift in Sources */,
