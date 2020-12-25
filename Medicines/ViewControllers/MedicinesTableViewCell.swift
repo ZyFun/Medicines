@@ -17,6 +17,7 @@ class MedicinesTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var expiryDataLabel: UILabel!
+    @IBOutlet weak var trashLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
     
 }

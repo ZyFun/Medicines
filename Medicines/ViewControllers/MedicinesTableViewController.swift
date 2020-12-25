@@ -125,6 +125,16 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
         cell.imageMedicines.image = UIImage(data: medicine.imageData!) // Заполняем таблицу изображениями принудительно извлекая их, потому что они никогда не будут пустыми
         cell.amountLabel.text = "\(medicine.amount) шт"
         
+        //
+        cell.trashLabel.isHidden = true
+        if Date() >= medicine.expiryDate ?? Date() { // TODO: Временное решение для теста.
+            cell.trashLabel.isHidden = false
+            cell.trashLabel.text = "В мусор"
+            cell.trashLabel.backgroundColor = colorDelete
+            cell.trashLabel.layer.masksToBounds = true
+            cell.trashLabel.layer.cornerRadius = 5
+        }
+
         /*
         // TODO: Пример кода понадобится (чтобы не забыть) когда я буду добавлять разные фотографии для отображения разных изображений лекарств по умолчанию (спрей, таблетка, сироп)
         if medicine.image == nil {
