@@ -13,9 +13,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // Для запуска на iOS >13.0
     var window: UIWindow?
+    // Создаём экземпляр класса для обращения к методам.
+    let notifications = Notifications()
+
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
+        
+        // Вызываем метод для запроса на отправку уведомлений
+        notifications.requestAutorization()
+        
+        // Назначаем делегата, чтобы уведомление отображалось при активном приложении
+        notifications.notificationCenter.delegate = notifications
+        
+//        // Метод отслеживающий возвращение в приложение (сообщает делегату, что приложение вновь активно)
+//        func applicationDidBecomeActive(application: UIApplication) {
+//            // Обнуляем счетчик на бейдже, если приложение стало активным или было активным
+//            // TODO: Сделать такое обнуление, в случае удаления просроченного лекарства из базы
+//            UIApplication.shared.applicationIconBadgeNumber = 0
+//        }
+        
         // Конфигурация для обновления версии схемы базы данных (для переноса старых данных в новую базу)
         let config = Realm.Configuration(
             // Версия схемы данных. Если схема данных меняется, необходимо увеличить значение на +1
