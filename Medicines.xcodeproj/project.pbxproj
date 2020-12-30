@@ -17,6 +17,7 @@
 		2C07CEC3255D82A400735F5C /* StyleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C07CEC2255D82A400735F5C /* StyleManager.swift */; };
 		2C36BABB256BD5260046BC0A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2C36BABA256BD5260046BC0A /* .gitignore */; };
 		2C36BABE256BDBAD0046BC0A /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C36BABD256BDBAD0046BC0A /* StorageManager.swift */; };
+		2C77A755259CE32A00DA9B76 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C77A754259CE32A00DA9B76 /* Notifications.swift */; };
 		2C806BAB256C24CD00A36EF1 /* FirstStartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C806BAA256C24CD00A36EF1 /* FirstStartManager.swift */; };
 		2CA791FA2563F0D100A7649E /* NewMedicinesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA791F92563F0D100A7649E /* NewMedicinesTableViewController.swift */; };
 		2CBCB3142584DE5C007CC59F /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBCB3132584DE5C007CC59F /* WelcomeViewController.swift */; };
@@ -38,6 +39,7 @@
 		2C07CEC2255D82A400735F5C /* StyleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleManager.swift; sourceTree = "<group>"; };
 		2C36BABA256BD5260046BC0A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		2C36BABD256BDBAD0046BC0A /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		2C77A754259CE32A00DA9B76 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		2C806BAA256C24CD00A36EF1 /* FirstStartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstStartManager.swift; sourceTree = "<group>"; };
 		2C9C317425641BA9009E9BEC /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		2C9C317525641BA9009E9BEC /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 		2C04688E2583BBF700814792 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				2C77A754259CE32A00DA9B76 /* Notifications.swift */,
 				2C806BAA256C24CD00A36EF1 /* FirstStartManager.swift */,
 				2C36BABD256BDBAD0046BC0A /* StorageManager.swift */,
 				2C07CEC2255D82A400735F5C /* StyleManager.swift */,
@@ -276,6 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C77A755259CE32A00DA9B76 /* Notifications.swift in Sources */,
 				2CFCD5032562ECAB002E0942 /* ModelMedicines.swift in Sources */,
 				2C07CEBC255D7B3700735F5C /* AidKitTableViewController.swift in Sources */,
 				2CBCB3142584DE5C007CC59F /* WelcomeViewController.swift in Sources */,
