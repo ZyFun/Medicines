@@ -42,18 +42,25 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
     
     
     // Создаём метод для получения даты из базы данных и получения уведомления
-    func notification(reminder: Date?, nameMedicine: String){
+    func sendNotification(reminder: Date?, nameMedicine: String){
         
         // Безопасно извлекаем дату, и если не получилосб, выходим из функйии
-        guard let date = reminder else {
-            print("oops")
-            return
+        guard var date = reminder else { return }
+        // Необходимо для того, чтобы получать уведомление о просроченном лекарстве каждый день, раздражая пользователя, и заставляя выбросить лекарство из аптечки.
+        // TODO: Стоит реализовать настройку, чтобы пользователь выбирал, напоминать 1 раз или каждый день, пока лекарство не выброшено из аптечки
+        if date <= Date() {
+            date = Date()
         }
         
         // Создаём экземпляр класса календаря, для разбивки на компоненты полученной даты
         let calendar = Calendar.current // TODO: Что делает current?
         // Выбираем компоненты, по которым будет срабатывать триггер из полученной даты
-        let component = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+        var component = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+        // Указываем точное время срабатывания уведомлений
+        // TODO: Стоит реализовать настройку для пользователей, чтобы они сами выбирали удобное время уведомлений
+        component.hour = 20
+        component.minute = 00
+        component.second = 0
         // Создаём триггер срабатывания уведомления по календарю
         let trigger = UNCalendarNotificationTrigger(dateMatching: component, repeats: true)
         
@@ -67,10 +74,8 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
         
         // Создаём идентификатор для запроса уведомления
         let identifier = "\(nameMedicine)" // Таким образом для каждого уведомления будет свой идентификатор, и для каждого лекарства будет своё уведомление о просрочке.
-        
         // Создаём запроса уведомления
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
-        
         // Вызываем запрос уведомления через центр уведомлений и обрабатываем ошибку, если что то пойдет не так
         notificationCenter.add(request) { (error) in
             if let error = error {
