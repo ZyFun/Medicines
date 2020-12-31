@@ -21,6 +21,7 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
             print("Разрешение получено: \(granted)")
             
             guard granted else { return }
+            // Запрашиваем состояние разрешений
             self.getNotificationsSettings()
         }
         
