@@ -42,30 +42,31 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
     
     
     // Создаём метод для получения даты из базы данных и получения уведомления
-    func notification(reminder: Date?) {
+    func notification(reminder: Date?, nameMedicine: String){
         
         // Безопасно извлекаем дату, и если не получилосб, выходим из функйии
         guard let date = reminder else {
             print("oops")
             return
         }
+        
         // Создаём экземпляр класса календаря, для разбивки на компоненты полученной даты
         let calendar = Calendar.current // TODO: Что делает current?
-        // Разбиваем полученную дату на компоненты для триггера уведомления
-        let component = calendar.dateComponents([.year, .month, .day], from: date)
+        // Выбираем компоненты, по которым будет срабатывать триггер из полученной даты
+        let component = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
         // Создаём триггер срабатывания уведомления по календарю
         let trigger = UNCalendarNotificationTrigger(dateMatching: component, repeats: true)
         
         // Создаём экземпляр класса. Для настройки контента уведомлений
         let content = UNMutableNotificationContent()
         // Настраиваем контент для показа
-        content.title = "Просрочено"
-        content.body = "Пора выбросить лекарство: " + "" // TODO: Сделать загрузку названия лекарства вместо пустой строки
-        content.badge = 1
+        content.title = "Лекарство просрочено"
+        content.body = "Пора выбросить лекарство: \(nameMedicine)"
+//        content.badge = 1
         content.sound = UNNotificationSound.default
         
         // Создаём идентификатор для запроса уведомления
-        let identifier = "\(date)" // TODO: Таким образом для каждого уведомления будет свой идентификатор, и для каждого лекарства будет своё уведомление о просрочке. Убедится что это именно так. Иначе старые уведомления будут удаляться
+        let identifier = "\(nameMedicine)" // Таким образом для каждого уведомления будет свой идентификатор, и для каждого лекарства будет своё уведомление о просрочке.
         
         // Создаём запроса уведомления
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)

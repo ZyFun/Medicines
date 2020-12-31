@@ -41,6 +41,9 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
     // Вспомогательное свойство для обратной сортировки, по умолчанию сортировка делается по возростанию
     private var ascendingSorted = true
     
+    // TODO: Тест уведомлений
+    let notifications = Notifications()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -109,6 +112,11 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
             segmentedControl.isEnabled = true
             medicine = medicines[indexPath.row]
         }
+        
+        // TODO: Тестовый запрос. Нкжно сделать перебор массива с лекарствами, которые просрочены. И оттуда высвечивать уведомление
+        notifications.notification(reminder: medicine.expiryDate, nameMedicine: medicine.name)
+//        // Этот вариант работает. Я не знаю почему не работает вариант с датой из базы данных
+//        notifications.notification(reminder: Date(), nameMedicine: medicine.name)
         
         // Конфигурируем стиль ячеек
         cell.backgroundColor = colorBackground // Устанавливаем цвет ячейки из стилей
