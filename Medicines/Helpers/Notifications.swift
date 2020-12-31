@@ -38,9 +38,6 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
         
     }
     
-    // TODO: Реализовать получение даты из базы данных
-    
-    
     // Создаём метод для получения даты из базы данных и получения уведомления
     func sendNotification(reminder: Date?, nameMedicine: String){
         
