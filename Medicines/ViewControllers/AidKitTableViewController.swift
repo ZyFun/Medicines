@@ -26,7 +26,7 @@ class AidKitTableViewController: UITableViewController {
     }
     
     // MARK: - Всплывающее окно приветствия
-    // TODO: Узнать, зачем помещать не связанное окно приветствия именно в этот метод
+    // Открываем окно приветствия, после того как основной вью отобразился на экране
     override func viewDidAppear(_ animated: Bool) {
         if FirstStartApp.shared.isNewUser() {
             // Показываем окно приветствия
