@@ -22,7 +22,7 @@
 		2CA791FA2563F0D100A7649E /* NewMedicinesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA791F92563F0D100A7649E /* NewMedicinesTableViewController.swift */; };
 		2CBCB3142584DE5C007CC59F /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBCB3132584DE5C007CC59F /* WelcomeViewController.swift */; };
 		2CDAF628255EC5BC0034880F /* MedicinesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDAF627255EC5BC0034880F /* MedicinesTableViewCell.swift */; };
-		2CE27A0525AC4914007F1EB0 /* WelcomeContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE27A0425AC4914007F1EB0 /* WelcomeContent.swift */; };
+		2CE27A0525AC4914007F1EB0 /* ModelWelcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE27A0425AC4914007F1EB0 /* ModelWelcome.swift */; };
 		2CE27A0825AC51A8007F1EB0 /* WelcomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE27A0725AC51A8007F1EB0 /* WelcomePageViewController.swift */; };
 		2CFCD5032562ECAB002E0942 /* ModelMedicines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFCD5022562ECAB002E0942 /* ModelMedicines.swift */; };
 		88669BC733F99D5A3F347DEC /* Pods_Medicines.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A899C9A625A94D4FE83F7FFF /* Pods_Medicines.framework */; };
@@ -48,7 +48,7 @@
 		2CA791F92563F0D100A7649E /* NewMedicinesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMedicinesTableViewController.swift; sourceTree = "<group>"; };
 		2CBCB3132584DE5C007CC59F /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		2CDAF627255EC5BC0034880F /* MedicinesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicinesTableViewCell.swift; sourceTree = "<group>"; };
-		2CE27A0425AC4914007F1EB0 /* WelcomeContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeContent.swift; sourceTree = "<group>"; };
+		2CE27A0425AC4914007F1EB0 /* ModelWelcome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelWelcome.swift; sourceTree = "<group>"; };
 		2CE27A0725AC51A8007F1EB0 /* WelcomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePageViewController.swift; sourceTree = "<group>"; };
 		2CFCD5022562ECAB002E0942 /* ModelMedicines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelMedicines.swift; sourceTree = "<group>"; };
 		4EA68F1DD740B37BBD263764 /* Pods-Medicines.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Medicines.release.xcconfig"; path = "Target Support Files/Pods-Medicines/Pods-Medicines.release.xcconfig"; sourceTree = "<group>"; };
@@ -134,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				2CFCD5022562ECAB002E0942 /* ModelMedicines.swift */,
+				2CE27A0425AC4914007F1EB0 /* ModelWelcome.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -142,7 +143,6 @@
 			isa = PBXGroup;
 			children = (
 				2CBCB3132584DE5C007CC59F /* WelcomeViewController.swift */,
-				2CE27A0425AC4914007F1EB0 /* WelcomeContent.swift */,
 				2CE27A0725AC51A8007F1EB0 /* WelcomePageViewController.swift */,
 				2C07CEBB255D7B3700735F5C /* AidKitTableViewController.swift */,
 				2CDAF627255EC5BC0034880F /* MedicinesTableViewCell.swift */,
@@ -287,7 +287,7 @@
 			files = (
 				2C77A755259CE32A00DA9B76 /* Notifications.swift in Sources */,
 				2CFCD5032562ECAB002E0942 /* ModelMedicines.swift in Sources */,
-				2CE27A0525AC4914007F1EB0 /* WelcomeContent.swift in Sources */,
+				2CE27A0525AC4914007F1EB0 /* ModelWelcome.swift in Sources */,
 				2C07CEBC255D7B3700735F5C /* AidKitTableViewController.swift in Sources */,
 				2CBCB3142584DE5C007CC59F /* WelcomeViewController.swift in Sources */,
 				2CA791FA2563F0D100A7649E /* NewMedicinesTableViewController.swift in Sources */,

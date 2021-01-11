@@ -79,10 +79,10 @@
             </objects>
             <point key="canvasLocation" x="-204" y="771"/>
         </scene>
-        <!--Welcome Content-->
+        <!--Model Welcome-->
         <scene sceneID="Llo-HD-Ruk">
             <objects>
-                <viewController storyboardIdentifier="WelcomeContentViewController" id="bYh-nA-bSa" customClass="WelcomeContent" customModule="Medicines" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WelcomeContentViewController" id="bYh-nA-bSa" customClass="ModelWelcome" customModule="Medicines" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="agh-b4-06g">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -94,20 +94,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQ3-F5-9Dj">
-                                <rect key="frame" x="20" y="218" width="374" height="461"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="374" id="IB0-ol-f7K"/>
-                                    <constraint firstAttribute="height" constant="461" id="fib-zd-DSe"/>
-                                </constraints>
+                                <rect key="frame" x="20" y="218" width="374" height="21"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="jKN-Bo-xfx">
-                                <rect key="frame" x="145.5" y="699" width="123" height="28"/>
-                            </pageControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dw4-vC-Jac">
-                                <rect key="frame" x="107" y="771" width="200" height="50"/>
+                                <rect key="frame" x="107" y="769" width="200" height="50"/>
                                 <color key="backgroundColor" red="0.43529411759999997" green="0.69411764710000001" blue="0.60392156860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="T5D-OG-8Vz"/>
@@ -115,20 +108,23 @@
                                 </constraints>
                                 <state key="normal" title="Next"/>
                             </button>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="jKN-Bo-xfx">
+                                <rect key="frame" x="145.5" y="834" width="123" height="28"/>
+                            </pageControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bm1-rJ-YVF"/>
                         <color key="backgroundColor" red="0.40784313729999999" green="0.81568627449999997" blue="0.68235294120000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Bm1-rJ-YVF" firstAttribute="trailing" secondItem="LQ3-F5-9Dj" secondAttribute="trailing" constant="20" id="3jx-ez-aE2"/>
-                            <constraint firstItem="tHR-BI-ob2" firstAttribute="leading" secondItem="Bm1-rJ-YVF" secondAttribute="leading" constant="20" id="Csw-aY-3il"/>
-                            <constraint firstItem="tHR-BI-ob2" firstAttribute="top" secondItem="Bm1-rJ-YVF" secondAttribute="top" constant="108" id="QYi-SF-npF"/>
-                            <constraint firstItem="LQ3-F5-9Dj" firstAttribute="top" secondItem="tHR-BI-ob2" secondAttribute="bottom" constant="25" id="RGW-Gq-mlN"/>
-                            <constraint firstItem="LQ3-F5-9Dj" firstAttribute="leading" secondItem="Bm1-rJ-YVF" secondAttribute="leading" constant="20" id="Sbr-3g-wu5"/>
-                            <constraint firstItem="jKN-Bo-xfx" firstAttribute="top" secondItem="LQ3-F5-9Dj" secondAttribute="bottom" constant="20" id="W31-LY-c39"/>
-                            <constraint firstItem="Dw4-vC-Jac" firstAttribute="centerX" secondItem="Bm1-rJ-YVF" secondAttribute="centerX" id="a6S-6r-HpF"/>
-                            <constraint firstItem="Bm1-rJ-YVF" firstAttribute="bottom" secondItem="Dw4-vC-Jac" secondAttribute="bottom" constant="41" id="gdQ-Kg-Ufm"/>
-                            <constraint firstItem="jKN-Bo-xfx" firstAttribute="centerX" secondItem="Bm1-rJ-YVF" secondAttribute="centerX" id="htE-Cy-acS"/>
-                            <constraint firstItem="Bm1-rJ-YVF" firstAttribute="trailing" secondItem="tHR-BI-ob2" secondAttribute="trailing" constant="20" id="n8E-Pk-RHD"/>
+                            <constraint firstItem="tHR-BI-ob2" firstAttribute="top" secondItem="Bm1-rJ-YVF" secondAttribute="top" constant="108" id="1qQ-u3-w7f"/>
+                            <constraint firstItem="LQ3-F5-9Dj" firstAttribute="top" secondItem="tHR-BI-ob2" secondAttribute="bottom" constant="25" id="5zB-cw-A4U"/>
+                            <constraint firstItem="LQ3-F5-9Dj" firstAttribute="leading" secondItem="Bm1-rJ-YVF" secondAttribute="leading" constant="20" id="NWm-kw-XdB"/>
+                            <constraint firstItem="Bm1-rJ-YVF" firstAttribute="trailing" secondItem="tHR-BI-ob2" secondAttribute="trailing" constant="20" id="Rbh-tB-R3B"/>
+                            <constraint firstItem="tHR-BI-ob2" firstAttribute="leading" secondItem="Bm1-rJ-YVF" secondAttribute="leading" constant="20" id="SQq-Qy-Ffo"/>
+                            <constraint firstItem="jKN-Bo-xfx" firstAttribute="centerX" secondItem="Bm1-rJ-YVF" secondAttribute="centerX" id="beu-Iy-5Rw"/>
+                            <constraint firstItem="jKN-Bo-xfx" firstAttribute="top" secondItem="Dw4-vC-Jac" secondAttribute="bottom" constant="15" id="mwV-IF-TBu"/>
+                            <constraint firstItem="Bm1-rJ-YVF" firstAttribute="trailing" secondItem="LQ3-F5-9Dj" secondAttribute="trailing" constant="20" id="pXS-0q-2n7"/>
+                            <constraint firstItem="jKN-Bo-xfx" firstAttribute="bottom" secondItem="Bm1-rJ-YVF" secondAttribute="bottom" id="qUf-RI-wDQ"/>
+                            <constraint firstItem="Dw4-vC-Jac" firstAttribute="centerX" secondItem="Bm1-rJ-YVF" secondAttribute="centerX" id="ujb-NZ-RvN"/>
                         </constraints>
                     </view>
                     <connections>
