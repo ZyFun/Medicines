@@ -44,25 +44,6 @@ class AidKitTableViewController: UITableViewController {
         
     }
     
-//    // MARK: - Всплывающее окно приветствия
-//    // Открываем окно приветствия, после того как основной вью отобразился на экране
-//    override func viewDidAppear(_ animated: Bool) {
-//        if FirstStartApp.shared.isNewUser() {
-//            // Показываем окно приветствия
-//            if #available(iOS 13.0, *) {
-//                let vc = storyboard?.instantiateViewController(identifier: "welcome") as! WelcomeViewController
-//                // Показываем контроллер приветствия в полный экран, чтобы пользователь не мог закрыть окно и прошел всё описание приложения
-//                vc.modalPresentationStyle = .fullScreen
-//                present(vc, animated: true, completion: nil)
-//            } else {
-//                // Отображение для старых версий
-//                let vc = storyboard?.instantiateViewController(withIdentifier: "welcome") as! WelcomeViewController
-//                vc.modalPresentationStyle = .fullScreen
-//                present(vc, animated: true, completion: nil)
-//            }
-//        }
-//    }
-    
 
     // MARK: - Table view data source
 

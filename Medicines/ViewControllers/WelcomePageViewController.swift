@@ -34,13 +34,13 @@ class WelcomePageViewController: UIPageViewController {
     
     // MARK: - Functions
     // Функция, принимает параметры из массива  по индексу страницы и возвращает значение по индексу из массива в окне приветствия
-    private func showViewControllerAtIndex(_ index: Int) -> ModelWelcome? {
+    private func showViewControllerAtIndex(_ index: Int) -> WelcomeViewController? {
         
         // Безопасно извлекаем данные и возвращаем nil, если что то пойдет не так
         guard index >= 0 else { return nil }
         guard index < titleWelcome.count else { return nil }
         // Поддержка iOS младше 12. 13 и старше вместо withIdentifier используется identifier
-        guard let welcomeViewController = storyboard?.instantiateViewController(withIdentifier: "WelcomeContentViewController") as? ModelWelcome else { return nil }
+        guard let welcomeViewController = storyboard?.instantiateViewController(withIdentifier: "WelcomeContentViewController") as? WelcomeViewController else { return nil }
         
         // MARK: Setup properties
         welcomeViewController.presentTitle = titleWelcome[index]
@@ -58,7 +58,7 @@ class WelcomePageViewController: UIPageViewController {
 extension WelcomePageViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
-        var pageNumber = (viewController as! ModelWelcome).currentPage
+        var pageNumber = (viewController as! WelcomeViewController).currentPage
         pageNumber -= 1
         
         return showViewControllerAtIndex(pageNumber)
@@ -67,7 +67,7 @@ extension WelcomePageViewController: UIPageViewControllerDataSource {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
-        var pageNumber = (viewController as! ModelWelcome).currentPage
+        var pageNumber = (viewController as! WelcomeViewController).currentPage
         pageNumber += 1
         
         return showViewControllerAtIndex(pageNumber)

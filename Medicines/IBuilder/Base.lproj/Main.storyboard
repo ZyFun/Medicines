@@ -41,36 +41,6 @@
             </objects>
             <point key="canvasLocation" x="-203" y="73"/>
         </scene>
-        <!--Welcome View Controller-->
-        <scene sceneID="Odt-th-MDt">
-            <objects>
-                <viewController storyboardIdentifier="welcome" id="U1R-yr-3WH" customClass="WelcomeViewController" customModule="Medicines" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Iuv-hG-JLZ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IMl-fX-xSc">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="PjH-ho-gdd"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="IMl-fX-xSc" firstAttribute="leading" secondItem="PjH-ho-gdd" secondAttribute="leading" id="BOH-RJ-42c"/>
-                            <constraint firstItem="PjH-ho-gdd" firstAttribute="bottom" secondItem="IMl-fX-xSc" secondAttribute="bottom" id="I6b-iI-vWi"/>
-                            <constraint firstItem="IMl-fX-xSc" firstAttribute="top" secondItem="PjH-ho-gdd" secondAttribute="top" id="WKH-3q-aaw"/>
-                            <constraint firstItem="PjH-ho-gdd" firstAttribute="trailing" secondItem="IMl-fX-xSc" secondAttribute="trailing" id="sps-F2-5jH"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="holderView" destination="IMl-fX-xSc" id="dOB-rw-HTL"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wlR-CR-2In" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-886" y="771"/>
-        </scene>
         <!--Welcome Page View Controller-->
         <scene sceneID="6sj-sl-ZkW">
             <objects>
@@ -79,10 +49,10 @@
             </objects>
             <point key="canvasLocation" x="-204" y="771"/>
         </scene>
-        <!--Model Welcome-->
+        <!--Welcome View Controller-->
         <scene sceneID="Llo-HD-Ruk">
             <objects>
-                <viewController storyboardIdentifier="WelcomeContentViewController" id="bYh-nA-bSa" customClass="ModelWelcome" customModule="Medicines" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WelcomeContentViewController" id="bYh-nA-bSa" customClass="WelcomeViewController" customModule="Medicines" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="agh-b4-06g">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
