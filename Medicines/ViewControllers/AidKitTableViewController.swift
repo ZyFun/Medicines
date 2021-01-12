@@ -30,12 +30,18 @@ class AidKitTableViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if let welcomePageViewController = storyboard?.instantiateViewController(withIdentifier: "WelcomePageViewController") as? WelcomePageViewController {
-            // Показываем контроллер приветствия в полный экран, чтобы пользователь не мог закрыть окно и прошел всё описание приложения
-            welcomePageViewController.modalPresentationStyle = .fullScreen
-            present(welcomePageViewController, animated: true, completion: nil)
-    
-        }
+//        if FirstStartApp.shared.isNewUser() {
+            
+            // Поддержка iOS младше 12. 13 и старше вместо withIdentifier используется identifier
+            if let welcomePageViewController = storyboard?.instantiateViewController(withIdentifier: "WelcomePageViewController") as? WelcomePageViewController {
+                // Показываем контроллер приветствия в полный экран, чтобы пользователь не мог закрыть окно и прошел всё описание приложения
+                welcomePageViewController.modalPresentationStyle = .fullScreen
+                present(welcomePageViewController, animated: true, completion: nil)
+                
+            }
+            
+//        }
+        
     }
     
 //    // MARK: - Всплывающее окно приветствия

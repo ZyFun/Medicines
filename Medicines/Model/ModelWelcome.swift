@@ -13,7 +13,7 @@ class ModelWelcome: UIViewController {
     @IBOutlet weak private var titleLabel: UILabel!
     @IBOutlet weak private var descriptionLabel: UILabel!
     @IBOutlet weak private var pageControl: UIPageControl!
-    @IBOutlet weak private var nextButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
     
     // MARK: - Properties
     var presentTitle = ""
@@ -31,8 +31,8 @@ class ModelWelcome: UIViewController {
         // MARK: Setup presentation config
         titleLabel.text = presentTitle
         descriptionLabel.text = presentDescription
-        pageControl.currentPage = currentPage
         pageControl.numberOfPages = numberOfPage
+        pageControl.currentPage = currentPage
         
         // MARK: Setup buttons config
         nextButton.setTitleColor(.black, for: .normal)

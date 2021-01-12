@@ -74,7 +74,7 @@
         <!--Welcome Page View Controller-->
         <scene sceneID="6sj-sl-ZkW">
             <objects>
-                <pageViewController storyboardIdentifier="WelcomePageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="s9j-3g-uAZ" customClass="WelcomePageViewController" customModule="Medicines" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="WelcomePageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="s9j-3g-uAZ" customClass="WelcomePageViewController" customModule="Medicines" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O7q-pA-DPD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-204" y="771"/>
