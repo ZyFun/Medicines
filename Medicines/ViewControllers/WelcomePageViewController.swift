@@ -56,6 +56,8 @@ class WelcomePageViewController: UIPageViewController {
 // MARK: - Extension
 // Расширение для управления перелистывания страниц
 extension WelcomePageViewController: UIPageViewControllerDataSource {
+    
+    // Перелистывание на предыдущую страницу
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
         var pageNumber = (viewController as! WelcomeViewController).currentPage
@@ -65,11 +67,13 @@ extension WelcomePageViewController: UIPageViewControllerDataSource {
         
     }
     
+    // Перелистывание на следующую страницу
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
         var pageNumber = (viewController as! WelcomeViewController).currentPage
         pageNumber += 1
         
         return showViewControllerAtIndex(pageNumber)
+        
     }
 }
