@@ -13,13 +13,14 @@ class ModelWelcome: UIViewController {
     @IBOutlet weak private var titleLabel: UILabel!
     @IBOutlet weak private var descriptionLabel: UILabel!
     @IBOutlet weak private var pageControl: UIPageControl!
-    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak private var nextButton: UIButton!
     
     // MARK: - Properties
     var presentTitle = ""
     var presentDescription = ""
     var currentPage = 0 // Текущая страница
     var numberOfPage = 0 // Общее количество страниц
+    let welcomePageVC = WelcomePageViewController()
     
     // MARK: - Load app
     override func viewDidLoad() {
@@ -37,9 +38,24 @@ class ModelWelcome: UIViewController {
         // MARK: Setup buttons config
         nextButton.setTitleColor(.black, for: .normal)
         nextButton.backgroundColor = colorSelected
-        nextButton.setTitle("Дальше", for: .normal)
+        nextButton.setTitle("Поехали!", for: .normal)
         nextButton.layer.cornerRadius = 25
+        // TODO: Сделать возможность нажимать на кнопку и листать контроллер, а так же под конец презентации выходить из неё
+        nextButton.isHidden = true
+        if currentPage == welcomePageVC.titleWelcome.count - 1 {
+            nextButton.isHidden = false
+        }
         
+    }
+    
+    // MARK: - Actions
+    @IBAction func nextButtonTapped(_ sender: UIButton) {
+        
+        // Закрываем презентацию и записываем ключь не нового пользователя
+        FirstStartApp.shared.setIsNotNewUser()
+        dismiss(animated: true, completion: nil)
+            
+        return
     }
     
 }

@@ -107,6 +107,9 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="Y8y-uc-Ier"/>
                                 </constraints>
                                 <state key="normal" title="Next"/>
+                                <connections>
+                                    <action selector="nextButtonTapped:" destination="bYh-nA-bSa" eventType="touchUpInside" id="QOj-81-u78"/>
+                                </connections>
                             </button>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="jKN-Bo-xfx">
                                 <rect key="frame" x="145.5" y="834" width="123" height="28"/>

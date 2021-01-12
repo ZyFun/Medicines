@@ -30,7 +30,7 @@ class AidKitTableViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-//        if FirstStartApp.shared.isNewUser() {
+        if FirstStartApp.shared.isNewUser() {
             
             // Поддержка iOS младше 12. 13 и старше вместо withIdentifier используется identifier
             if let welcomePageViewController = storyboard?.instantiateViewController(withIdentifier: "WelcomePageViewController") as? WelcomePageViewController {
@@ -40,7 +40,7 @@ class AidKitTableViewController: UITableViewController {
                 
             }
             
-//        }
+        }
         
     }
     

@@ -10,7 +10,7 @@ import UIKit
 class WelcomePageViewController: UIPageViewController {
     
     // MARK: - Properties
-    private let titleWelcome = ["Привет!", "Лекарства", "Планы", "Планы"]
+    let titleWelcome = ["Привет!", "Лекарства", "Планы", "Планы"]
     private let descriptionWelcome = [
         "Спасибо за установку моего приложения! Надеюсь что оно поможет тебе поддерживать свою аптечку и хранящиеся в ней лекарства в актуальном состоянии.",
         "Это приложение поможет тебе при покупке новых лекарств. К примеру, выписали новые лекарства, и уже по дороге домой можно посмотреть, а есть ли подобные в аптечке или стоит купить новые",
@@ -21,6 +21,9 @@ class WelcomePageViewController: UIPageViewController {
     // MARK: - Load app
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Назначаем класс делегатом протокола для возможности перелистывания страниц
+        dataSource = self
         
         // Загружаем модель контроллера с контентом и если это получается, то создаём массив контроллеров
         if let welcomeModel = showViewControllerAtIndex(0) {
@@ -45,31 +48,28 @@ class WelcomePageViewController: UIPageViewController {
         welcomeViewController.currentPage = index
         welcomeViewController.numberOfPage = titleWelcome.count
         
-        // MARK: Logic button setup
-        
-        var x = 0
-
-            if x == titleWelcome.count + 1 {
-                welcomeViewController.nextButton.setTitle("Поехали", for: .normal)
-            }
-            
-            // Кнопка сама выполняет действия по нажатию
-            welcomeViewController.nextButton.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
-            welcomeViewController.nextButton.tag = x + 1
-
-        
         return welcomeViewController
     }
     
-    // Функция действия кнопки
-    @objc func didTapButton(_ button: UIButton) {
-        guard button.tag < titleWelcome.count else {
-            // Устанавливаем метку, что пользователь больше не является новым
-            FirstStartApp.shared.setIsNotNewUser()
-            dismiss(animated: true, completion: nil)
-            return
-        }
-    
+}
+
+// MARK: - Extension
+// Расширение для управления перелистывания страниц
+extension WelcomePageViewController: UIPageViewControllerDataSource {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        
+        var pageNumber = (viewController as! ModelWelcome).currentPage
+        pageNumber -= 1
+        
+        return showViewControllerAtIndex(pageNumber)
+        
     }
     
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        
+        var pageNumber = (viewController as! ModelWelcome).currentPage
+        pageNumber += 1
+        
+        return showViewControllerAtIndex(pageNumber)
+    }
 }
