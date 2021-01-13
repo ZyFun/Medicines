@@ -12,7 +12,6 @@
 		2C07CEAC255D795000735F5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C07CEAA255D795000735F5C /* Main.storyboard */; };
 		2C07CEAE255D795200735F5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C07CEAD255D795200735F5C /* Assets.xcassets */; };
 		2C07CEB1255D795200735F5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C07CEAF255D795200735F5C /* LaunchScreen.storyboard */; };
-		2C07CEBC255D7B3700735F5C /* AidKitTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C07CEBB255D7B3700735F5C /* AidKitTableViewController.swift */; };
 		2C07CEC0255D7B7200735F5C /* MedicinesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C07CEBF255D7B7100735F5C /* MedicinesTableViewController.swift */; };
 		2C07CEC3255D82A400735F5C /* StyleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C07CEC2255D82A400735F5C /* StyleManager.swift */; };
 		2C36BABB256BD5260046BC0A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2C36BABA256BD5260046BC0A /* .gitignore */; };
@@ -35,7 +34,6 @@
 		2C07CEAD255D795200735F5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C07CEB0255D795200735F5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C07CEB2255D795200735F5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2C07CEBB255D7B3700735F5C /* AidKitTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AidKitTableViewController.swift; sourceTree = "<group>"; };
 		2C07CEBF255D7B7100735F5C /* MedicinesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicinesTableViewController.swift; sourceTree = "<group>"; };
 		2C07CEC2255D82A400735F5C /* StyleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleManager.swift; sourceTree = "<group>"; };
 		2C36BABA256BD5260046BC0A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -141,7 +139,6 @@
 			children = (
 				2CE27A0425AC4914007F1EB0 /* WelcomeViewController.swift */,
 				2CE27A0725AC51A8007F1EB0 /* WelcomePageViewController.swift */,
-				2C07CEBB255D7B3700735F5C /* AidKitTableViewController.swift */,
 				2CDAF627255EC5BC0034880F /* MedicinesTableViewCell.swift */,
 				2C07CEBF255D7B7100735F5C /* MedicinesTableViewController.swift */,
 				2CA791F92563F0D100A7649E /* NewMedicinesTableViewController.swift */,
@@ -285,7 +282,6 @@
 				2C77A755259CE32A00DA9B76 /* Notifications.swift in Sources */,
 				2CFCD5032562ECAB002E0942 /* ModelMedicines.swift in Sources */,
 				2CE27A0525AC4914007F1EB0 /* WelcomeViewController.swift in Sources */,
-				2C07CEBC255D7B3700735F5C /* AidKitTableViewController.swift in Sources */,
 				2CA791FA2563F0D100A7649E /* NewMedicinesTableViewController.swift in Sources */,
 				2C36BABE256BDBAD0046BC0A /* StorageManager.swift in Sources */,
 				2C07CEC0255D7B7200735F5C /* MedicinesTableViewController.swift in Sources */,

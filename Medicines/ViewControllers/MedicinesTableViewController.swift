@@ -80,6 +80,25 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
         // Отпускаем строку поиска при переходе на другой экран
         definesPresentationContext = true
     }
+    
+    // MARK: - Всплывающее окно приветствия
+    // Открываем окно приветствия, после того как основной вью отобразился на экране
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if FirstStartApp.shared.isNewUser() {
+            
+            // Поддержка iOS младше 12. 13 и старше вместо withIdentifier используется identifier
+            if let welcomePageViewController = storyboard?.instantiateViewController(withIdentifier: "WelcomePageViewController") as? WelcomePageViewController {
+                // Показываем контроллер приветствия в полный экран, чтобы пользователь не мог закрыть окно и прошел всё описание приложения
+                welcomePageViewController.modalPresentationStyle = .fullScreen
+                present(welcomePageViewController, animated: true, completion: nil)
+                
+            }
+            
+        }
+        
+    }
 
     // MARK: - Table view data source
 

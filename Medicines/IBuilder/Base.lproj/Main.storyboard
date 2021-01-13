@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="a1p-iv-kBg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cy6-Cb-eoi">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -9,45 +9,13 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Аптечки-->
-        <scene sceneID="2Eo-lk-5uZ">
-            <objects>
-                <tableViewController id="EWE-zt-C8A" customClass="AidKitTableViewController" customModule="Medicines" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="YSG-3O-QmL">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AidKit" id="tnc-mw-35h">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tnc-mw-35h" id="UWq-nj-3eo">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="7fx-Ol-MA3" kind="show" id="YQz-HJ-N0R"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="EWE-zt-C8A" id="Ko3-T0-nUg"/>
-                            <outlet property="delegate" destination="EWE-zt-C8A" id="WpN-3l-WHT"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Аптечки" largeTitleDisplayMode="never" id="3Eu-t1-iq3"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Y39-1F-q84" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-203" y="73"/>
-        </scene>
         <!--Welcome Page View Controller-->
         <scene sceneID="6sj-sl-ZkW">
             <objects>
                 <pageViewController storyboardIdentifier="WelcomePageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="s9j-3g-uAZ" customClass="WelcomePageViewController" customModule="Medicines" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O7q-pA-DPD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-204" y="771"/>
+            <point key="canvasLocation" x="1541" y="796"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="Llo-HD-Ruk">
@@ -109,7 +77,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tay-nt-4fF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-204.34782608695653" y="1483.9285714285713"/>
+            <point key="canvasLocation" x="1541" y="1466"/>
         </scene>
         <!--Новое лекарство-->
         <scene sceneID="3p8-Go-Zfr">
@@ -339,12 +307,13 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ctk-nV-Duu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="gal-HI-EMf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1398.5507246376812" y="72.991071428571431"/>
+            <point key="canvasLocation" x="2306" y="452"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Лекарства-->
         <scene sceneID="F7M-79-wPx">
             <objects>
                 <navigationController id="a1p-iv-kBg" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Лекарства" image="cross.case" catalog="system" id="TGC-Ww-aPW"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="lGE-Jr-7U1">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -354,12 +323,12 @@
                         </textAttributes>
                     </navigationBar>
                     <connections>
-                        <segue destination="EWE-zt-C8A" kind="relationship" relationship="rootViewController" id="r4K-Ui-hWj"/>
+                        <segue destination="7fx-Ol-MA3" kind="relationship" relationship="rootViewController" id="5aZ-7B-KvT"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZgJ-QD-xVV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1058" y="73"/>
+            <point key="canvasLocation" x="705.79710144927537" y="72.991071428571431"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qXO-SK-dHg">
@@ -381,7 +350,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ys-mI-ZFx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1399" y="-656"/>
+            <point key="canvasLocation" x="2306" y="-263"/>
         </scene>
         <!--Лекарства-->
         <scene sceneID="uvW-xt-frV">
@@ -528,7 +497,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bur-bJ-eBM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="630.43478260869574" y="72.991071428571431"/>
+            <point key="canvasLocation" x="1540.5797101449277" y="72.991071428571431"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="y3C-bX-lQa">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="cy6-Cb-eoi" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vya-BY-iT6">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.43529411759999997" green="0.69411764710000001" blue="0.60392156860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="a1p-iv-kBg" kind="relationship" relationship="viewControllers" id="46h-Ml-Bm3"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IxM-iy-vG7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-204.34782608695653" y="72.991071428571431"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
@@ -537,6 +524,7 @@
     <resources>
         <image name="AZ" width="25" height="24"/>
         <image name="Photo" width="195" height="196"/>
+        <image name="cross.case" catalog="system" width="128" height="98"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
