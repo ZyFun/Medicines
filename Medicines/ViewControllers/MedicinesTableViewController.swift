@@ -10,10 +10,12 @@ import RealmSwift
 
 class MedicinesTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var reversedSortingBBI: UIBarButtonItem!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
+    // MARK: - Properties
     // Объявляем экземпляр класса searchController
     // Используя параметр nil, результаты поиска будут отображаться в том же окне
     // Для этого необходимо подписать текущий класс под протокол UISearchResultsUpdating
@@ -26,6 +28,8 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
         guard let text = searchController.searchBar.text else { return false}
         return text.isEmpty
     }
+    // Создаём свойство, для подсчета просроченных лекарств
+//    private var expiredMedicinesCount = 0
     // Вспомогательное свойство для отслеживания воода текста в поисковую строку
     private var isFiltering: Bool {
         // Поисковая строка активирована и не является пустой
@@ -44,11 +48,34 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
     // Создаём экземпляр класса, для отправки уведомлений
     private let notifications = Notifications()
     
+    // MARK: - Load app
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Инициализируем переменную с объектами базы данных и делаем запрос этих объектов из базы данных
         medicines = realm.objects(Medicine.self) // Medicine.self мы пишем, потому что подразумеваем не саму модель данных, а именно тип Medicine
+        
+        // TODO: Вынести это в отдельную функцию. Сделать запуск функции во время загрузки приложения и во время сворачивания, чтобы обновление происходило в этот момент или при обновлении таблицы. А так же добавлять + 1 бейдж во время выхода уведомления и делать - 1 после просмотра уведомления. Иначе бейджи не будут обновляться при закрытом приложении.
+        // Создаём свойство, для подсчета просроченных лекарств
+        var expiredMedicinesCount = 0
+        
+        // Проходимся циклом по массиву базы лекарств и прибавляем +1 к счетчику
+        for medicine in medicines {
+            
+            // Если есть просроченное лекарство +1.
+            if Date() >= medicine.expiryDate ?? Date() {
+                
+                expiredMedicinesCount += 1
+                notifications.setupBadge(count: expiredMedicinesCount)
+                
+                // TODO: Delete (for test)
+                print(medicine.name)
+                print(expiredMedicinesCount)
+            } else {
+                // Если просрочек нет, сбрасываем на 0
+                notifications.setupBadge(count: expiredMedicinesCount)
+            }
+        }
         
         // Создаётся пример объекта при мервом запуске приложения, и если база пустая
         if FirstStartApp.shared.isFirstOpenAidKit() {
@@ -307,6 +334,7 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
         sorting()
     }
     
+    // MARK: - Functions
     // Метод смены способа сортировки
     private func sorting() {
         if segmentedControl.selectedSegmentIndex == 0 {

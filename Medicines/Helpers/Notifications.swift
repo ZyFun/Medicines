@@ -104,10 +104,9 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
 //        completionHandler()
 //    }
     
-//        // Метод для отображения уведомлений
-//        // TODO: Реализовать новый массив с данными из просроченных лекарств, с него считать количество просрочек и отображать на иконке приложения
-//        func setupBage() {
-//            UIApplication.shared.applicationIconBadgeNumber = 1
-//        }
+    // Метод для отображения бейджев на иконке приложения с количеством просроченных лекарств
+    func setupBadge(count: Int) {
+            UIApplication.shared.applicationIconBadgeNumber = count
+        }
     
 }
