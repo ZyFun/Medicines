@@ -66,7 +66,7 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
         // Настраиваем контент для показа
         content.title = "Лекарство просрочено"
         content.body = "Пора выбросить лекарство: \(nameMedicine)"
-//        content.badge = 1
+        content.badge = 1 // TODO: Сделать в будущем так, чтобы +1 было уже к имеющимся бейджам. Уточнить, возможно ли это сделать
         content.sound = UNNotificationSound.default
         
         // Создаём идентификатор для запроса уведомления
