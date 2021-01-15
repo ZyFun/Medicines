@@ -29,7 +29,6 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
         return text.isEmpty
     }
     // Создаём свойство, для подсчета просроченных лекарств
-//    private var expiredMedicinesCount = 0
     // Вспомогательное свойство для отслеживания воода текста в поисковую строку
     private var isFiltering: Bool {
         // Поисковая строка активирована и не является пустой
@@ -55,27 +54,7 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
         // Инициализируем переменную с объектами базы данных и делаем запрос этих объектов из базы данных
         medicines = realm.objects(Medicine.self) // Medicine.self мы пишем, потому что подразумеваем не саму модель данных, а именно тип Medicine
         
-        // TODO: Вынести это в отдельную функцию. Сделать запуск функции во время загрузки приложения и во время сворачивания, чтобы обновление происходило в этот момент или при обновлении таблицы. А так же добавлять + 1 бейдж во время выхода уведомления и делать - 1 после просмотра уведомления. Иначе бейджи не будут обновляться при закрытом приложении.
-        // Создаём свойство, для подсчета просроченных лекарств
-        var expiredMedicinesCount = 0
-        
-        // Проходимся циклом по массиву базы лекарств и прибавляем +1 к счетчику
-        for medicine in medicines {
-            
-            // Если есть просроченное лекарство +1.
-            if Date() >= medicine.expiryDate ?? Date() {
-                
-                expiredMedicinesCount += 1
-                notifications.setupBadge(count: expiredMedicinesCount)
-                
-                // TODO: Delete (for test)
-                print(medicine.name)
-                print(expiredMedicinesCount)
-            } else {
-                // Если просрочек нет, сбрасываем на 0
-                notifications.setupBadge(count: expiredMedicinesCount)
-            }
-        }
+        setupBadgeForAppIcon() // Вызываем метод, чтобы обновить бейджи на иконке приложения во время загрузки
         
         // Создаётся пример объекта при мервом запуске приложения, и если база пустая
         if FirstStartApp.shared.isFirstOpenAidKit() {
@@ -83,10 +62,11 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
             FirstStartApp.shared.setIsNotFirstOpenAidKit()
         }
         
-        //Конфигурируем стиль таблицы
-//        self.tableView.tableFooterView = UIView() // Удаляем разделители ячеек
+        // MARK: Style config
+        self.tableView.tableFooterView = UIView() // Удаляем разделители ячеек
         tableView.backgroundColor = colorBackground // Задаём цвет TableView из стилей
         view.backgroundColor = colorBackground
+        
         if #available(iOS 13.0, *) {
             segmentedControl.selectedSegmentTintColor = colorSelected
         } else {
@@ -95,7 +75,7 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
             segmentedControl.tintColor = colorSelected
         }
         
-        // Настройка searchController
+        // MARK: Search controller setup
         // Указываем на то, что получателем информации об изменении текста в поисковой строке должен быть наш класс
         searchController.searchResultsUpdater = self
         // Позволяет взяимодействовать с новым вью контроллером как с основным и получать доступ к редактированию или удалению. По умолчанию это отключено.
@@ -108,11 +88,12 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
         definesPresentationContext = true
     }
     
-    // MARK: - Всплывающее окно приветствия
+    // MARK: - Post load app
     // Открываем окно приветствия, после того как основной вью отобразился на экране
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        // MARK: Всплывающее окно приветствия
         if FirstStartApp.shared.isNewUser() {
             
             // Поддержка iOS младше 12. 13 и старше вместо withIdentifier используется identifier
@@ -126,6 +107,15 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
         }
         
     }
+    
+    // MARK: - Close view and app
+    // TODO: Требуется тестирование, чтобы понять нужно мне вызывать этот метод тут или нет. К примеру воспроизвести момент, когда приложение свернуто но не закрыто, а лекарство просрочилось. Вероятнее всего приложение будет всернуто долгое время. Нужно посмотреть как поведет себя загрузка через час. Так как памяти оно много не тратит и может быть долго не выгружено
+    override func viewDidDisappear(_ animated: Bool) {
+        
+        setupBadgeForAppIcon() // Вызываем метод, чтобы обновить бейджи на иконке приложения после закрытия приложения.
+        
+    }
+    
 
     // MARK: - Table view data source
 
@@ -242,6 +232,7 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
                 StorageManager.deleteObject(medicine)
                 // Удаляем строку из приложения
                 tableView.deleteRows(at: [indexPath], with: .automatic)
+                setupBadgeForAppIcon() // Вызываем метод, чтобы обновить бейджи на иконке приложения после удаления предположительно просроченного лекарства
             } else {
                 // создаём объект для удаления из массива
                 medicine = medicines[indexPath.row]
@@ -249,6 +240,7 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
                 StorageManager.deleteObject(medicine)
                 // Удаляем строку из приложения
                 tableView.deleteRows(at: [indexPath], with: .automatic)
+                setupBadgeForAppIcon() // Вызываем метод, чтобы обновить бейджи на иконке приложения после удаления предположительно просроченного лекарства
             }
         }
     }
@@ -309,11 +301,12 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
     @IBAction func unwindSegue (_ segue: UIStoryboardSegue) {
         // Возвращаем данные полученные с контроллера на котором мы были ранее
         guard let newMedicineVC = segue.source as? NewMedicinesTableViewController else { return }
-        // Вызываем метод сохранения данных внесенных изменений
-        newMedicineVC.saveMedicine()
+        newMedicineVC.saveMedicine() // Вызываем метод сохранения данных внесенных изменений
+        setupBadgeForAppIcon() // Обновляем бейджы после сохранения, так как добавить могут уже просроченные лекарства (не у всех емсть возможность купить новые)
         // Перезагружаем окно для добавления данных
         tableView.reloadData()
     }
+    
     @IBAction func reversedSorting(_ sender: Any) {
         // Меняем значение на противоположное
         ascendingSorted.toggle()
@@ -329,6 +322,7 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
         sorting()
         
     }
+    
     @IBAction func sortSelection(_ sender: UISegmentedControl) {
         // Вызываем метод сортировки
         sorting()
@@ -347,6 +341,31 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
         
         // Обновляем данные в таблице
         tableView.reloadData()
+    }
+    
+    // Метод установки бейджа с количеством просроченных лекарств на иконку приложения
+    private func setupBadgeForAppIcon() {
+        // TODO: А так же добавлять + 1 бейдж во время выхода уведомления. Иначе бейджи не будут обновляться при закрытом приложении.
+        // Создаём свойство, для подсчета просроченных лекарств
+        var expiredMedicinesCount = 0
+        
+        // Проходимся циклом по массиву базы лекарств и прибавляем +1 к счетчику
+        for medicine in medicines {
+            
+            // Если есть просроченное лекарство +1.
+            if Date() >= medicine.expiryDate ?? Date() {
+                
+                expiredMedicinesCount += 1
+                notifications.setupBadge(count: expiredMedicinesCount)
+                
+                // TODO: Delete (for test)
+                print(medicine.name)
+                print(expiredMedicinesCount)
+            } else {
+                // Если просрочек нет, сбрасываем на 0
+                notifications.setupBadge(count: expiredMedicinesCount)
+            }
+        }
     }
 }
 

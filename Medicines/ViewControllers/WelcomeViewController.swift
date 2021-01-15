@@ -40,7 +40,7 @@ class WelcomeViewController: UIViewController {
         nextButton.backgroundColor = colorSelected
         nextButton.setTitle("Поехали!", for: .normal)
         nextButton.layer.cornerRadius = 25
-        // TODO: Сделать возможность нажимать на кнопку и листать контроллер, а так же под конец презентации выходить из неё
+        // TODO: Сделать возможность отображать и нажимать на кнопку, и листать контроллер на протяжении всей презентации. Сейчас кнопка отображается только в конце, и закрывает презентацию.
         nextButton.isHidden = true
         if currentPage == welcomePageVC.titleWelcome.count - 1 {
             nextButton.isHidden = false
