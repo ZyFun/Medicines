@@ -56,6 +56,8 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
         
         setupBadgeForAppIcon() // Вызываем метод, чтобы обновить бейджи на иконке приложения во время загрузки
         
+        updateNotification() // Вызываем метод, чтобы загрузить уведомления
+        
         // Создаётся пример объекта при мервом запуске приложения, и если база пустая
         if FirstStartApp.shared.isFirstOpenAidKit() {
             learningNewObjectGet()
