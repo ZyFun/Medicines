@@ -345,7 +345,7 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
     
     // Метод установки бейджа с количеством просроченных лекарств на иконку приложения
     private func setupBadgeForAppIcon() {
-        // TODO: А так же добавлять + 1 бейдж во время выхода уведомления. Иначе бейджи не будут обновляться при закрытом приложении.
+        
         // Создаём свойство, для подсчета просроченных лекарств
         var expiredMedicinesCount = 0
         
