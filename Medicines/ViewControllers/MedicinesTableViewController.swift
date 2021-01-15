@@ -149,9 +149,6 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
             medicine = medicines[indexPath.row]
         }
         
-        // Запрашиваем информацию из каждой ячейки, для отправки уведомления
-        notifications.sendNotification(reminder: medicine.expiryDate, nameMedicine: medicine.name)
-        
         // Конфигурируем стиль ячеек
         cell.backgroundColor = colorBackground // Устанавливаем цвет ячейки из стилей
         // Устанавливаем цвет выбранной ячейки из стилей
@@ -228,6 +225,7 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
             if isFiltering {
                 // создаём объект для удаления из особого массива с фильтрацией
                 medicine = filteredMedisines[indexPath.row]
+                notifications.notificationCenter.removePendingNotificationRequests(withIdentifiers: [medicine.name]) // Удаляем уведомление по идентификатору, чтобы оно не показывалось в будущем
                 // Вызываем действие удаления из базы
                 StorageManager.deleteObject(medicine)
                 // Удаляем строку из приложения
@@ -237,6 +235,7 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
                 // создаём объект для удаления из массива
                 medicine = medicines[indexPath.row]
                 // Вызываем действие удаления из базы
+                notifications.notificationCenter.removePendingNotificationRequests(withIdentifiers: [medicine.name]) // Удаляем уведомление по идентификатору, чтобы оно не показывалось в будущем
                 StorageManager.deleteObject(medicine)
                 // Удаляем строку из приложения
                 tableView.deleteRows(at: [indexPath], with: .automatic)
@@ -302,6 +301,7 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
         // Возвращаем данные полученные с контроллера на котором мы были ранее
         guard let newMedicineVC = segue.source as? NewMedicinesTableViewController else { return }
         newMedicineVC.saveMedicine() // Вызываем метод сохранения данных внесенных изменений
+        updateNotification() // Обновляем очередь уведомлений, чтобы добавить в него новое лекарство
         setupBadgeForAppIcon() // Обновляем бейджы после сохранения, так как добавить могут уже просроченные лекарства (не у всех емсть возможность купить новые)
         // Перезагружаем окно для добавления данных
         tableView.reloadData()
@@ -358,13 +358,19 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
                 expiredMedicinesCount += 1
                 notifications.setupBadge(count: expiredMedicinesCount)
                 
-                // TODO: Delete (for test)
-                print(medicine.name)
-                print(expiredMedicinesCount)
             } else {
                 // Если просрочек нет, сбрасываем на 0
                 notifications.setupBadge(count: expiredMedicinesCount)
             }
+        }
+    }
+    
+    // Метод для обновления очереди уведомлений
+    private func updateNotification() {
+        
+        for medicine in medicines {
+            notifications.sendNotification(reminder: medicine.expiryDate, nameMedicine: medicine.name)
+            
         }
     }
 }

@@ -28,7 +28,7 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
     }
     
     // Метод для отслеживания настроек (включены или отключены уведомления)
-    func getNotificationsSettings() {
+    private func getNotificationsSettings() {
         
         // Проверяем состояние авторизаций или параметров уведомлений
         // TODO: Посмотреть как можно запросить к примеру включить уведомления обратно, если пользователь их отключил
