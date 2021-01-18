@@ -17,6 +17,7 @@
 		2C36BABB256BD5260046BC0A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2C36BABA256BD5260046BC0A /* .gitignore */; };
 		2C36BABE256BDBAD0046BC0A /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C36BABD256BDBAD0046BC0A /* StorageManager.swift */; };
 		2C77A755259CE32A00DA9B76 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C77A754259CE32A00DA9B76 /* Notifications.swift */; };
+		2C7CD15825B5EDE30079707A /* ExampleDocumentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CD15725B5EDE30079707A /* ExampleDocumentation.swift */; };
 		2C806BAB256C24CD00A36EF1 /* FirstStartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C806BAA256C24CD00A36EF1 /* FirstStartManager.swift */; };
 		2CA791FA2563F0D100A7649E /* NewMedicinesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA791F92563F0D100A7649E /* NewMedicinesTableViewController.swift */; };
 		2CDAF628255EC5BC0034880F /* MedicinesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDAF627255EC5BC0034880F /* MedicinesTableViewCell.swift */; };
@@ -39,6 +40,7 @@
 		2C36BABA256BD5260046BC0A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		2C36BABD256BDBAD0046BC0A /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		2C77A754259CE32A00DA9B76 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		2C7CD15725B5EDE30079707A /* ExampleDocumentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleDocumentation.swift; sourceTree = "<group>"; };
 		2C806BAA256C24CD00A36EF1 /* FirstStartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstStartManager.swift; sourceTree = "<group>"; };
 		2C9C317425641BA9009E9BEC /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		2C9C317525641BA9009E9BEC /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			children = (
 				2C07CEA4255D795000735F5C /* AppDelegate.swift */,
 				2C07CEA6255D795000735F5C /* SceneDelegate.swift */,
+				2C7CD15725B5EDE30079707A /* ExampleDocumentation.swift */,
 				2C07CEAD255D795200735F5C /* Assets.xcassets */,
 				2C07CEB2255D795200735F5C /* Info.plist */,
 			);
@@ -282,6 +285,7 @@
 				2C77A755259CE32A00DA9B76 /* Notifications.swift in Sources */,
 				2CFCD5032562ECAB002E0942 /* ModelMedicines.swift in Sources */,
 				2CE27A0525AC4914007F1EB0 /* WelcomeViewController.swift in Sources */,
+				2C7CD15825B5EDE30079707A /* ExampleDocumentation.swift in Sources */,
 				2CA791FA2563F0D100A7649E /* NewMedicinesTableViewController.swift in Sources */,
 				2C36BABE256BDBAD0046BC0A /* StorageManager.swift in Sources */,
 				2C07CEC0255D7B7200735F5C /* MedicinesTableViewController.swift in Sources */,

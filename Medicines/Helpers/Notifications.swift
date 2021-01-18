@@ -39,7 +39,7 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
     }
     
     // Создаём метод для получения даты из базы данных и получения уведомления
-    func sendNotification(reminder: Date?, nameMedicine: String){
+    func sendNotificationExpiredMedicine(reminder: Date?, nameMedicine: String){
         
         // Безопасно извлекаем дату, и если не получилосб, выходим из функйии
         guard var date = reminder else { return }

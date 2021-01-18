@@ -56,7 +56,7 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
         
         setupBadgeForAppIcon() // Вызываем метод, чтобы обновить бейджи на иконке приложения во время загрузки
         
-        updateNotification() // Вызываем метод, чтобы загрузить уведомления
+        updateNotificationQueueExpiredMedicine() // Вызываем метод, чтобы загрузить уведомления
         
         // Создаётся пример объекта при мервом запуске приложения, и если база пустая
         if FirstStartApp.shared.isFirstOpenAidKit() {
@@ -303,8 +303,8 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
         // Возвращаем данные полученные с контроллера на котором мы были ранее
         guard let newMedicineVC = segue.source as? NewMedicinesTableViewController else { return }
         newMedicineVC.saveMedicine() // Вызываем метод сохранения данных внесенных изменений
-        updateNotification() // Обновляем очередь уведомлений, чтобы добавить в него новое лекарство
-        setupBadgeForAppIcon() // Обновляем бейджы после сохранения, так как добавить могут уже просроченные лекарства (не у всех емсть возможность купить новые)
+        updateNotificationQueueExpiredMedicine() // Обновляем очередь уведомлений, чтобы добавить в него новое лекарство
+        setupBadgeForAppIcon() // Обновляем бейджы после сохранения, так как добавить могут уже просроченные лекарства (не у всех есть возможность купить новые)
         // Перезагружаем окно для добавления данных
         tableView.reloadData()
     }
@@ -345,33 +345,31 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
         tableView.reloadData()
     }
     
-    // Метод установки бейджа с количеством просроченных лекарств на иконку приложения
+    /// Метод установки бейджа с количеством просроченных лекарств на иконку приложения.
+    /// - Установка бейджа на иконку: функция пробегается циклом по массиву лекарств. И если в базе есть лекарства с просроченным сроком годности, то добавляется +1 к значению на бейдже за каждое лекарство с просроченным сроком годности. Если таких лекарств нет, бейдж сбрасывается на 0.
     private func setupBadgeForAppIcon() {
         
-        // Создаём свойство, для подсчета просроченных лекарств
-        var expiredMedicinesCount = 0
+        var expiredMedicinesCount = 0 // Создаём свойство, для подсчета просроченных лекарств
         
-        // Проходимся циклом по массиву базы лекарств и прибавляем +1 к счетчику
-        for medicine in medicines {
+        for medicine in medicines { // Проходимся циклом по массиву базы лекарств и прибавляем +1 к счетчику
             
-            // Если есть просроченное лекарство +1.
-            if Date() >= medicine.expiryDate ?? Date() {
+            if Date() >= medicine.expiryDate ?? Date() { // Если есть просроченное лекарство делаем +1.
                 
                 expiredMedicinesCount += 1
                 notifications.setupBadge(count: expiredMedicinesCount)
                 
             } else {
-                // Если просрочек нет, сбрасываем на 0
-                notifications.setupBadge(count: expiredMedicinesCount)
+                notifications.setupBadge(count: expiredMedicinesCount) // Если просрочек нет, сбрасываем на 0
             }
         }
     }
     
-    // Метод для обновления очереди уведомлений
-    private func updateNotification() {
+    /// Метод для обновления очереди уведомлений.
+    /// - Добавление в очередь центра уведомлений: функция пробегается циклом по массиву лекарств и получает данные с именем лекарства и датой срока его годности. Далее эти данные принимаются функцией sendNotificationExpiredMedicine в классе Notifications и добавляются в очередь уведомлений.
+    private func updateNotificationQueueExpiredMedicine() {
         
         for medicine in medicines {
-            notifications.sendNotification(reminder: medicine.expiryDate, nameMedicine: medicine.name)
+            notifications.sendNotificationExpiredMedicine(reminder: medicine.expiryDate, nameMedicine: medicine.name)
             
         }
     }
