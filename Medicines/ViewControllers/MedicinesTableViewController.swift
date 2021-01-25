@@ -331,18 +331,18 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     // MARK: - Functions
-    // Метод смены способа сортировки
+    /// Метод смены способа сортировки
+    /// - Сортировка настраивается через segmented control. В зависимости от индекса выбранного сегмента, сортировка происходит по ключу базы
     private func sorting() {
         if segmentedControl.selectedSegmentIndex == 0 {
-            medicines = medicines.sorted(byKeyPath: "date", ascending: ascendingSorted)
+            medicines = medicines.sorted(byKeyPath: "date", ascending: ascendingSorted) // По дате добавления
         } else if segmentedControl.selectedSegmentIndex == 1{
-            medicines = medicines.sorted(byKeyPath: "name", ascending: ascendingSorted)
+            medicines = medicines.sorted(byKeyPath: "name", ascending: ascendingSorted) // По названию лекарства
         } else {
-            medicines = medicines.sorted(byKeyPath: "expiryDate", ascending: ascendingSorted)
+            medicines = medicines.sorted(byKeyPath: "expiryDate", ascending: ascendingSorted) // По сроку годности
         }
         
-        // Обновляем данные в таблице
-        tableView.reloadData()
+        tableView.reloadData() // Обновляем данные в таблице
     }
     
     /// Метод установки бейджа с количеством просроченных лекарств на иконку приложения.
@@ -356,10 +356,10 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
             if Date() >= medicine.expiryDate ?? Date() { // Если есть просроченное лекарство делаем +1.
                 
                 expiredMedicinesCount += 1
-                notifications.setupBadge(count: expiredMedicinesCount)
+                notifications.setupBadge(count: expiredMedicinesCount) // Отправляем это значение в метод класса уведомлений
                 
             } else {
-                notifications.setupBadge(count: expiredMedicinesCount) // Если просрочек нет, сбрасываем на 0
+                notifications.setupBadge(count: expiredMedicinesCount) // Если просрочек нет, сбрасываем на 0. То есть присваиваем изначальное значение равное 0
             }
         }
     }
@@ -377,7 +377,7 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
 
 // MARK: - SearchController
 
-// Настройка фильтрации поиска
+// Расширение класса для настройки фильтрации поиска
 extension MedicinesTableViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         // Вызываем метод фильтрации, и подставляем в параметр значение поисковой строки
