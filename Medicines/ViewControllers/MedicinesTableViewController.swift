@@ -66,15 +66,14 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
         
         // MARK: Style config
         self.tableView.tableFooterView = UIView() // Удаляем разделители ячеек
-        tableView.backgroundColor = colorBackground // Задаём цвет TableView из стилей
-        view.backgroundColor = colorBackground
+        tableView.backgroundColor = CustomColors.color.background // Задаём цвет TableView
+        view.backgroundColor = CustomColors.color.background
         
         if #available(iOS 13.0, *) {
-            segmentedControl.selectedSegmentTintColor = colorSelected
+            segmentedControl.selectedSegmentTintColor = CustomColors.color.selected
         } else {
             // Fallback on earlier versions
-            // Цвет берется из настройки через интерфейс
-            segmentedControl.tintColor = colorSelected
+            segmentedControl.tintColor = CustomColors.color.selected
         }
         
         // MARK: Search controller setup
@@ -152,10 +151,10 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
         }
         
         // Конфигурируем стиль ячеек
-        cell.backgroundColor = colorBackground // Устанавливаем цвет ячейки из стилей
+        cell.backgroundColor = CustomColors.color.background // Устанавливаем цвет ячейки
         // Устанавливаем цвет выбранной ячейки из стилей
         let colorForSelected = UIView()
-        colorForSelected.backgroundColor = colorSelected
+        colorForSelected.backgroundColor = CustomColors.color.selected
         cell.selectedBackgroundView? = colorForSelected
         
         // Добавляем данные из массива
@@ -171,7 +170,7 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
         if Date() >= medicine.expiryDate ?? Date() {
             cell.trashLabel.isHidden = false
             cell.trashLabel.text = "В мусор"
-            cell.trashLabel.backgroundColor = colorDelete
+            cell.trashLabel.backgroundColor = CustomColors.color.delete
             cell.trashLabel.layer.masksToBounds = true
             cell.trashLabel.layer.cornerRadius = 5
         }

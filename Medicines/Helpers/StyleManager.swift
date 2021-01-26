@@ -1,5 +1,5 @@
 //
-//  Style.swift
+//  StyleManager.swift
 //  Medicines
 //
 //  Created by Дмитрий Данилин on 12.11.2020.
@@ -7,7 +7,26 @@
 
 import UIKit
 
-// Цвет для заливки приложения
-let colorBackground = #colorLiteral(red: 0.4078431373, green: 0.8156862745, blue: 0.6823529412, alpha: 1) // color literal (Пока я новичек, чтобы не забыть как вызвать выбор цвета)
-let colorSelected = #colorLiteral(red: 0.4352941176, green: 0.6941176471, blue: 0.6039215686, alpha: 1)
-let colorDelete = #colorLiteral(red: 1, green: 0.3123660088, blue: 0.2848106623, alpha: 1)
+/// Класс содержит собственные цвета для приложения.
+class CustomColors {
+    
+    /// Свойство создаёт экземпляр класса CustomColors
+    /// - background - используется для фона.
+    /// - selected - используется для выделений и для шапок.
+    /// - delete - используется для объектов помеченных на удаление.
+    static let color = CustomColors()
+    
+    // color literal (Пока я новичек, чтобы не забыть как вызвать выбор цвета)
+    // TODO: Вместо использования цветов на прямую в будущем сделать через функцию, для назначения цвета в зависимости от темы проиложения (дневная/ночная)
+    
+    /// Используется для фона. Светло-зеленый.
+    let background = #colorLiteral(red: 0.4078431373, green: 0.8156862745, blue: 0.6823529412, alpha: 1)
+    
+    /// Используется для выделений и для шапок. Темно-зеленый.
+    let selected = #colorLiteral(red: 0.4352941176, green: 0.6941176471, blue: 0.6039215686, alpha: 1)
+    
+    /// Используется для объектов помеченных на удаление. Красный.
+    let delete = #colorLiteral(red: 1, green: 0.3123660088, blue: 0.2848106623, alpha: 1)
+    
+}
+

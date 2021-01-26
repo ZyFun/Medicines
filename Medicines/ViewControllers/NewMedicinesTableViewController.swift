@@ -33,7 +33,7 @@ class NewMedicinesTableViewController: UITableViewController {
         self.tableView.tableFooterView = UIView() // Отключаем разлиновку TableView ниже имеющихся ячеек
         
         // Пока что я не знаю как задать цвет не использованным ячейкам, возможно их надо записать в протокол Delegate. Но я еще не разобрался как это сделать. На данный момент цвет ячейкам задал из интерфейса xcode
-        self.tableView.backgroundColor = colorBackground // Задаём цвет TableView из стилей
+        self.tableView.backgroundColor = CustomColors.color.background // Задаём цвет TableView
         
         // Делаем кнопку сохранения не активной для того, чтобы позже сдеkать её активной после заполнения medicinesNameTF
         saveButtonBBI.isEnabled = false
