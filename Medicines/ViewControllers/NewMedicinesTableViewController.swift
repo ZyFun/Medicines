@@ -36,6 +36,7 @@ class NewMedicinesTableViewController: UITableViewController {
         tableView.backgroundColor = CustomColors.color.background // Задаём цвет фона
         
         navigationController?.navigationBar.barTintColor = CustomColors.color.navigationBar // Задаём цвет фона
+        navigationController?.navigationBar.tintColor = CustomColors.color.icon // Задаём цвета надписей и стрелок
         
         medicinesImageIV.backgroundColor = CustomColors.color.background // Задаём цвет фона изображения
         

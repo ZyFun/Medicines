@@ -83,7 +83,7 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
             segmentedControl.selectedSegmentTintColor = CustomColors.color.selected
         } else {
             // Fallback on earlier versions
-            segmentedControl.tintColor = CustomColors.color.selected
+            segmentedControl.tintColor = CustomColors.color.icon // Этот цвет учше подходит для старых версий
         }
         
         // MARK: Search controller setup
