@@ -80,7 +80,7 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
         tabBarController?.tabBar.tintColor = CustomColors.color.icon // Задаём цвет надписей и иконок кнопок
         
         if #available(iOS 13.0, *) {
-            segmentedControl.selectedSegmentTintColor = CustomColors.color.selected
+            segmentedControl.selectedSegmentTintColor = CustomColors.color.selected // Задаём цвет фона активного сегмента
         } else {
             // Fallback on earlier versions
             segmentedControl.tintColor = CustomColors.color.icon // Этот цвет учше подходит для старых версий
