@@ -67,6 +67,11 @@ class NewMedicinesTableViewController: UITableViewController {
     }
 
     // MARK: - TableView Delegate
+    // Этот метод дает делегату возможность переопределить свойства на основе состояния, установленные ранее в табличном представлении, такие как выбор и цвет фона
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = CustomColors.color.background // Устанавливаем цвет ячеек
+    }
+    
     // Скрываем клавиатуру при тапе на ячейку, кроме первой с фотографией
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
@@ -103,11 +108,6 @@ class NewMedicinesTableViewController: UITableViewController {
         } else {
             view.endEditing(true)
         }
-    }
-    
-    // Этот метод дает делегату возможность переопределить свойства на основе состояния, установленные ранее в табличном представлении, такие как выбор и цвет фона
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.backgroundColor = CustomColors.color.background // Устанавливаем цвет ячеек
     }
     
     // Метод для сохранения записей
