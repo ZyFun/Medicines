@@ -30,10 +30,14 @@ class NewMedicinesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.tableFooterView = UIView() // Отключаем разлиновку TableView ниже имеющихся ячеек
+        // MARK: Style config
+        tableView.tableFooterView = UIView() // Отключаем разлиновку TableView ниже имеющихся ячеек
         
-        // Пока что я не знаю как задать цвет не использованным ячейкам, возможно их надо записать в протокол Delegate. Но я еще не разобрался как это сделать. На данный момент цвет ячейкам задал из интерфейса xcode
-        self.tableView.backgroundColor = CustomColors.color.background // Задаём цвет TableView
+        tableView.backgroundColor = CustomColors.color.background // Задаём цвет фона
+        
+        navigationController?.navigationBar.barTintColor = CustomColors.color.navigationBar // Задаём цвет фона
+        
+        medicinesImageIV.backgroundColor = CustomColors.color.background // Задаём цвет фона изображения
         
         // Делаем кнопку сохранения не активной для того, чтобы позже сдеkать её активной после заполнения medicinesNameTF
         saveButtonBBI.isEnabled = false
@@ -51,7 +55,7 @@ class NewMedicinesTableViewController: UITableViewController {
         // Устанавливаем делегата для отслеживания количества введенных символов
         medicinesAmountTF.delegate = self
         
-        // MARK: - Stepper Medicine stup
+        // MARK: - Stepper Medicine setup
         // Извлекаем данные из поля, чтобы синхронизировать их со значением степпера
         stepMedicine.value = Double(medicinesAmountTF.text!) ?? 0
         // Задаём шаги, с которыми будет прибавляться или убавляться значение
@@ -98,6 +102,11 @@ class NewMedicinesTableViewController: UITableViewController {
         } else {
             view.endEditing(true)
         }
+    }
+    
+    // Этот метод дает делегату возможность переопределить свойства на основе состояния, установленные ранее в табличном представлении, такие как выбор и цвет фона
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = CustomColors.color.background // Устанавливаем цвет ячеек
     }
     
     // Метод для сохранения записей

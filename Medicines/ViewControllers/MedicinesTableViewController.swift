@@ -60,14 +60,24 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
         
         // Создаётся пример объекта при мервом запуске приложения, и если база пустая
         if FirstStartApp.shared.isFirstOpenAidKit() {
-            learningNewObjectGet()
+            
+            FirstStartApp.shared.learningNewObjectGet()
             FirstStartApp.shared.setIsNotFirstOpenAidKit()
+            
         }
         
         // MARK: Style config
-        self.tableView.tableFooterView = UIView() // Удаляем разделители ячеек
-        tableView.backgroundColor = CustomColors.color.background // Задаём цвет TableView
-        view.backgroundColor = CustomColors.color.background
+        tableView.tableFooterView = UIView() // Удаляем разделители ячеек
+        
+        tableView.backgroundColor = CustomColors.color.background // Задаём цвет фона
+        
+        view.backgroundColor = CustomColors.color.background // Задаём цвет фона
+        
+        navigationController?.navigationBar.barTintColor = CustomColors.color.navigationBar // Задаём цвет фона
+        navigationController?.navigationBar.tintColor = CustomColors.color.icon // Задаём цвета надписей и стрелок
+        
+        tabBarController?.tabBar.barTintColor = CustomColors.color.navigationBar // Задаём цвет фона
+        tabBarController?.tabBar.tintColor = CustomColors.color.icon // Задаём цвет надписей и иконок кнопок
         
         if #available(iOS 13.0, *) {
             segmentedControl.selectedSegmentTintColor = CustomColors.color.selected
