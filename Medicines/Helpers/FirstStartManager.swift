@@ -33,7 +33,8 @@ class FirstStartApp {
                                    expiryDate: Date(), // TODO: Сделать в будущем текущую дату + год вперед.
                                    imageData: imageData)
             
-            StorageManager.saveObject(lerning) // Сохраняем учебный объект в базу данных.
+            // Сохраняем учебный объект в базу данных.
+            StorageManager.saveObject(lerning)
             
         }
     }
