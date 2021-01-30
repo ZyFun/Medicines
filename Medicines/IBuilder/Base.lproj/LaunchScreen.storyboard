@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,27 +16,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appLoad" translatesAutoresizingMaskIntoConstraints="NO" id="NBu-d2-bHc">
-                                <rect key="frame" x="20" y="336" width="374" height="224"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Аптечка" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7J0-wu-xW1">
-                                <rect key="frame" x="115" y="595" width="185" height="36"/>
+                                <rect key="frame" x="115" y="611" width="185" height="36"/>
                                 <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appLoad" translatesAutoresizingMaskIntoConstraints="NO" id="NBu-d2-bHc">
+                                <rect key="frame" x="79" y="320" width="256" height="256"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="256" id="86A-Dq-Dut"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.46739183911647941" green="0.79520336001573322" blue="0.68811831529985501" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7J0-wu-xW1" secondAttribute="bottom" constant="231" id="G2R-ym-h4N"/>
+                            <constraint firstItem="NBu-d2-bHc" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="MOF-Wc-KiO"/>
                             <constraint firstItem="7J0-wu-xW1" firstAttribute="top" secondItem="NBu-d2-bHc" secondAttribute="bottom" constant="35" id="SKy-uH-cM2"/>
-                            <constraint firstItem="NBu-d2-bHc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="292" id="TRS-9k-mvh"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NBu-d2-bHc" secondAttribute="bottom" constant="302" id="ZVa-fo-YT6"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7J0-wu-xW1" secondAttribute="trailing" constant="114" id="bJ3-Ms-tUo"/>
                             <constraint firstItem="7J0-wu-xW1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="115" id="jHZ-3c-iwI"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NBu-d2-bHc" secondAttribute="trailing" constant="20" id="n5I-2O-0ia"/>
-                            <constraint firstItem="NBu-d2-bHc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="xaC-s6-iCY"/>
+                            <constraint firstItem="NBu-d2-bHc" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="tjJ-GO-hDa"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -46,6 +46,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="appLoad" width="1024" height="1024"/>
+        <image name="appLoad" width="256" height="256"/>
     </resources>
 </document>
