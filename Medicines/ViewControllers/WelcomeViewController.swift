@@ -22,7 +22,7 @@ class WelcomeViewController: UIViewController {
     var numberOfPage = 0 // Общее количество страниц
     let welcomePageVC = WelcomePageViewController()
     
-    // MARK: - Load app
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -27,6 +27,8 @@ class NewMedicinesTableViewController: UITableViewController {
     
     @IBOutlet weak var stepMedicine: UIStepper!
     
+    // MARK: - LifeCycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,7 +58,7 @@ class NewMedicinesTableViewController: UITableViewController {
         // Устанавливаем делегата для отслеживания количества введенных символов
         medicinesAmountTF.delegate = self
         
-        // MARK: - Stepper Medicine setup
+        // MARK: Stepper Medicine setup
         // Извлекаем данные из поля, чтобы синхронизировать их со значением степпера
         stepMedicine.value = Double(medicinesAmountTF.text!) ?? 0
         // Задаём шаги, с которыми будет прибавляться или убавляться значение
@@ -109,6 +111,8 @@ class NewMedicinesTableViewController: UITableViewController {
             view.endEditing(true)
         }
     }
+    
+    // MARK: - Functions
     
     // Метод для сохранения записей
     func saveMedicine() {

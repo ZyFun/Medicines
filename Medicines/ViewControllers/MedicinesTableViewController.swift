@@ -47,7 +47,8 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
     // Создаём экземпляр класса, для отправки уведомлений
     private let notifications = Notifications()
     
-    // MARK: - Load app
+    // MARK: - LifeCycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -99,7 +100,7 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
         definesPresentationContext = true
     }
     
-    // MARK: - Post load app
+    // MARK: Post load app
     // Открываем окно приветствия, после того как основной вью отобразился на экране
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -119,7 +120,7 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
         
     }
     
-    // MARK: - Close view and app
+    // MARK: Close view and app
     // TODO: Требуется тестирование, чтобы понять нужно мне вызывать этот метод тут или нет. К примеру воспроизвести момент, когда приложение свернуто но не закрыто, а лекарство просрочилось. Вероятнее всего приложение будет всернуто долгое время. Нужно посмотреть как поведет себя загрузка через час. Так как памяти оно много не тратит и может быть долго не выгружено
     override func viewDidDisappear(_ animated: Bool) {
         
