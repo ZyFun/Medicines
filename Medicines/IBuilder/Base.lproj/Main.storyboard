@@ -506,85 +506,11 @@
                     <connections>
                         <segue destination="a1p-iv-kBg" kind="relationship" relationship="viewControllers" id="46h-Ml-Bm3"/>
                         <segue destination="xRZ-AR-1il" kind="relationship" relationship="viewControllers" id="P2y-br-tiT"/>
-                        <segue destination="4fK-7a-fe4" kind="relationship" relationship="viewControllers" id="MfU-aT-fVr"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IxM-iy-vG7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-72" y="-803"/>
-        </scene>
-        <!--Настройки-->
-        <scene sceneID="3fH-tA-whk">
-            <objects>
-                <tableViewController id="jX4-fY-MDn" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Hy8-uO-m5r">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <sections>
-                            <tableViewSection headerTitle="Основные" id="A9O-h2-zZP">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="G9t-3B-UwT">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="60"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="G9t-3B-UwT" id="nMz-Hz-bM1">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сортировка" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5w3-rl-ACo">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="60"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="5w3-rl-ACo" secondAttribute="trailing" constant="20" id="Emx-Nb-PX0"/>
-                                                <constraint firstAttribute="bottom" secondItem="5w3-rl-ACo" secondAttribute="bottom" id="NCW-YK-pG3"/>
-                                                <constraint firstItem="5w3-rl-ACo" firstAttribute="top" secondItem="nMz-Hz-bM1" secondAttribute="top" id="bTY-pN-07J"/>
-                                                <constraint firstItem="5w3-rl-ACo" firstAttribute="leading" secondItem="nMz-Hz-bM1" secondAttribute="leading" constant="20" id="uWb-9t-zRp"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection headerTitle="О приложении" id="Gju-tj-XeZ">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="bgX-T9-aOb">
-                                        <rect key="frame" x="0.0" y="144" width="414" height="60"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bgX-T9-aOb" id="MDP-ai-0R0">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Контакты" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7TW-Rh-qCq">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="60"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="7TW-Rh-qCq" firstAttribute="leading" secondItem="MDP-ai-0R0" secondAttribute="leading" constant="20" id="JbY-YY-4AT"/>
-                                                <constraint firstItem="7TW-Rh-qCq" firstAttribute="top" secondItem="MDP-ai-0R0" secondAttribute="top" id="XRU-GS-PLB"/>
-                                                <constraint firstAttribute="trailing" secondItem="7TW-Rh-qCq" secondAttribute="trailing" constant="20" id="bke-j1-RVm"/>
-                                                <constraint firstAttribute="bottom" secondItem="7TW-Rh-qCq" secondAttribute="bottom" id="pWj-Wl-3ON"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="jX4-fY-MDn" id="QZb-qt-83g"/>
-                            <outlet property="delegate" destination="jX4-fY-MDn" id="IJ8-t8-MbW"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Настройки" id="rqw-se-oy5"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fdx-7v-4vr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-72.463768115942031" y="666.96428571428567"/>
         </scene>
         <!--Напоминания-->
         <scene sceneID="3YO-Sg-FUE">
@@ -638,25 +564,6 @@
             </objects>
             <point key="canvasLocation" x="704" y="-1537"/>
         </scene>
-        <!--Настройки-->
-        <scene sceneID="YV2-SE-TZF">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4fK-7a-fe4" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Настройки" image="gearshape" catalog="system" id="ctr-ZP-yaa"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7gP-RH-iXs">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="jX4-fY-MDn" kind="relationship" relationship="rootViewController" id="7Of-Mw-XYG"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="73g-5c-k0j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-72" y="-77"/>
-        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="3S1-3O-6JJ"/>
@@ -666,7 +573,6 @@
         <image name="Photo" width="195" height="196"/>
         <image name="calendar.badge.clock" catalog="system" width="128" height="108"/>
         <image name="cross.case" catalog="system" width="128" height="98"/>
-        <image name="gearshape" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
