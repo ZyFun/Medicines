@@ -17,7 +17,14 @@ class MedicinesTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var expiryDataLabel: UILabel!
-    @IBOutlet weak var trashLabel: UILabel!
+    @IBOutlet weak var trashLabel: UILabel! {
+        didSet {
+            trashLabel.text = "В мусор"
+            trashLabel.backgroundColor = CustomColors.color.delete
+            trashLabel.layer.masksToBounds = true
+            trashLabel.layer.cornerRadius = 5
+        }
+    }
     @IBOutlet weak var amountLabel: UILabel!
     
 }

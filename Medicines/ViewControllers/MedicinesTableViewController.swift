@@ -180,10 +180,6 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
         cell.trashLabel.isHidden = true
         if Date() >= medicine.expiryDate ?? Date() {
             cell.trashLabel.isHidden = false
-            cell.trashLabel.text = "В мусор"
-            cell.trashLabel.backgroundColor = CustomColors.color.delete
-            cell.trashLabel.layer.masksToBounds = true
-            cell.trashLabel.layer.cornerRadius = 5
         }
 
         /*
