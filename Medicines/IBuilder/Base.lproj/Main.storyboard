@@ -512,16 +512,16 @@
             </objects>
             <point key="canvasLocation" x="-72" y="-803"/>
         </scene>
-        <!--Напоминания-->
+        <!--Принять лекарства-->
         <scene sceneID="3YO-Sg-FUE">
             <objects>
-                <tableViewController id="pDK-cb-0V7" sceneMemberID="viewController">
+                <tableViewController id="pDK-cb-0V7" customClass="MedicineTakingTableViewController" customModule="Medicines" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4YE-9i-zoe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="aDK-yf-6yY">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MedicineTaking" id="aDK-yf-6yY">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aDK-yf-6yY" id="W1v-SZ-wbY">
@@ -535,7 +535,7 @@
                             <outlet property="delegate" destination="pDK-cb-0V7" id="2ZH-Ma-bFW"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Напоминания" id="Qw6-Ec-Hdt">
+                    <navigationItem key="navigationItem" title="Принять лекарства" id="Qw6-Ec-Hdt">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="HN6-1Q-6BU"/>
                     </navigationItem>
                 </tableViewController>
@@ -548,10 +548,9 @@
             <objects>
                 <navigationController id="xRZ-AR-1il" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Напоминания" image="calendar.badge.clock" catalog="system" id="O9Q-HE-2kq"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="qiw-sM-2lk">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qiw-sM-2lk">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.43529411759999997" green="0.69411764710000001" blue="0.60392156860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="25"/>
                         </textAttributes>

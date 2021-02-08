@@ -100,7 +100,6 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
         definesPresentationContext = true
     }
     
-    // MARK: Post load app
     // Открываем окно приветствия, после того как основной вью отобразился на экране
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

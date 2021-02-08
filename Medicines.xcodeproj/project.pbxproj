@@ -20,6 +20,7 @@
 		2C7CD15825B5EDE30079707A /* ExampleDocumentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CD15725B5EDE30079707A /* ExampleDocumentation.swift */; };
 		2C806BAB256C24CD00A36EF1 /* FirstStartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C806BAA256C24CD00A36EF1 /* FirstStartManager.swift */; };
 		2CA791FA2563F0D100A7649E /* NewMedicinesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA791F92563F0D100A7649E /* NewMedicinesTableViewController.swift */; };
+		2CB9263C25D174D40098CF1A /* MedicineTakingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB9263B25D174D40098CF1A /* MedicineTakingTableViewController.swift */; };
 		2CDAF628255EC5BC0034880F /* MedicinesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDAF627255EC5BC0034880F /* MedicinesTableViewCell.swift */; };
 		2CE27A0525AC4914007F1EB0 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE27A0425AC4914007F1EB0 /* WelcomeViewController.swift */; };
 		2CE27A0825AC51A8007F1EB0 /* WelcomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE27A0725AC51A8007F1EB0 /* WelcomePageViewController.swift */; };
@@ -45,6 +46,7 @@
 		2C9C317425641BA9009E9BEC /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		2C9C317525641BA9009E9BEC /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		2CA791F92563F0D100A7649E /* NewMedicinesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMedicinesTableViewController.swift; sourceTree = "<group>"; };
+		2CB9263B25D174D40098CF1A /* MedicineTakingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineTakingTableViewController.swift; sourceTree = "<group>"; };
 		2CDAF627255EC5BC0034880F /* MedicinesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicinesTableViewCell.swift; sourceTree = "<group>"; };
 		2CE27A0425AC4914007F1EB0 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		2CE27A0725AC51A8007F1EB0 /* WelcomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePageViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				2CDAF627255EC5BC0034880F /* MedicinesTableViewCell.swift */,
 				2C07CEBF255D7B7100735F5C /* MedicinesTableViewController.swift */,
 				2CA791F92563F0D100A7649E /* NewMedicinesTableViewController.swift */,
+				2CB9263B25D174D40098CF1A /* MedicineTakingTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C77A755259CE32A00DA9B76 /* Notifications.swift in Sources */,
+				2CB9263C25D174D40098CF1A /* MedicineTakingTableViewController.swift in Sources */,
 				2CFCD5032562ECAB002E0942 /* ModelMedicines.swift in Sources */,
 				2CE27A0525AC4914007F1EB0 /* WelcomeViewController.swift in Sources */,
 				2C7CD15825B5EDE30079707A /* ExampleDocumentation.swift in Sources */,
