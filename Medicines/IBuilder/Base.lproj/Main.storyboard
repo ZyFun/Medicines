@@ -535,7 +535,7 @@
                             <outlet property="delegate" destination="pDK-cb-0V7" id="2ZH-Ma-bFW"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Принять лекарства" id="Qw6-Ec-Hdt">
+                    <navigationItem key="navigationItem" title="Принять лекарства" largeTitleDisplayMode="never" id="Qw6-Ec-Hdt">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="HN6-1Q-6BU"/>
                     </navigationItem>
                 </tableViewController>
@@ -548,8 +548,8 @@
             <objects>
                 <navigationController id="xRZ-AR-1il" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Напоминания" image="calendar.badge.clock" catalog="system" id="O9Q-HE-2kq"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qiw-sM-2lk">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="qiw-sM-2lk">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="25"/>
