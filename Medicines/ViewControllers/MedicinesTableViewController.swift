@@ -52,6 +52,9 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // TODO: Способ установки значка на таб бар контроллер. Массив это экраны таб бар контроллера
+        tabBarController?.tabBar.items?[1].badgeValue = "developing"
+        
         // Инициализируем переменную с объектами базы данных и делаем запрос этих объектов из базы данных
         medicines = realm.objects(Medicine.self) // Medicine.self мы пишем, потому что подразумеваем не саму модель данных, а именно тип Medicine
         
