@@ -32,6 +32,23 @@ class MedicineTakingTableViewController: UITableViewController {
         
         // Задаём значение текста
         navigationItem.title = "Принять лекарства"
+        
+        alertDeveloping()
+    }
+    
+    // MARK: - Functions
+    
+    /// Временный метод для отображения алерта с сообщением о том, что раздел в разработке
+    private func alertDeveloping() {
+        let alert = UIAlertController(title: "Скоро",
+                                      message: "Раздел еще в разработке. Тут можно будет создавать напоминания о приёме лекарств, выбирая лекарство из имеющихся в аптечке",
+                                      preferredStyle: .alert)
+
+        let okButton = UIAlertAction(title: "Ok", style: .default)
+
+        alert.addAction(okButton)
+        
+        present(alert, animated: true, completion: nil)
     }
 
     // MARK: - Table view data source
