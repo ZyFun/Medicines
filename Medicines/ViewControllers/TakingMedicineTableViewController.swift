@@ -1,5 +1,5 @@
 //
-//  MedicineTakingTableViewController.swift
+//  TakingMedicineTableViewController.swift
 //  Medicines
 //
 //  Created by Дмитрий Данилин on 08.02.2021.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MedicineTakingTableViewController: UITableViewController {
+class TakingMedicineTableViewController: UITableViewController {
 
     // MARK: - LifeCycle
     

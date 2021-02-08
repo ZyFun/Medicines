@@ -39,7 +39,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dw4-vC-Jac">
                                 <rect key="frame" x="107" y="769" width="200" height="50"/>
-                                <color key="backgroundColor" red="0.43529411759999997" green="0.69411764710000001" blue="0.60392156860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="T5D-OG-8Vz"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="Y8y-uc-Ier"/>
@@ -54,7 +54,7 @@
                             </pageControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bm1-rJ-YVF"/>
-                        <color key="backgroundColor" red="0.40784313729999999" green="0.81568627449999997" blue="0.68235294120000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="tHR-BI-ob2" firstAttribute="top" secondItem="Bm1-rJ-YVF" secondAttribute="top" constant="108" id="1qQ-u3-w7f"/>
                             <constraint firstItem="LQ3-F5-9Dj" firstAttribute="top" secondItem="tHR-BI-ob2" secondAttribute="bottom" constant="25" id="5zB-cw-A4U"/>
@@ -515,7 +515,7 @@
         <!--Принять лекарства-->
         <scene sceneID="3YO-Sg-FUE">
             <objects>
-                <tableViewController id="pDK-cb-0V7" customClass="MedicineTakingTableViewController" customModule="Medicines" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="pDK-cb-0V7" customClass="TakingMedicineTableViewController" customModule="Medicines" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4YE-9i-zoe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

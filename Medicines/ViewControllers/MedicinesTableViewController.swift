@@ -53,6 +53,7 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
         super.viewDidLoad()
         
         // TODO: Способ установки значка на таб бар контроллер. Массив это экраны таб бар контроллера
+        // Отображает бейдж на кнопке "напоминания"
         tabBarController?.tabBar.items?[1].badgeValue = "Скоро"
         
         // Инициализируем переменную с объектами базы данных и делаем запрос этих объектов из базы данных
