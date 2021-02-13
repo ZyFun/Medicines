@@ -54,6 +54,16 @@ class CustomColors {
 extension UIColor {
     
     // MARK: - Light Style properties
+    
+    /**
+     Свойство с набором цветовых палитр для светлой темы.
+     
+     - background - используется для фона.
+     - selected - используется  для выделений.
+     - delete - используется для объектов помеченных на удаление.
+     - icon - используется для иконок
+     - navigationBar - Используется  для шапок.
+     */
     enum light {
         /// Используется для фона. Умеренный аквамариновый
         static let background = #colorLiteral(red: 0.4078431373, green: 0.8156862745, blue: 0.6823529412, alpha: 1)
@@ -76,6 +86,16 @@ extension UIColor {
     }
     
     // MARK: - Dark Style properties
+    
+    /**
+     Свойство с набором цветовых палитр для темной темы.
+     
+     - background - используется для фона.
+     - selected - используется  для выделений.
+     - delete - используется для объектов помеченных на удаление.
+     - icon - используется для иконок
+     - navigationBar - Используется  для шапок.
+     */
     enum dark {
         /// Используется для фона. Ядовито-зеленый.
         static let background = #colorLiteral(red: 0.2274509804, green: 0.4549019608, blue: 0.3843137255, alpha: 1)
