@@ -27,7 +27,8 @@ class WelcomeViewController: UIViewController {
         super.viewDidLoad()
 
         // MARK: Setup view config
-        view.backgroundColor = CustomColors.color.background
+        view.backgroundColor = .customColor(light: UIColor.light.background,
+                                            dark: UIColor.dark.background)
         
         // MARK: Setup presentation config
         titleLabel.text = presentTitle
@@ -37,7 +38,8 @@ class WelcomeViewController: UIViewController {
         
         // MARK: Setup buttons config
         nextButton.setTitleColor(.black, for: .normal)
-        nextButton.backgroundColor = CustomColors.color.selected
+        nextButton.backgroundColor = .customColor(light: UIColor.light.selected,
+                                                  dark: UIColor.dark.selected)
         nextButton.setTitle("Поехали!", for: .normal)
         nextButton.layer.cornerRadius = 25
         // TODO: Сделать возможность отображать и нажимать на кнопку, и листать контроллер на протяжении всей презентации. Сейчас кнопка отображается только в конце, и закрывает презентацию.

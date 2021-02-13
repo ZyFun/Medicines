@@ -35,12 +35,19 @@ class NewMedicinesTableViewController: UITableViewController {
         // MARK: Style config
         tableView.tableFooterView = UIView() // Отключаем разлиновку TableView ниже имеющихся ячеек
         
-        tableView.backgroundColor = CustomColors.color.background // Задаём цвет фона
+        tableView.backgroundColor = .customColor(light: UIColor.light.background,
+                                                 dark: UIColor.dark.background)
         
-        navigationController?.navigationBar.barTintColor = CustomColors.color.navigationBar // Задаём цвет фона
-        navigationController?.navigationBar.tintColor = CustomColors.color.icon // Задаём цвета надписей и стрелок
+        // Задаём цвет фона navigationController
+        navigationController?.navigationBar.barTintColor = .customColor(light: UIColor.light.navigationBar,
+                                                                        dark: UIColor.dark.navigationBar)
+        // Задаём цвет надписей и стрелок в navigationController
+        navigationController?.navigationBar.tintColor = .customColor(light: UIColor.light.icon,
+                                                                     dark: UIColor.dark.icon)
         
-        medicinesImageIV.backgroundColor = CustomColors.color.background // Задаём цвет фона изображения
+        // Задаём цвет фона изображения
+        medicinesImageIV.backgroundColor = .customColor(light: UIColor.light.background,
+                                                        dark: UIColor.dark.background)
         
         // Делаем кнопку сохранения не активной для того, чтобы позже сдеkать её активной после заполнения medicinesNameTF
         saveButtonBBI.isEnabled = false
@@ -71,7 +78,10 @@ class NewMedicinesTableViewController: UITableViewController {
     // MARK: - TableView Delegate
     // Этот метод дает делегату возможность переопределить свойства на основе состояния, установленные ранее в табличном представлении, такие как выбор и цвет фона
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.backgroundColor = CustomColors.color.background // Устанавливаем цвет ячеек
+        
+        // Устанавливаем цвет ячеек
+        cell.backgroundColor = .customColor(light: UIColor.light.background,
+                                            dark: UIColor.dark.background)
     }
     
     // Скрываем клавиатуру при тапе на ячейку, кроме первой с фотографией

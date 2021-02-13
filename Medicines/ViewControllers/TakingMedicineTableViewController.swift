@@ -21,14 +21,20 @@ class TakingMedicineTableViewController: UITableViewController {
         tableView.tableFooterView = UIView()
         
         // Задаём цвет фона
-        tableView.backgroundColor = CustomColors.color.background
-        view.backgroundColor = CustomColors.color.background
-        navigationController?.navigationBar.barTintColor = CustomColors.color.navigationBar
-        tabBarController?.tabBar.barTintColor = CustomColors.color.navigationBar
+        tableView.backgroundColor = .customColor(light: UIColor.light.background,
+                                                 dark: UIColor.dark.background)
+        view.backgroundColor = .customColor(light: UIColor.light.background,
+                                            dark: UIColor.dark.background)
+        navigationController?.navigationBar.barTintColor = .customColor(light: UIColor.light.navigationBar,
+                                                                        dark: UIColor.dark.navigationBar)
+        tabBarController?.tabBar.barTintColor = .customColor(light: UIColor.light.navigationBar,
+                                                             dark: UIColor.dark.navigationBar)
         
         // Задаём цвета надписей и иконок
-        navigationController?.navigationBar.tintColor = CustomColors.color.icon
-        tabBarController?.tabBar.tintColor = CustomColors.color.icon
+        navigationController?.navigationBar.tintColor = .customColor(light: UIColor.light.icon,
+                                                                     dark: UIColor.dark.icon)
+        tabBarController?.tabBar.tintColor = .customColor(light: UIColor.light.icon,
+                                                          dark: UIColor.dark.icon)
         
         // Задаём значение текста
         navigationItem.title = "Принять лекарства"

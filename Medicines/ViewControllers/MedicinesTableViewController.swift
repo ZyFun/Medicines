@@ -74,21 +74,33 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
         // MARK: Style config
         tableView.tableFooterView = UIView() // Удаляем разделители ячеек
         
-        tableView.backgroundColor = CustomColors.color.background // Задаём цвет фона
+        tableView.backgroundColor = .customColor(light: UIColor.light.background,
+                                                 dark: UIColor.dark.background)
         
-        view.backgroundColor = CustomColors.color.background // Задаём цвет фона
+        view.backgroundColor = .customColor(light: UIColor.light.background,
+                                            dark: UIColor.dark.background)
         
-        navigationController?.navigationBar.barTintColor = CustomColors.color.navigationBar // Задаём цвет фона
-        navigationController?.navigationBar.tintColor = CustomColors.color.icon // Задаём цвета надписей и стрелок
-        
-        tabBarController?.tabBar.barTintColor = CustomColors.color.navigationBar // Задаём цвет фона
-        tabBarController?.tabBar.tintColor = CustomColors.color.icon // Задаём цвет надписей и иконок кнопок
+        // Задаём цвет фона в navigationController
+        navigationController?.navigationBar.barTintColor = .customColor(light: UIColor.light.navigationBar,
+                                                                        dark: UIColor.dark.navigationBar)
+        // Задаём цвета надписей и стрелок в navigationController
+        navigationController?.navigationBar.tintColor = .customColor(light: UIColor.light.icon,
+                                                                     dark: UIColor.dark.icon)
+        // Задаём цвет фона в tabBarController
+        tabBarController?.tabBar.barTintColor = .customColor(light: UIColor.light.navigationBar,
+                                                             dark: UIColor.dark.navigationBar)
+        // Задаём цвет надписей и иконок кнопок в tabBarController
+        tabBarController?.tabBar.tintColor = .customColor(light: UIColor.light.icon,
+                                                          dark: UIColor.dark.icon)
         
         if #available(iOS 13.0, *) {
-            segmentedControl.selectedSegmentTintColor = CustomColors.color.selected // Задаём цвет фона активного сегмента
+            // Задаём цвет фона активного сегмента
+            segmentedControl.selectedSegmentTintColor = .customColor(light: UIColor.light.selected,
+                                                                     dark: UIColor.dark.selected)
         } else {
-            // Fallback on earlier versions
-            segmentedControl.tintColor = CustomColors.color.icon // Этот цвет учше подходит для старых версий
+            // Этот цвет учше подходит для старых версий
+            segmentedControl.tintColor = .customColor(light: UIColor.light.icon,
+                                                      dark: UIColor.dark.icon)
         }
         
         // MARK: Search controller setup
@@ -165,10 +177,12 @@ class MedicinesTableViewController: UIViewController, UITableViewDataSource, UIT
         }
         
         // Конфигурируем стиль ячеек
-        cell.backgroundColor = CustomColors.color.background // Устанавливаем цвет ячейки
+        cell.backgroundColor = .customColor(light: UIColor.light.background,
+                                            dark: UIColor.dark.background) // Устанавливаем цвет ячейки
         // Устанавливаем цвет выбранной ячейки из стилей
         let colorForSelected = UIView()
-        colorForSelected.backgroundColor = CustomColors.color.selected
+        colorForSelected.backgroundColor = .customColor(light: UIColor.light.selected,
+                                                        dark: UIColor.dark.selected)
         cell.selectedBackgroundView? = colorForSelected
         
         // Добавляем данные из массива
