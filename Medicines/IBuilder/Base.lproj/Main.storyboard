@@ -468,20 +468,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Лекарства" largeTitleDisplayMode="never" id="NLn-PZ-U4w">
-                        <rightBarButtonItems>
-                            <barButtonItem systemItem="add" id="UQK-jQ-Bzt">
-                                <color key="tintColor" red="0.51764705879999995" green="0.40784313729999999" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <connections>
-                                    <segue destination="We8-0m-m32" kind="presentation" id="bpM-6z-J99"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Item" image="AZ" id="oJv-gQ-fTs">
-                                <color key="tintColor" red="0.51764705879999995" green="0.40784313729999999" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <connections>
-                                    <action selector="reversedSorting:" destination="7fx-Ol-MA3" id="B3U-EC-OcZ"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="leftBarButtonItem" title="Сортировка" image="AZ" id="oJv-gQ-fTs">
+                            <connections>
+                                <action selector="reversedSorting:" destination="7fx-Ol-MA3" id="B3U-EC-OcZ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="UQK-jQ-Bzt">
+                            <connections>
+                                <segue destination="We8-0m-m32" kind="presentation" id="bpM-6z-J99"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="reversedSortingBBI" destination="oJv-gQ-fTs" id="cYF-3Y-Jo4"/>
