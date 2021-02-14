@@ -21,20 +21,20 @@ class TakingMedicineTableViewController: UITableViewController {
         tableView.tableFooterView = UIView()
         
         // Задаём цвет фона
-        tableView.backgroundColor = .customColor(light: UIColor.light.background,
-                                                 dark: UIColor.dark.background)
-        view.backgroundColor = .customColor(light: UIColor.light.background,
-                                            dark: UIColor.dark.background)
-        navigationController?.navigationBar.barTintColor = .customColor(light: UIColor.light.navigationBar,
-                                                                        dark: UIColor.dark.navigationBar)
-        tabBarController?.tabBar.barTintColor = .customColor(light: UIColor.light.navigationBar,
-                                                             dark: UIColor.dark.navigationBar)
+        tableView.backgroundColor = .customColor(light: UIColor.Light.background,
+                                                 dark: UIColor.Dark.background)
+        view.backgroundColor = .customColor(light: UIColor.Light.background,
+                                            dark: UIColor.Dark.background)
+        navigationController?.navigationBar.barTintColor = .customColor(light: UIColor.Light.navigationBar,
+                                                                        dark: UIColor.Dark.navigationBar)
+        tabBarController?.tabBar.barTintColor = .customColor(light: UIColor.Light.navigationBar,
+                                                             dark: UIColor.Dark.navigationBar)
         
         // Задаём цвета надписей и иконок
-        navigationController?.navigationBar.tintColor = .customColor(light: UIColor.light.icon,
-                                                                     dark: UIColor.dark.icon)
-        tabBarController?.tabBar.tintColor = .customColor(light: UIColor.light.icon,
-                                                          dark: UIColor.dark.icon)
+        navigationController?.navigationBar.tintColor = .customColor(light: UIColor.Light.icon,
+                                                                     dark: UIColor.Dark.icon)
+        tabBarController?.tabBar.tintColor = .customColor(light: UIColor.Light.icon,
+                                                          dark: UIColor.Dark.icon)
         
         // Задаём значение текста
         navigationItem.title = "Принять лекарства"

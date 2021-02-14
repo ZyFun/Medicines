@@ -35,19 +35,19 @@ class NewMedicinesTableViewController: UITableViewController {
         // MARK: Style config
         tableView.tableFooterView = UIView() // Отключаем разлиновку TableView ниже имеющихся ячеек
         
-        tableView.backgroundColor = .customColor(light: UIColor.light.background,
-                                                 dark: UIColor.dark.background)
+        tableView.backgroundColor = .customColor(light: UIColor.Light.background,
+                                                 dark: UIColor.Dark.background)
         
         // Задаём цвет фона navigationController
-        navigationController?.navigationBar.barTintColor = .customColor(light: UIColor.light.navigationBar,
-                                                                        dark: UIColor.dark.navigationBar)
+        navigationController?.navigationBar.barTintColor = .customColor(light: UIColor.Light.navigationBar,
+                                                                        dark: UIColor.Dark.navigationBar)
         // Задаём цвет надписей и стрелок в navigationController
-        navigationController?.navigationBar.tintColor = .customColor(light: UIColor.light.icon,
-                                                                     dark: UIColor.dark.icon)
+        navigationController?.navigationBar.tintColor = .customColor(light: UIColor.Light.icon,
+                                                                     dark: UIColor.Dark.icon)
         
         // Задаём цвет фона изображения
-        medicinesImageIV.backgroundColor = .customColor(light: UIColor.light.background,
-                                                        dark: UIColor.dark.background)
+        medicinesImageIV.backgroundColor = .customColor(light: UIColor.Light.background,
+                                                        dark: UIColor.Dark.background)
         
         // Делаем кнопку сохранения не активной для того, чтобы позже сдеkать её активной после заполнения medicinesNameTF
         saveButtonBBI.isEnabled = false
@@ -80,8 +80,8 @@ class NewMedicinesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
         // Устанавливаем цвет ячеек
-        cell.backgroundColor = .customColor(light: UIColor.light.background,
-                                            dark: UIColor.dark.background)
+        cell.backgroundColor = .customColor(light: UIColor.Light.background,
+                                            dark: UIColor.Dark.background)
     }
     
     // Скрываем клавиатуру при тапе на ячейку, кроме первой с фотографией

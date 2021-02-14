@@ -20,7 +20,7 @@ class MedicinesTableViewCell: UITableViewCell {
     @IBOutlet weak var trashLabel: UILabel! {
         didSet {
             trashLabel.text = "В мусор"
-            trashLabel.backgroundColor = .customColor(light: UIColor.light.delete, dark: UIColor.dark.delete)
+            trashLabel.backgroundColor = .customColor(light: UIColor.Light.delete, dark: UIColor.Dark.delete)
             trashLabel.layer.masksToBounds = true
             trashLabel.layer.cornerRadius = 5
         }
