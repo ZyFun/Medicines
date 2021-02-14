@@ -37,7 +37,8 @@ class WelcomeViewController: UIViewController {
         pageControl.currentPage = currentPage
         
         // MARK: Setup buttons config
-        nextButton.setTitleColor(.black, for: .normal)
+        nextButton.setTitleColor(.customColor(light: .black, dark: .white),
+                                 for: .normal)
         nextButton.backgroundColor = .customColor(light: UIColor.Light.selected,
                                                   dark: UIColor.Dark.selected)
         nextButton.setTitle("Поехали!", for: .normal)
